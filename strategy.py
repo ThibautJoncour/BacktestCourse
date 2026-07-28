@@ -82,8 +82,42 @@ def _download_close(ticker: str, name: str) -> pd.Series:
 
     return close
 
-
 def download_market_data() -> pd.DataFrame:
+    spx = _download_close("^GSPC", "spx")
+
+    df = pd.DataFrame(index=spx.index)
+    df["spx"] = spx
+
+    auxiliary_tickers = {
+        "vix": "^VIX",
+        "vix3m": "^VIX3M",
+        "vvix": "^VVIX",
+        "skew": "^SKEW",
+    }
+
+    for name, ticker in auxiliary_tickers.items():
+        series = _download_close(ticker, name)
+
+        # Alignement explicite sur le calendrier SPX
+        df[name] = series.reindex(df.index)
+
+    auxiliary_columns = [
+        "vix",
+        "vix3m",
+        "vvix",
+        "skew",
+    ]
+
+    # Propage la dernière valeur connue sur les jours SPX suivants
+    df[auxiliary_columns] = (
+        df[auxiliary_columns]
+        .ffill(limit=5)
+    )
+
+    return df
+
+
+def download_market_data222() -> pd.DataFrame:
     """
     Télécharge SPX, VIX, VIX3M, VVIX et SKEW.
 
@@ -120,6 +154,10 @@ def download_market_data() -> pd.DataFrame:
         raise StrategyError("La série SPX est vide.")
 
     return df
+
+
+
+
 
 
 # ============================================================
