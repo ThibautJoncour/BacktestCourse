@@ -1,5 +1,7 @@
 shiny>=1.4
 pandas>=2.2
+matplotlib
+arch
 numpy>=2.0
 yfinance>=0.2.65
 scikit-learn>=1.5
