@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+from sklearn.linear_model import LinearRegression, Ridge
 import numpy as np
 import pandas as pd
 import yfinance as yf
