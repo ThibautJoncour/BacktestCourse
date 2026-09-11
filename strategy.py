@@ -15,7 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-CODE_VERSION = "NVDA_HAR_RV_RECURSIVE_WALKFORWARD_MC_2026-09-09"
+CODE_VERSION = "NVDA_HAR_RV_RECURSIVE_WALKFORWARD_MC_2026-09-11"
 
 START_DATE = "2007-01-01"
 HORIZON = 21
@@ -53,7 +53,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 09/09/2026.
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 11/09/2026.
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
@@ -82,14 +82,33 @@ NVDA_FALLBACK_PRODUCTS = [
     ("2R96S", "DE000FE6NXZ7", 160, 300, "2026-12-18"),
     ("2R87S", "DE000FE6NXR4", 120, 280, "2026-12-18"),
     ("2R93S", "DE000FE6NXW4", 140, 300, "2026-12-18"),
+    ("2R98S", "DE000FE6NX14", 160, 340, "2026-12-18"),
+    ("3J41S", "DE000FG340X0", 200, 250, "2026-12-18"),
+    ("2R86S", "DE000FE6NXQ6", 120, 260, "2026-12-18"),
+    ("2R91S", "DE000FE6NXV6", 140, 280, "2026-12-18"),
+    ("2R97S", "DE000FE6NX06", 160, 320, "2026-12-18"),
+    ("2R94S", "DE000FE6NXX2", 140, 320, "2026-12-18"),
+    ("2R88S", "DE000FE6NXS2", 120, 300, "2026-12-18"),
+    ("5S06S", "DE000FG1E5H9", 140, 280, "2027-01-15"),
+    ("5S04S", "DE000FG1E5F3", 100, 240, "2027-01-15"),
+    ("5S07S", "DE000FG1E5J5", 160, 300, "2027-01-15"),
+    ("5S05S", "DE000FG1E5G1", 120, 260, "2027-01-15"),
+    ("1U26S", "DE000FG3T895", 120, 260, "2027-02-19"),
+    ("1U28S", "DE000FG3T9B5", 160, 320, "2027-02-19"),
+    ("1U27S", "DE000FG3T9A7", 140, 300, "2027-02-19"),
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "8E45S": 9.80, "7C50S": 7.50, "7C52S": 9.84, "7C54S": 9.90,
-    "7C57S": 9.52, "7C55S": 9.60, "2R74S": 8.29, "2R79S": 6.13,
-    "2R83S": 7.73, "2R85S": 9.04, "2R80S": 8.07, "2R82S": 9.39,
-    "2R78S": 9.51, "2R84S": 8.66, "2R81S": 9.00, "2R77S": 9.11,
-    "2R75S": 6.25,
+    "8E45S": 9.90, "7C50S": 9.70, "7C52S": 9.90, "7C54S": 9.90,
+    "7C57S": 9.72, "7C55S": 9.79, "2R74S": 9.20, "2R79S": 7.37,
+    "2R83S": 8.33, "2R85S": 9.09, "2R80S": 8.73, "2R82S": 9.49,
+    "2R78S": 9.61, "2R84S": 8.88, "2R81S": 9.28, "2R77S": 9.40,
+    "2R75S": 7.49, "2R76S": 8.85, "2R95S": 9.32, "2R89S": 9.37,
+    "01M3S": 4.05, "2R90S": 9.53, "2R96S": 8.20, "2R87S": 8.25,
+    "2R93S": 8.82, "2R98S": 8.72, "3J41S": 1.43, "2R86S": 6.63,
+    "2R91S": 7.59, "2R97S": 8.53, "2R94S": 9.04, "2R88S": 8.87,
+    "5S06S": 6.98, "5S04S": 3.96, "5S07S": 7.31, "5S05S": 5.37,
+    "1U26S": 4.84, "1U28S": 7.12, "1U27S": 7.34,
 }
 
 FEATURES = [
@@ -710,7 +729,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 09/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 11/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 39
