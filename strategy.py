@@ -53,7 +53,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 11/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 12/09/2026
 # (39 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -100,16 +100,16 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "8E45S": 9.90, "7C50S": 9.62, "7C52S": 9.90, "7C54S": 9.90,
-    "7C57S": 9.71, "7C55S": 9.77, "2R74S": 9.15, "2R79S": 7.27,
-    "2R83S": 8.31, "2R85S": 9.11, "2R80S": 8.69, "2R82S": 9.49,
-    "2R78S": 9.60, "2R84S": 8.88, "2R81S": 9.26, "2R77S": 9.38,
-    "2R75S": 7.38, "2R76S": 8.79, "2R95S": 9.33, "2R89S": 9.35,
-    "01M3S": 3.90, "2R90S": 9.53, "2R96S": 8.21, "2R87S": 8.18,
-    "2R93S": 8.79, "2R98S": 8.74, "3J41S": 1.43, "2R86S": 6.54,
-    "2R91S": 7.98, "2R97S": 8.57, "2R94S": 9.16, "2R88S": 9.02,
-    "5S06S": 7.20, "5S04S": 3.44, "5S07S": 7.42, "5S05S": 5.80,
-    "1U26S": 5.12, "1U28S": 7.16, "1U27S": 7.47,
+    "8E45S": 9.88, "7C50S": 9.87, "7C52S": 9.90, "7C54S": 9.90,
+    "7C57S": 9.79, "7C55S": 9.86, "2R74S": 9.42, "2R79S": 7.77,
+    "2R83S": 8.56, "2R85S": 9.14, "2R80S": 8.96, "2R82S": 9.54,
+    "2R78S": 9.66, "2R84S": 8.98, "2R81S": 9.39, "2R77S": 9.51,
+    "2R75S": 7.90, "2R76S": 9.09, "2R95S": 9.37, "2R89S": 9.46,
+    "01M3S": 4.60, "2R90S": 9.58, "2R96S": 8.36, "2R87S": 8.53,
+    "2R93S": 8.98, "2R98S": 8.75, "3J41S": 1.49, "2R86S": 7.05,
+    "2R91S": 8.32, "2R97S": 8.63, "2R94S": 9.25, "2R88S": 9.19,
+    "5S06S": 7.56, "5S04S": 4.08, "5S07S": 7.61, "5S05S": 6.29,
+    "1U26S": 5.56, "1U28S": 7.28, "1U27S": 7.73,
 }
 
 FEATURES = [
@@ -730,7 +730,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 11/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 12/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 39
