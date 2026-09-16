@@ -53,7 +53,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 15/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 16/09/2026
 # (39 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -101,15 +101,15 @@ NVDA_FALLBACK_PRODUCTS = [
 
 NVDA_FALLBACK_MARKET_PRICES = {
     "8E45S": 9.90, "7C50S": 9.90, "7C52S": 9.90, "7C54S": 9.90,
-    "7C57S": 9.81, "7C55S": 9.88, "2R74S": 9.57, "2R79S": 8.33,
-    "2R83S": 8.66, "2R85S": 9.05, "2R80S": 9.17, "2R82S": 9.55,
-    "2R78S": 9.70, "2R84S": 8.94, "2R81S": 9.45, "2R77S": 9.60,
-    "2R75S": 8.48, "2R76S": 9.31, "2R95S": 9.34, "2R89S": 9.51,
-    "01M3S": 5.51, "2R90S": 9.60, "2R96S": 8.29, "2R87S": 8.84,
-    "2R93S": 9.05, "2R98S": 8.58, "3J41S": 1.02, "2R86S": 7.69,
-    "2R91S": 8.58, "2R97S": 8.49, "2R94S": 9.24, "2R88S": 9.31,
-    "5S06S": 7.90, "5S04S": 4.92, "5S07S": 7.61, "5S05S": 6.95,
-    "1U26S": 6.19, "1U28S": 7.20, "1U27S": 7.91,
+    "7C57S": 9.83, "7C55S": 9.88, "2R74S": 9.59, "2R79S": 8.29,
+    "2R83S": 8.71, "2R85S": 9.12, "2R80S": 9.18, "2R82S": 9.58,
+    "2R78S": 9.71, "2R84S": 9.01, "2R81S": 9.47, "2R77S": 9.60,
+    "2R75S": 8.43, "2R76S": 9.31, "2R95S": 9.38, "2R89S": 9.52,
+    "01M3S": 5.40, "2R90S": 9.61, "2R96S": 8.38, "2R87S": 8.83,
+    "2R93S": 9.09, "2R98S": 8.55, "3J41S": 1.18, "2R86S": 7.64,
+    "2R91S": 8.61, "2R97S": 8.47, "2R94S": 9.25, "2R88S": 9.33,
+    "5S06S": 7.90, "5S04S": 4.88, "5S07S": 7.70, "5S05S": 6.93,
+    "1U26S": 6.15, "1U28S": 7.29, "1U27S": 7.96,
 }
 
 FEATURES = [
@@ -730,7 +730,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 15/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 16/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 39
