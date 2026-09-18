@@ -15,7 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-CODE_VERSION = "NVDA_HAR_RV_RECURSIVE_WALKFORWARD_MC_2026-09-11"
+CODE_VERSION = "NVDA_NEWS_RISK_5D_HAR_SIGMA_2026-09-18"
 
 START_DATE = "2007-01-01"
 HORIZON = 21
@@ -42,6 +42,70 @@ NVDA_MC_PATHS = 50_000
 NVDA_RISK_FREE_RATE = 0.02
 NVDA_DIVIDEND_YIELD = 0.0
 NVDA_MC_SEED = 42
+
+# BEGIN AUTO-UPDATED NVDA NEWS
+# Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
+# direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
+NVDA_NEWS_LAST_UPDATE = "2026-09-18"
+NVDA_NEWS_EVENTS = [
+    {
+        "date": "2026-09-18",
+        "days_ahead": 1,
+        "category": "Banques centrales",
+        "headline": "La BoJ a relevé ses taux, mais sans annoncer de trajectoire accélérée prédéfinie.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.80,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/finance/boj-governor-uedas-comments-news-conference-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 2,
+        "category": "Macro / énergie",
+        "headline": "Le repli du pétrole réduit à court terme la pression inflationniste sur les taux longs.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.80,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/energy/oil-prices-fall-1-hopes-limited-supply-disruptions-2026-09-18/",
+    },
+    {
+        "date": "2026-09-17",
+        "days_ahead": 3,
+        "category": "Taux réels",
+        "headline": "Le rendement réel élevé des TIPS à 10 ans augmente le taux d'actualisation des valeurs de croissance.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Treasury / TIPS Watch",
+        "url": "https://tipswatch.com/2026/09/17/10-year-tips-reopening-gets-real-yield-of-2-653-highest-in-nearly-18-years/",
+    },
+    {
+        "date": "2026-09-17",
+        "days_ahead": 4,
+        "category": "IA / réglementation",
+        "headline": "Meta s'oppose à un ralentissement coordonné du développement de l'IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.75,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/2f4eab05b1e931456d00ebc2fe93c989",
+    },
+    {
+        "date": "2026-08-26",
+        "days_ahead": 5,
+        "category": "Demande IA",
+        "headline": "Le dernier guidance NVIDIA reste soutenu et n'intègre aucun revenu Data Center compute en Chine.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    },
+]
+# END AUTO-UPDATED NVDA NEWS
+
 
 # Source SG Bourse : la liste des Stability NVIDIA est récupérée automatiquement.
 NVDA_STABILITY_URL = (
@@ -560,6 +624,79 @@ def _print_dataset_diagnostics(
 # ============================================================
 # NVIDIA : HAR-RV 1 à 5 jours + PRICING MONTE CARLO STABILITY
 # ============================================================
+
+
+def compute_nvda_news_indicator(nvda_har: dict, spot: float) -> dict:
+    """Agrège les nouvelles NVDA et l'écart-type HAR-RV sur cinq séances."""
+    risk_weights = {"faible": 0.35, "moyen": 0.65, "élevé": 1.00}
+    time_weights = {1: 1.00, 2: 0.90, 3: 0.80, 4: 0.70, 5: 0.60}
+    rows: list[dict] = []
+    weighted_sum = 0.0
+    total_weight = 0.0
+    risk_sum = 0.0
+
+    for event in NVDA_NEWS_EVENTS:
+        direction = 1 if float(event.get("direction", 0)) > 0 else -1
+        risk_level = str(event.get("risk_level", "moyen")).lower()
+        risk_weight = risk_weights.get(risk_level, risk_weights["moyen"])
+        confidence = float(np.clip(event.get("confidence", 0.75), 0.0, 1.0))
+        days_ahead = int(np.clip(event.get("days_ahead", 1), 1, 5))
+        absolute_weight = risk_weight * confidence * time_weights[days_ahead]
+        contribution = direction * absolute_weight
+        weighted_sum += contribution
+        total_weight += absolute_weight
+        risk_sum += risk_weight * confidence
+        rows.append({
+            "Date": event.get("date", ""),
+            "J+": days_ahead,
+            "Sens": "+1" if direction > 0 else "-1",
+            "Risque": risk_level.capitalize(),
+            "Catégorie": event.get("category", ""),
+            "News": event.get("headline", ""),
+            "Source": event.get("source", ""),
+            "URL": event.get("url", ""),
+            "Contribution": contribution,
+        })
+
+    score = float(weighted_sum / total_weight) if total_weight > 0 else 0.0
+    signal = 0 if not rows else (1 if score >= 0.0 else -1)
+    signal_label = "HAUSSIER +1" if signal > 0 else ("BAISSIER -1" if signal < 0 else "NEUTRE 0")
+    average_risk = risk_sum / len(rows) if rows else 0.0
+    aggregate_risk = "élevé" if average_risk >= 0.75 else ("moyen" if average_risk >= 0.45 else "faible")
+
+    forecasts = nvda_har.get("nvda_har_rv_forecasts", {})
+    forecast_values = [
+        float(forecasts[h]) for h in sorted(forecasts)
+        if h <= 5 and np.isfinite(float(forecasts[h]))
+    ]
+    if forecast_values:
+        daily_sigmas = np.asarray(forecast_values, dtype=float) / 100.0 / np.sqrt(252.0)
+        sigma_5d_move_pct = float(np.sqrt(np.sum(daily_sigmas**2)) * 100.0)
+        sigma_5d_ann_pct = float(
+            sigma_5d_move_pct / 100.0 * np.sqrt(252.0 / len(daily_sigmas)) * 100.0
+        )
+    else:
+        sigma_5d_ann_pct = float(nvda_har.get("nvda_har_rv_5d_pct", np.nan))
+        sigma_5d_move_pct = float(sigma_5d_ann_pct * np.sqrt(5.0 / 252.0))
+
+    sigma_5d_price = float(spot * sigma_5d_move_pct / 100.0)
+    events_table = pd.DataFrame(rows)
+    if not events_table.empty:
+        events_table["Contribution"] = events_table["Contribution"].map(lambda x: f"{x:+.2f}")
+        events_table = events_table.sort_values(["J+", "Date"]).reset_index(drop=True)
+
+    return {
+        "nvda_news_last_update": NVDA_NEWS_LAST_UPDATE,
+        "nvda_news_score_continuous": score,
+        "nvda_news_signal": signal,
+        "nvda_news_label": signal_label,
+        "nvda_news_risk_level": aggregate_risk,
+        "nvda_news_event_count": len(rows),
+        "nvda_news_events_table": events_table,
+        "nvda_sigma_5d_ann_pct": sigma_5d_ann_pct,
+        "nvda_sigma_5d_move_pct": sigma_5d_move_pct,
+        "nvda_sigma_5d_price": sigma_5d_price,
+    }
 
 
 def _sg_number(text: str) -> float | None:
@@ -1294,6 +1431,7 @@ def compute_daily_signal() -> dict:
     nvda_har = _har_rv_forecast_horizons_nvda(nvda, max_horizon=5)
     nvda_latest_date = nvda["nvda"].dropna().index[-1]
     nvda_spot = float(nvda.loc[nvda_latest_date, "nvda"])
+    nvda_news = compute_nvda_news_indicator(nvda_har, nvda_spot)
     nvda_products = fetch_nvda_stability_products()
     nvda_stability_mc = _price_nvda_stabilities_mc(
         spot=nvda_spot,
@@ -1428,6 +1566,7 @@ def compute_daily_signal() -> dict:
         "nvda_har_rv_forecasts": nvda_har["nvda_har_rv_forecasts"],
         "nvda_har_rv_table": nvda_har["nvda_har_rv_table"],
         "nvda_har_rv_5d_pct": nvda_har["nvda_har_rv_5d_pct"],
+        **nvda_news,
         "nvda_stability_mc": nvda_stability_mc,
         "nvda_stability_count": int(len(nvda_products)),
         "nvda_stability_expected_count": nvda_products.attrs.get("expected_total"),
