@@ -182,6 +182,24 @@ app_ui = ui.page_fluid(
         ),
         ui.div(
             {"class": "panel"},
+            ui.h3("Indicateur qualitatif NVIDIA — news à 5 jours"),
+            ui.div(
+                {"class": "metric-grid"},
+                ui.div({"class": "metric"}, ui.div("Signal news", class_="metric-label"), ui.div(ui.output_text("nvda_news_signal"), class_="metric-value")),
+                ui.div({"class": "metric"}, ui.div("Score pondéré", class_="metric-label"), ui.div(ui.output_text("nvda_news_score"), class_="metric-value")),
+                ui.div({"class": "metric"}, ui.div("Risque agrégé", class_="metric-label"), ui.div(ui.output_text("nvda_news_risk"), class_="metric-value")),
+                ui.div({"class": "metric"}, ui.div("Écart-type attendu 5j", class_="metric-label"), ui.div(ui.output_text("nvda_sigma_5d"), class_="metric-value")),
+            ),
+            ui.output_table("nvda_news_table"),
+            ui.p(
+                "+1 = nouvelles globalement favorables ; -1 = nouvelles globalement défavorables. "
+                "Le score continu pondère le sens par le risque, la confiance et la proximité temporelle. "
+                "L'écart-type 5j est dérivé des cinq prévisions HAR-RV et ne constitue pas une borne garantie.",
+                class_="small-muted",
+            ),
+        ),
+        ui.div(
+            {"class": "panel"},
             ui.h3("Stability NVIDIA — prix théoriques Monte Carlo / HAR-RV"),
             ui.output_table("product_table"),
             ui.p(
@@ -466,6 +484,45 @@ def server(input, output, session):
                 "—" if pd.isna(r.get("garch_compression_threshold")) else f"{r['garch_compression_threshold']:.6f}",
             ],
         })
+
+    @render.text
+    def nvda_news_signal():
+        r = result()
+        return "—" if not r.get("ok") else r.get("nvda_news_label", "—")
+
+    @render.text
+    def nvda_news_score():
+        r = result()
+        if not r.get("ok") or r.get("nvda_news_score_continuous") is None:
+            return "—"
+        return f"{r['nvda_news_score_continuous']:+.2f}"
+
+    @render.text
+    def nvda_news_risk():
+        r = result()
+        if not r.get("ok"):
+            return "—"
+        level = str(r.get("nvda_news_risk_level", "—")).capitalize()
+        count = r.get("nvda_news_event_count", 0)
+        return f"{level} · {count} faits"
+
+    @render.text
+    def nvda_sigma_5d():
+        r = result()
+        if not r.get("ok") or r.get("nvda_sigma_5d_move_pct") is None:
+            return "—"
+        return f"±{r['nvda_sigma_5d_move_pct']:.2f} % · ±USD {r['nvda_sigma_5d_price']:.2f}"
+
+    @render.table
+    def nvda_news_table():
+        r = result()
+        if not r.get("ok"):
+            return pd.DataFrame({"Mesure": ["Erreur"], "Valeur": [r["error"]]})
+        table = r.get("nvda_news_events_table")
+        if table is None or len(table) == 0:
+            return pd.DataFrame({"News NVDA": ["Aucun fait qualifié disponible"]})
+        columns = ["Date", "J+", "Sens", "Risque", "Catégorie", "News", "Source", "Contribution"]
+        return table[[c for c in columns if c in table.columns]]
 
     @render.table
     def nvda_har_table():
