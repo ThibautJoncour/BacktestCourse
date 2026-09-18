@@ -49,59 +49,92 @@ NVDA_MC_SEED = 42
 NVDA_NEWS_LAST_UPDATE = "2026-09-18"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-18",
+        "date": "2026-09-17",
         "days_ahead": 1,
-        "category": "Banques centrales",
-        "headline": "La BoJ a relevé ses taux, mais sans annoncer de trajectoire accélérée prédéfinie.",
+        "category": "Demande IA",
+        "headline": "Nebius relève encore les tarifs de location de certains GPU NVIDIA face à une demande de calcul en forte hausse.",
         "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.80,
+        "risk_level": "élevé",
+        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/boj-governor-uedas-comments-news-conference-2026-09-18/",
+        "url": "https://www.reuters.com/technology/nebius-hikes-ai-cloud-prices-again-demand-computing-power-soars-2026-09-17/",
     },
     {
-        "date": "2026-09-18",
+        "date": "2026-09-17",
         "days_ahead": 2,
-        "category": "Macro / énergie",
-        "headline": "Le repli du pétrole réduit à court terme la pression inflationniste sur les taux longs.",
+        "category": "Financement IA",
+        "headline": "CoreWeave prévoit de lever 3 milliards de dollars de dette convertible pour financer ses opérations et son infrastructure IA.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.80,
+        "confidence": 0.65,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/oil-prices-fall-1-hopes-limited-supply-disruptions-2026-09-18/",
+        "url": "https://www.reuters.com/legal/transactional/coreweave-launches-3-billion-convertible-debt-sale-2026-09-17/",
     },
     {
         "date": "2026-09-17",
         "days_ahead": 3,
-        "category": "Taux réels",
-        "headline": "Le rendement réel élevé des TIPS à 10 ans augmente le taux d'actualisation des valeurs de croissance.",
+        "category": "Chaîne d'approvisionnement",
+        "headline": "GlobalFoundries et Marvell augmentent les capacités de composants optiques destinés aux data centers IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/globalfoundries-marvell-expand-chip-capacity-deal-ai-data-center-connectivity-2026-09-17/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 1,
+        "category": "Taux US",
+        "headline": "La Fed a relevé son taux directeur de 25 points de base et la majorité de ses membres anticipe une nouvelle hausse en 2026.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.95,
-        "source": "Treasury / TIPS Watch",
-        "url": "https://tipswatch.com/2026/09/17/10-year-tips-reopening-gets-real-yield-of-2-653-highest-in-nearly-18-years/",
+        "source": "Reuters",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 2,
+        "category": "Taux US",
+        "headline": "Le rendement du Treasury américain à 10 ans a dépassé 5 %, son plus haut niveau depuis 2007.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 3,
+        "category": "Demande IA",
+        "headline": "Des dirigeants de grands laboratoires IA ont appelé à ralentir le développement, créant un risque pour le rythme des investissements, même si Reuters juge un ralentissement peu probable.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.75,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
     },
     {
         "date": "2026-09-17",
         "days_ahead": 4,
-        "category": "IA / réglementation",
-        "headline": "Meta s'oppose à un ralentissement coordonné du développement de l'IA.",
+        "category": "Hyperscalers / réglementation",
+        "headline": "Amazon demande des tests rigoureux mais ne soutient pas un ralentissement général du développement de l'IA.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.75,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/2f4eab05b1e931456d00ebc2fe93c989",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/retail-consumer/amazon-enters-ai-safety-fray-calls-rigorous-testing-safeguards-2026-09-17/",
     },
     {
-        "date": "2026-08-26",
+        "date": "2026-09-17",
         "days_ahead": 5,
-        "category": "Demande IA",
-        "headline": "Le dernier guidance NVIDIA reste soutenu et n'intègre aucun revenu Data Center compute en Chine.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+        "category": "Réglementation IA",
+        "headline": "Le DOJ estime que la coordination des laboratoires sur la sécurité IA ne paraît pas anticoncurrentielle, ce qui pourrait faciliter des mesures concertées de ralentissement.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.70,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/doj-official-says-frontier-ai-labs-have-not-sought-meeting-antitrust-2026-09-17/",
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -117,15 +150,11 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 17/09/2026
-# (39 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/09/2026
+# (35 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
-    ("8E45S", "DE000FE6HAZ7", 180, 270, "2026-09-18"),
-    ("7C50S", "DE000FE35335", 100, 240, "2026-09-18"),
-    ("7C52S", "DE000FE35343", 120, 260, "2026-09-18"),
-    ("7C54S", "DE000FE35368", 160, 280, "2026-09-18"),
     ("7C57S", "DE000FE35392", 140, 280, "2026-10-16"),
     ("7C55S", "DE000FE35376", 100, 280, "2026-10-16"),
     ("2R74S", "DE000FE6NXC6", 160, 260, "2026-10-16"),
@@ -164,16 +193,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "8E45S": 9.90, "7C50S": 9.90, "7C52S": 9.90, "7C54S": 9.90,
-    "7C57S": 9.82, "7C55S": 9.88, "2R74S": 9.55, "2R79S": 7.96,
-    "2R83S": 8.73, "2R85S": 9.20, "2R80S": 9.09, "2R82S": 9.60,
-    "2R78S": 9.71, "2R84S": 9.11, "2R81S": 9.48, "2R77S": 9.60,
-    "2R75S": 8.25, "2R76S": 9.20, "2R95S": 9.43, "2R89S": 9.52,
-    "01M3S": 4.96, "2R90S": 9.62, "2R96S": 8.47, "2R87S": 8.65,
-    "2R93S": 9.09, "2R98S": 8.83, "3J41S": 1.65, "2R86S": 7.21,
-    "2R91S": 8.46, "2R97S": 8.72, "2R94S": 9.32, "2R88S": 9.27,
-    "5S06S": 7.72, "5S04S": 4.16, "5S07S": 7.76, "5S05S": 6.43,
-    "1U26S": 5.68, "1U28S": 7.44, "1U27S": 7.87,
+    "7C57S": 9.86, "7C55S": 9.90, "2R74S": 9.64, "2R79S": 8.11,
+    "2R83S": 8.90, "2R85S": 9.34, "2R80S": 9.20, "2R82S": 9.64,
+    "2R78S": 9.74, "2R84S": 9.23, "2R81S": 9.54, "2R77S": 9.63,
+    "2R75S": 8.21, "2R76S": 9.30, "2R95S": 9.48, "2R89S": 9.56,
+    "01M3S": 4.70, "2R90S": 9.65, "2R96S": 8.65, "2R87S": 8.76,
+    "2R93S": 9.17, "2R98S": 8.96, "3J41S": 1.83, "2R86S": 7.31,
+    "2R91S": 8.59, "2R97S": 8.72, "2R94S": 9.32, "2R88S": 9.27,
+    "5S06S": 7.73, "5S04S": 4.04, "5S07S": 7.76, "5S05S": 6.46,
+    "1U26S": 5.70, "1U28S": 7.43, "1U27S": 7.87,
 }
 
 FEATURES = [
@@ -867,10 +895,10 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 17/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 18/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
-        products.attrs["expected_total"] = 39
+        products.attrs["expected_total"] = 35
         products.attrs["scraped_total"] = 0
         products.attrs["complete"] = False
         products.attrs["source_mode"] = "fallback_catalogue"
