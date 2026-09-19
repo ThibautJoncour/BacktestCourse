@@ -46,95 +46,95 @@ NVDA_MC_SEED = 42
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-18"
+NVDA_NEWS_LAST_UPDATE = "2026-09-19"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-17",
+        "date": "2026-09-18",
         "days_ahead": 1,
-        "category": "Demande IA",
-        "headline": "Nebius relève encore les tarifs de location de certains GPU NVIDIA face à une demande de calcul en forte hausse.",
+        "category": "Demande IA / financement",
+        "headline": "Nscale, soutenu par NVIDIA, déclare 140,6 millions de dollars de chiffre d'affaires semestriel et plus de 103 milliards de dollars de revenus contractés dans son dossier d'introduction en Bourse.",
         "direction": 1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/technology/nebius-hikes-ai-cloud-prices-again-demand-computing-power-soars-2026-09-17/",
+        "url": "https://www.reuters.com/technology/ai-cloud-firm-nscale-files-us-ipo-2026-09-18/",
     },
     {
-        "date": "2026-09-17",
+        "date": "2026-09-18",
         "days_ahead": 2,
-        "category": "Financement IA",
-        "headline": "CoreWeave prévoit de lever 3 milliards de dollars de dette convertible pour financer ses opérations et son infrastructure IA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.65,
+        "category": "Risque de financement IA",
+        "headline": "Nscale affiche une perte nette semestrielle de 1,02 milliard de dollars et tire 52 % de son chiffre d'affaires d'un seul client.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/coreweave-launches-3-billion-convertible-debt-sale-2026-09-17/",
+        "url": "https://www.reuters.com/technology/ai-cloud-firm-nscale-files-us-ipo-2026-09-18/",
     },
     {
-        "date": "2026-09-17",
+        "date": "2026-09-18",
+        "days_ahead": 1,
+        "category": "Financement des data centers",
+        "headline": "Des prêts de 18 milliards de dollars liés au data center Project Jupiter d'Oracle se négocient sous le pair, sur fond de dette et de contraintes énergétiques accrues.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/finance/oracles-18-billion-data-center-debt-under-pressure-ft-reports-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
         "days_ahead": 3,
-        "category": "Chaîne d'approvisionnement",
-        "headline": "GlobalFoundries et Marvell augmentent les capacités de composants optiques destinés aux data centers IA.",
-        "direction": 1,
+        "category": "Énergie des data centers",
+        "headline": "La Virginie durcit l'encadrement des data centers avec davantage de transparence et des incitations à utiliser des énergies renouvelables.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/us/virginia-tightens-data-center-restrictions-amid-political-backlash-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 2,
+        "category": "Coûts énergétiques",
+        "headline": "Donald Trump discute avec le Sénat d'un texte visant à faire supporter aux grands data centers le coût additionnel des infrastructures électriques.",
+        "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/globalfoundries-marvell-expand-chip-capacity-deal-ai-data-center-connectivity-2026-09-17/",
-    },
-    {
-        "date": "2026-09-18",
-        "days_ahead": 1,
-        "category": "Taux US",
-        "headline": "La Fed a relevé son taux directeur de 25 points de base et la majorité de ses membres anticipe une nouvelle hausse en 2026.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
+        "url": "https://www.reuters.com/world/trump-is-talking-with-senates-thune-about-bill-cut-data-center-electricity-costs-2026-09-18/",
     },
     {
         "date": "2026-09-18",
         "days_ahead": 2,
-        "category": "Taux US",
-        "headline": "Le rendement du Treasury américain à 10 ans a dépassé 5 %, son plus haut niveau depuis 2007.",
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "Le président républicain de la commission Chine de la Chambre demande de maintenir des restrictions strictes sur l'accès chinois aux technologies américaines d'IA et de semi-conducteurs.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.95,
+        "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
+        "url": "https://www.reuters.com/world/us/republican-china-committee-chair-urges-tough-trump-line-with-xi-2026-09-18/",
     },
     {
         "date": "2026-09-18",
-        "days_ahead": 3,
-        "category": "Demande IA",
-        "headline": "Des dirigeants de grands laboratoires IA ont appelé à ralentir le développement, créant un risque pour le rythme des investissements, même si Reuters juge un ralentissement peu probable.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.75,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-rates-reset-ai-angst-oils-long-haul-financial-week-five-charts-2026-09-18/",
-    },
-    {
-        "date": "2026-09-17",
         "days_ahead": 4,
-        "category": "Hyperscalers / réglementation",
-        "headline": "Amazon demande des tests rigoureux mais ne soutient pas un ralentissement général du développement de l'IA.",
+        "category": "Relations États-Unis-Chine",
+        "headline": "Le secrétaire au Trésor Scott Bessent doit discuter d'IA, de sécurité des modèles et de terres rares avec le vice-Premier ministre chinois He Lifeng avant le sommet du 24 septembre.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.60,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/us-treasurys-bessent-plans-discuss-ai-rare-earths-with-chinas-he-source-says-2026-09-18/",
+    },
+    {
+        "date": "2026-09-18",
+        "days_ahead": 3,
+        "category": "Dépenses IA",
+        "headline": "Anthropic et Accenture s'engagent à investir au moins 2 milliards de dollars sur cinq ans dans l'évaluation indépendante des modèles d'IA avancés.",
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/amazon-enters-ai-safety-fray-calls-rigorous-testing-safeguards-2026-09-17/",
-    },
-    {
-        "date": "2026-09-17",
-        "days_ahead": 5,
-        "category": "Réglementation IA",
-        "headline": "Le DOJ estime que la coordination des laboratoires sur la sécurité IA ne paraît pas anticoncurrentielle, ce qui pourrait faciliter des mesures concertées de ralentissement.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.70,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/doj-official-says-frontier-ai-labs-have-not-sought-meeting-antitrust-2026-09-17/",
+        "url": "https://www.reuters.com/business/anthropic-accenture-invest-2-billion-ai-model-evaluation-safety-concerns-rise-2026-09-18/",
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -150,7 +150,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 19/09/2026
 # (35 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -193,15 +193,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.86, "7C55S": 9.90, "2R74S": 9.64, "2R79S": 8.11,
-    "2R83S": 8.90, "2R85S": 9.34, "2R80S": 9.20, "2R82S": 9.64,
-    "2R78S": 9.74, "2R84S": 9.23, "2R81S": 9.54, "2R77S": 9.63,
-    "2R75S": 8.21, "2R76S": 9.30, "2R95S": 9.48, "2R89S": 9.56,
-    "01M3S": 4.70, "2R90S": 9.65, "2R96S": 8.65, "2R87S": 8.76,
-    "2R93S": 9.17, "2R98S": 8.96, "3J41S": 1.83, "2R86S": 7.31,
-    "2R91S": 8.59, "2R97S": 8.72, "2R94S": 9.32, "2R88S": 9.27,
-    "5S06S": 7.73, "5S04S": 4.04, "5S07S": 7.76, "5S05S": 6.46,
-    "1U26S": 5.70, "1U28S": 7.43, "1U27S": 7.87,
+    "7C57S": 9.84, "7C55S": 9.87, "2R74S": 9.57, "2R79S": 7.87,
+    "2R83S": 8.88, "2R85S": 9.40, "2R80S": 9.13, "2R82S": 9.65,
+    "2R78S": 9.73, "2R84S": 9.27, "2R81S": 9.52, "2R77S": 9.60,
+    "2R75S": 7.96, "2R76S": 9.21, "2R95S": 9.51, "2R89S": 9.55,
+    "01M3S": 4.17, "2R90S": 9.65, "2R96S": 8.70, "2R87S": 8.63,
+    "2R93S": 9.15, "2R98S": 9.06, "3J41S": 1.88, "2R86S": 7.02,
+    "2R91S": 8.49, "2R97S": 8.96, "2R94S": 9.40, "2R88S": 9.29,
+    "5S06S": 7.75, "5S04S": 3.67, "5S07S": 8.03, "5S05S": 6.22,
+    "1U26S": 5.44, "1U28S": 7.73, "1U27S": 7.96,
 }
 
 FEATURES = [
@@ -895,7 +895,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 18/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 19/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 35
