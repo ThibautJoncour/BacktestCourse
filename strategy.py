@@ -46,29 +46,51 @@ NVDA_MC_SEED = 42
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-20"
+NVDA_NEWS_LAST_UPDATE = "2026-09-21"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-20",
-        "days_ahead": 1,
-        "category": "Relations États-Unis-Chine",
-        "headline": "Scott Bessent et He Lifeng ouvrent des discussions sur l'IA, le commerce et les minerais critiques avant le sommet Trump-Xi.",
+        "date": "2026-09-21",
+        "days_ahead": 2,
+        "category": "Dépenses des hyperscalers",
+        "headline": "Meta prévoit un data center de 13 milliards de dollars canadiens en Alberta, et Capital Power signale des discussions avec d'autres hyperscalers.",
         "direction": 1,
         "risk_level": "élevé",
-        "confidence": 0.65,
+        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/us-treasurys-bessent-chinas-he-launch-talks-ai-trade-critical-minerals-2026-09-20/",
+        "url": "https://www.reuters.com/legal/litigation/meta-data-center-boosts-alberta-appeal-hyperscalers-capital-power-says-2026-09-21/",
     },
     {
-        "date": "2026-09-20",
-        "days_ahead": 2,
-        "category": "Chine / chaîne d'approvisionnement",
-        "headline": "Le fabricant chinois CXMT annonce l'entrée en production de masse de sa plateforme mémoire de cinquième génération, renforçant l'autonomie technologique chinoise.",
+        "date": "2026-09-21",
+        "days_ahead": 1,
+        "category": "Marchés / taux US",
+        "headline": "Les valeurs liées à l'IA rebondissent tandis que la baisse du pétrole réduit les tensions inflationnistes et fait reculer les rendements obligataires.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-futures-rise-ai-stocks-gain-oil-prices-slide-2026-09-21/",
+    },
+    {
+        "date": "2026-09-21",
+        "days_ahead": 3,
+        "category": "Énergie des data centers",
+        "headline": "La Commission européenne propose d'imposer aux data centers de plus de 500 kW la publication de leurs performances énergétiques et hydriques.",
         "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/chinas-cxmt-says-new-memory-chip-platform-enters-mass-production-2026-09-20/",
+        "url": "https://www.reuters.com/business/environment/eu-require-data-centres-disclose-energy-water-efficiency-2026-09-21/",
+    },
+    {
+        "date": "2026-09-21",
+        "days_ahead": 4,
+        "category": "Réglementation IA",
+        "headline": "Le Premier ministre espagnol affirme que l'industrie de l'IA ne peut pas s'autoréguler et annonce une feuille de route de gouvernance sur douze mois.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.75,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/spanish-pm-sanchez-says-ai-industry-cannot-be-self-regulated-2026-09-21/",
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -84,8 +106,8 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 19/09/2026
-# (35 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 21/09/2026
+# (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
@@ -121,21 +143,22 @@ NVDA_FALLBACK_PRODUCTS = [
     ("5S04S", "DE000FG1E5F3", 100, 240, "2027-01-15"),
     ("5S07S", "DE000FG1E5J5", 160, 300, "2027-01-15"),
     ("5S05S", "DE000FG1E5G1", 120, 260, "2027-01-15"),
+    ("917QS", "DE000FG4Z577", 170, 240, "2027-02-19"),
     ("1U26S", "DE000FG3T895", 120, 260, "2027-02-19"),
     ("1U28S", "DE000FG3T9B5", 160, 320, "2027-02-19"),
     ("1U27S", "DE000FG3T9A7", 140, 300, "2027-02-19"),
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.84, "7C55S": 9.87, "2R74S": 9.57, "2R79S": 7.87,
-    "2R83S": 8.88, "2R85S": 9.40, "2R80S": 9.13, "2R82S": 9.65,
-    "2R78S": 9.73, "2R84S": 9.27, "2R81S": 9.52, "2R77S": 9.60,
-    "2R75S": 7.96, "2R76S": 9.21, "2R95S": 9.51, "2R89S": 9.55,
-    "01M3S": 4.17, "2R90S": 9.65, "2R96S": 8.70, "2R87S": 8.63,
-    "2R93S": 9.15, "2R98S": 9.06, "3J41S": 1.88, "2R86S": 7.02,
-    "2R91S": 8.49, "2R97S": 8.96, "2R94S": 9.40, "2R88S": 9.29,
-    "5S06S": 7.75, "5S04S": 3.67, "5S07S": 8.03, "5S05S": 6.22,
-    "1U26S": 5.44, "1U28S": 7.73, "1U27S": 7.96,
+    "7C57S": 9.86, "7C55S": 9.88, "2R74S": 9.60, "2R79S": 7.80,
+    "2R83S": 8.89, "2R85S": 9.44, "2R80S": 9.12, "2R82S": 9.67,
+    "2R78S": 9.74, "2R84S": 9.30, "2R81S": 9.53, "2R77S": 9.61,
+    "2R75S": 7.88, "2R76S": 9.19, "2R95S": 9.53, "2R89S": 9.55,
+    "01M3S": 3.93, "2R90S": 9.66, "2R96S": 8.74, "2R87S": 8.60,
+    "2R93S": 9.16, "2R98S": 9.12, "3J41S": 1.91, "2R86S": 6.92,
+    "2R91S": 8.47, "2R97S": 9.01, "2R94S": 9.42, "2R88S": 9.29,
+    "5S06S": 7.72, "5S04S": 3.42, "5S07S": 8.06, "5S05S": 6.12,
+    "917QS": 1.42, "1U26S": 5.33, "1U28S": 7.77, "1U27S": 7.95,
 }
 
 FEATURES = [
@@ -829,10 +852,10 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 19/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 21/09/2026" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
-        products.attrs["expected_total"] = 35
+        products.attrs["expected_total"] = 36
         products.attrs["scraped_total"] = 0
         products.attrs["complete"] = False
         products.attrs["source_mode"] = "fallback_catalogue"
