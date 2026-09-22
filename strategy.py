@@ -46,51 +46,84 @@ NVDA_MC_SEED = 42
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-21"
+NVDA_NEWS_LAST_UPDATE = "2026-09-22"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-21",
-        "days_ahead": 2,
-        "category": "Dépenses des hyperscalers",
-        "headline": "Meta prévoit un data center de 13 milliards de dollars canadiens en Alberta, et Capital Power signale des discussions avec d'autres hyperscalers.",
+        "date": "2026-09-22",
+        "days_ahead": 3,
+        "category": "Infrastructure IA",
+        "headline": "Accelevation vise jusqu'à 720 millions de dollars lors de son introduction en Bourse, portée par la demande de systèmes d'alimentation et de refroidissement pour data centers.",
         "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/technology/accelevation-backers-aim-raise-720-million-us-ipo-2026-09-22/",
+    },
+    {
+        "date": "2026-09-22",
+        "days_ahead": 2,
+        "category": "Concurrence / Chine",
+        "headline": "Alibaba dévoile la puce IA Zhenwu V900, annoncée trois fois plus performante que sa devancière, et vise une production de masse début 2027.",
+        "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/legal/litigation/meta-data-center-boosts-alberta-appeal-hyperscalers-capital-power-says-2026-09-21/",
+        "url": "https://www.reuters.com/business/retail-consumer/alibaba-plans-ai-model-with-5-trillion-10-trillion-parameters-unveils-new-chip-2026-09-22/",
     },
     {
-        "date": "2026-09-21",
-        "days_ahead": 1,
-        "category": "Marchés / taux US",
-        "headline": "Les valeurs liées à l'IA rebondissent tandis que la baisse du pétrole réduit les tensions inflationnistes et fait reculer les rendements obligataires.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-futures-rise-ai-stocks-gain-oil-prices-slide-2026-09-21/",
-    },
-    {
-        "date": "2026-09-21",
-        "days_ahead": 3,
+        "date": "2026-09-22",
+        "days_ahead": 4,
         "category": "Énergie des data centers",
-        "headline": "La Commission européenne propose d'imposer aux data centers de plus de 500 kW la publication de leurs performances énergétiques et hydriques.",
+        "headline": "L'État australien de Victoria propose d'obliger les nouveaux data centers à sécuriser leur propre énergie renouvelable et leur stockage, et à financer les raccordements au réseau.",
         "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/environment/eu-require-data-centres-disclose-energy-water-efficiency-2026-09-21/",
+        "url": "https://www.reuters.com/business/energy/australias-victoria-proposes-new-data-centres-must-secure-their-own-renewable-2026-09-22/",
     },
     {
         "date": "2026-09-21",
-        "days_ahead": 4,
-        "category": "Réglementation IA",
-        "headline": "Le Premier ministre espagnol affirme que l'industrie de l'IA ne peut pas s'autoréguler et annonce une feuille de route de gouvernance sur douze mois.",
+        "days_ahead": 1,
+        "category": "Concurrence semi-conducteurs",
+        "headline": "AMD dépasse 1 000 milliards de dollars de capitalisation sur l'optimisme lié à l'IA et renforce son positionnement de concurrent direct de NVIDIA dans les GPU.",
         "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.75,
+        "confidence": 0.80,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/spanish-pm-sanchez-says-ai-industry-cannot-be-self-regulated-2026-09-21/",
+        "url": "https://www.reuters.com/business/amd-becomes-latest-chipmaker-reach-1-trillion-valuation-ai-demand-2026-09-21/",
+    },
+    {
+        "date": "2026-09-21",
+        "days_ahead": 2,
+        "category": "Énergie des data centers",
+        "headline": "Le gouverneur du Texas suspend les nouveaux permis d'État pour les data centers jusqu'à l'achèvement d'un audit de leur impact sur le réseau électrique.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/energy/texas-gov-abbott-halts-all-state-issued-permits-data-centers-until-grid-audit-is-2026-09-21/",
+    },
+    {
+        "date": "2026-09-21",
+        "days_ahead": 3,
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "Les États-Unis et la Chine conviennent de poursuivre sous deux mois leur dialogue sur la sécurité de l'IA et les protocoles de communication d'urgence.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.80,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/us-china-meet-again-ai-safety-two-months-shenzhen-bessent-says-2026-09-21/",
+    },
+    {
+        "date": "2026-09-22",
+        "days_ahead": 1,
+        "category": "Taux US / marchés",
+        "headline": "Le rendement du Treasury à 10 ans reste proche de 4,9 % et le marché estime à environ 51 % la probabilité d'une nouvelle hausse de taux en octobre, tandis que NVIDIA recule légèrement.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-futures-pause-after-ai-rally-focus-mideast-tensions-2026-09-22/",
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -106,7 +139,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 21/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 22/09/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -150,15 +183,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.86, "7C55S": 9.88, "2R74S": 9.60, "2R79S": 7.80,
-    "2R83S": 8.89, "2R85S": 9.44, "2R80S": 9.12, "2R82S": 9.67,
-    "2R78S": 9.74, "2R84S": 9.30, "2R81S": 9.53, "2R77S": 9.61,
-    "2R75S": 7.88, "2R76S": 9.19, "2R95S": 9.53, "2R89S": 9.55,
-    "01M3S": 3.93, "2R90S": 9.66, "2R96S": 8.74, "2R87S": 8.60,
-    "2R93S": 9.16, "2R98S": 9.12, "3J41S": 1.91, "2R86S": 6.92,
-    "2R91S": 8.47, "2R97S": 9.01, "2R94S": 9.42, "2R88S": 9.29,
-    "5S06S": 7.72, "5S04S": 3.42, "5S07S": 8.06, "5S05S": 6.12,
-    "917QS": 1.42, "1U26S": 5.33, "1U28S": 7.77, "1U27S": 7.95,
+    "7C57S": 9.88, "7C55S": 9.90, "2R74S": 9.55, "2R79S": 7.37,
+    "2R83S": 8.78, "2R85S": 9.47, "2R80S": 8.99, "2R82S": 9.67,
+    "2R78S": 9.75, "2R84S": 9.31, "2R81S": 9.51, "2R77S": 9.59,
+    "2R75S": 7.47, "2R76S": 9.07, "2R95S": 9.54, "2R89S": 9.54,
+    "01M3S": 3.20, "2R90S": 9.66, "2R96S": 8.74, "2R87S": 8.37,
+    "2R93S": 9.09, "2R98S": 9.18, "3J41S": 1.85, "2R86S": 6.46,
+    "2R91S": 8.25, "2R97S": 9.06, "2R94S": 9.41, "2R88S": 9.22,
+    "5S06S": 7.45, "5S04S": 2.77, "5S07S": 8.01, "5S05S": 5.58,
+    "917QS": 1.02, "1U26S": 4.97, "1U28S": 7.79, "1U27S": 7.80,
 }
 
 FEATURES = [
