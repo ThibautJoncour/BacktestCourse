@@ -46,7 +46,7 @@ NVDA_MC_SEED = 42
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-23"
+NVDA_NEWS_LAST_UPDATE = "2026-09-24"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-09-23",
@@ -81,50 +81,6 @@ NVDA_NEWS_EVENTS = [
         "source": "Reuters",
         "url": "https://www.reuters.com/world/china/wall-st-futures-steady-with-focus-mideast-talks-us-china-summit-2026-09-23/",
     },
-    {
-        "date": "2026-09-22",
-        "days_ahead": 1,
-        "category": "Marché des semi-conducteurs",
-        "headline": "Le Nasdaq clôture sur un record, porté par Micron et les valeurs liées à l'IA, tandis que Reuters constate que la demande IA ne ralentit pas.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-futures-pause-after-ai-rally-focus-mideast-tensions-2026-09-22/",
-    },
-    {
-        "date": "2026-09-22",
-        "days_ahead": 2,
-        "category": "Demande IA / hyperscalers",
-        "headline": "Anthropic lance Claude Opus 5.5 sur AWS, Google Cloud et Microsoft Azure, avec un coût d'exploitation annoncé inférieur de 40 % à celui de son prédécesseur.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/anthropic-unveils-claude-opus-55-2026-09-22/",
-    },
-    {
-        "date": "2026-09-22",
-        "days_ahead": 3,
-        "category": "Réglementation IA aux États-Unis",
-        "headline": "Donald Trump réaffirme son opposition à de nouvelles règles qui freineraient l'IA, tout en indiquant que le département de la Justice surveillera le secteur.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.80,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/government/trump-says-us-will-henceforth-call-ai-super-intelligence-2026-09-22/",
-    },
-    {
-        "date": "2026-09-22",
-        "days_ahead": 4,
-        "category": "Réglementation internationale de l'IA",
-        "headline": "Le secrétaire général de l'ONU appelle à un cadre multilatéral de gestion des risques de l'IA et à une supervision indépendante.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/europe/un-chief-calls-ai-curbs-end-wars-his-last-assembly-address-2026-09-22/",
-    },
 ]
 # END AUTO-UPDATED NVDA NEWS
 
@@ -139,7 +95,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 23/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/09/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -183,15 +139,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.88, "7C55S": 9.89, "2R74S": 9.52, "2R79S": 7.17,
-    "2R83S": 8.72, "2R85S": 9.47, "2R80S": 8.91, "2R82S": 9.67,
-    "2R78S": 9.74, "2R84S": 9.29, "2R81S": 9.49, "2R77S": 9.56,
-    "2R75S": 7.25, "2R76S": 8.99, "2R95S": 9.54, "2R89S": 9.52,
-    "01M3S": 2.83, "2R90S": 9.66, "2R96S": 8.72, "2R87S": 8.25,
-    "2R93S": 9.06, "2R98S": 9.20, "3J41S": 1.80, "2R86S": 6.24,
-    "2R91S": 8.14, "2R97S": 9.07, "2R94S": 9.41, "2R88S": 9.17,
-    "5S06S": 7.33, "5S04S": 2.41, "5S07S": 7.95, "5S05S": 5.31,
-    "917QS": 0.63, "1U26S": 4.65, "1U28S": 7.79, "1U27S": 7.75,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.76, "2R79S": 7.85,
+    "2R83S": 8.94, "2R85S": 9.46, "2R80S": 9.18, "2R82S": 9.69,
+    "2R78S": 9.78, "2R84S": 9.35, "2R81S": 9.58, "2R77S": 9.67,
+    "2R75S": 7.94, "2R76S": 9.27, "2R95S": 9.55, "2R89S": 9.60,
+    "01M3S": 3.94, "2R90S": 9.69, "2R96S": 8.78, "2R87S": 8.62,
+    "2R93S": 9.19, "2R98S": 9.14, "3J41S": 1.94, "2R86S": 6.94,
+    "2R91S": 8.49, "2R97S": 9.05, "2R94S": 9.46, "2R88S": 9.33,
+    "5S06S": 7.72, "5S04S": 3.42, "5S07S": 8.07, "5S05S": 6.12,
+    "917QS": 1.41, "1U26S": 5.34, "1U28S": 7.80, "1U27S": 7.97,
 }
 
 FEATURES = [
