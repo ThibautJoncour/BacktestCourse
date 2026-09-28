@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import time
 
 import numpy as np
 import pandas as pd
@@ -863,9 +864,64 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
     products.attrs["complete"] = expected_total is None or len(products) >= expected_total
     return products
 
+def _download_nvda_yahoo_chart() -> pd.Series:
+    """Lit les clôtures ajustées quotidiennes depuis le graphique Yahoo Finance.
+
+    La dernière bougie quotidienne peut encore évoluer avant la clôture US :
+    elle ne doit pas entrer dans la variance réalisée ni dans le HAR-RV.
+    """
+    response = requests.get(
+        f"https://query2.finance.yahoo.com/v8/finance/chart/{NVDA_TICKER}",
+        params={
+            "range": "5y",
+            "interval": "1d",
+            "includeAdjustedClose": "true",
+        },
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=30,
+    )
+    response.raise_for_status()
+    chart = response.json().get("chart", {})
+    if chart.get("error") or not chart.get("result"):
+        raise StrategyError(f"Yahoo Finance NVDA : {chart.get('error')}")
+
+    result = chart["result"][0]
+    timestamps = result.get("timestamp", [])
+    adjusted = result.get("indicators", {}).get("adjclose", [])
+    closes = adjusted[0].get("adjclose", []) if adjusted else []
+    if len(timestamps) != len(closes) or len(closes) < 250:
+        raise StrategyError("Historique quotidien ajusté NVDA incomplet chez Yahoo Finance.")
+
+    dates = pd.to_datetime(timestamps, unit="s", utc=True).tz_convert(
+        "America/New_York"
+    ).tz_localize(None).normalize()
+    nvda = pd.Series(pd.to_numeric(closes, errors="coerce"), index=dates, name="nvda")
+    nvda = nvda[~nvda.index.duplicated(keep="last")].dropna().sort_index()
+
+    regular = result.get("meta", {}).get("currentTradingPeriod", {}).get("regular", {})
+    market_close = regular.get("end")
+    market_open = regular.get("start")
+    if (market_open is not None and market_close is not None
+            and market_open <= timestamps[-1] <= market_close
+            and time.time() < market_close):
+        nvda = nvda.iloc[:-1]
+    if len(nvda) < 250:
+        raise StrategyError("Historique NVDA insuffisant après retrait de la séance en cours.")
+    return nvda
+
+
 def _download_nvidia_history() -> pd.DataFrame:
     """Télécharge NVDA et construit les composantes HAR sur variance quotidienne."""
-    nvda = _download_close(NVDA_TICKER, "nvda")
+    try:
+        nvda = _download_nvda_yahoo_chart()
+    except (requests.RequestException, ValueError, KeyError, IndexError, StrategyError) as chart_error:
+        try:
+            nvda = _download_close(NVDA_TICKER, "nvda")
+        except Exception as yf_error:
+            raise StrategyError(
+                f"Historique NVDA indisponible : Yahoo chart ({chart_error}); "
+                f"yfinance ({yf_error})."
+            ) from yf_error
     out = pd.DataFrame({"nvda": nvda})
     out["return_1d"] = np.log(out["nvda"] / out["nvda"].shift(1))
 
