@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import time
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -43,6 +44,7 @@ NVDA_MC_PATHS = 50_000
 NVDA_RISK_FREE_RATE = 0.02
 NVDA_DIVIDEND_YIELD = 0.0
 NVDA_MC_SEED = 42
+NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
@@ -864,18 +866,13 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
     products.attrs["complete"] = expected_total is None or len(products) >= expected_total
     return products
 
-def _download_nvda_yahoo_chart() -> pd.Series:
-    """Lit les clôtures ajustées quotidiennes depuis le graphique Yahoo Finance.
-
-    La dernière bougie quotidienne peut encore évoluer avant la clôture US :
-    elle ne doit pas entrer dans la variance réalisée ni dans le HAR-RV.
-    """
+def _download_nvda_yahoo_15m() -> pd.DataFrame:
+    """Agrège les 26 rendements 15 min de chaque séance US complète en RV."""
     response = requests.get(
         f"https://query2.finance.yahoo.com/v8/finance/chart/{NVDA_TICKER}",
         params={
-            "range": "5y",
-            "interval": "1d",
-            "includeAdjustedClose": "true",
+            "range": "60d",
+            "interval": "15m",
         },
         headers={"User-Agent": "Mozilla/5.0"},
         timeout=30,
@@ -887,16 +884,17 @@ def _download_nvda_yahoo_chart() -> pd.Series:
 
     result = chart["result"][0]
     timestamps = result.get("timestamp", [])
-    adjusted = result.get("indicators", {}).get("adjclose", [])
-    closes = adjusted[0].get("adjclose", []) if adjusted else []
-    if len(timestamps) != len(closes) or len(closes) < 250:
-        raise StrategyError("Historique quotidien ajusté NVDA incomplet chez Yahoo Finance.")
+    quotes = result.get("indicators", {}).get("quote", [])
+    quote = quotes[0] if quotes else {}
+    if not timestamps or len(timestamps) != len(quote.get("close", [])):
+        raise StrategyError("Bougies NVDA 15 min incomplètes chez Yahoo Finance.")
 
-    dates = pd.to_datetime(timestamps, unit="s", utc=True).tz_convert(
-        "America/New_York"
-    ).tz_localize(None).normalize()
-    nvda = pd.Series(pd.to_numeric(closes, errors="coerce"), index=dates, name="nvda")
-    nvda = nvda[~nvda.index.duplicated(keep="last")].dropna().sort_index()
+    bars = pd.DataFrame({
+        "open": pd.to_numeric(quote.get("open", []), errors="coerce"),
+        "close": pd.to_numeric(quote["close"], errors="coerce"),
+    }, index=pd.to_datetime(timestamps, unit="s", utc=True).tz_convert("America/New_York"))
+    bars = bars.between_time("09:30", "15:45").dropna()
+    bars = bars[(bars["open"] > 0) & (bars["close"] > 0)]
 
     regular = result.get("meta", {}).get("currentTradingPeriod", {}).get("regular", {})
     market_close = regular.get("end")
@@ -904,31 +902,51 @@ def _download_nvda_yahoo_chart() -> pd.Series:
     if (market_open is not None and market_close is not None
             and market_open <= timestamps[-1] <= market_close
             and time.time() < market_close):
-        nvda = nvda.iloc[:-1]
-    if len(nvda) < 250:
-        raise StrategyError("Historique NVDA insuffisant après retrait de la séance en cours.")
-    return nvda
+        bars = bars[bars.index.normalize() != bars.index[-1].normalize()]
+
+    rows = []
+    for date, session in bars.groupby(bars.index.normalize()):
+        if len(session) < 24:  # ignore les séances partielles et demi-séances
+            continue
+        returns = np.log(session["close"] / session["open"])
+        rows.append({
+            "date": date.tz_localize(None),
+            "nvda": float(session["close"].iloc[-1]),
+            "rv_var_d": float(np.square(returns).sum() * 252.0),
+        })
+    if not rows:
+        raise StrategyError("Aucune séance NVDA complète à 15 minutes chez Yahoo Finance.")
+    return pd.DataFrame(rows).set_index("date").sort_index()
+
+
+def refresh_nvda_rv_cache() -> pd.DataFrame:
+    """Archive les RV de séances complètes avant l'expiration des bougies Yahoo."""
+    recent = _download_nvda_yahoo_15m()
+    if NVDA_INTRADAY_RV_CACHE.exists():
+        cached = pd.read_csv(NVDA_INTRADAY_RV_CACHE, parse_dates=["date"]).set_index("date")
+        recent = pd.concat([cached[["nvda", "rv_var_d"]], recent])
+    merged = recent[~recent.index.duplicated(keep="last")].sort_index()
+    temporary = NVDA_INTRADAY_RV_CACHE.with_suffix(".tmp")
+    merged.to_csv(temporary, index_label="date")
+    temporary.replace(NVDA_INTRADAY_RV_CACHE)
+    return merged
 
 
 def _download_nvidia_history() -> pd.DataFrame:
-    """Télécharge NVDA et construit les composantes HAR sur variance quotidienne."""
+    """Construit le HAR sur RV intraday et l'historique sauvegardé."""
     try:
-        nvda = _download_nvda_yahoo_chart()
-    except (requests.RequestException, ValueError, KeyError, IndexError, StrategyError) as chart_error:
-        try:
-            nvda = _download_close(NVDA_TICKER, "nvda")
-        except Exception as yf_error:
-            raise StrategyError(
-                f"Historique NVDA indisponible : Yahoo chart ({chart_error}); "
-                f"yfinance ({yf_error})."
-            ) from yf_error
-    out = pd.DataFrame({"nvda": nvda})
+        recent = _download_nvda_yahoo_15m()
+    except (requests.RequestException, ValueError, KeyError, IndexError, StrategyError) as error:
+        if not NVDA_INTRADAY_RV_CACHE.exists():
+            raise StrategyError(f"Historique NVDA 15 min indisponible : {error}") from error
+        recent = pd.DataFrame(columns=["nvda", "rv_var_d"])
+    if NVDA_INTRADAY_RV_CACHE.exists():
+        cached = pd.read_csv(NVDA_INTRADAY_RV_CACHE, parse_dates=["date"]).set_index("date")
+        recent = pd.concat([cached[["nvda", "rv_var_d"]], recent])
+    out = recent[~recent.index.duplicated(keep="last")].sort_index()
+    if (pd.Timestamp.now(tz="America/New_York").date() - out.index[-1].date()).days > 4:
+        raise StrategyError("Cache RV NVDA 15 min périmé ; actualisation Yahoo requise.")
     out["return_1d"] = np.log(out["nvda"] / out["nvda"].shift(1))
-
-    # Avec des closes quotidiens (pas d'intraday), la variance réalisée 1j est
-    # approchée par r_t² annualisé. Les composantes HAR hebdo/mensuelle sont des
-    # moyennes de cette variance, ce qui permet une vraie récursion J+1 -> J+5.
-    out["rv_var_d"] = out["return_1d"].pow(2) * 252.0
     out["rv_var_w"] = out["rv_var_d"].rolling(5).mean()
     out["rv_var_m"] = out["rv_var_d"].rolling(21).mean()
 
@@ -944,8 +962,8 @@ def _fit_har_one_step_nvda(train: pd.DataFrame) -> Pipeline:
     data = train[["rv_var_d", "rv_var_w", "rv_var_m"]].copy()
     data["target"] = train["rv_var_d"].shift(-1)
     data = data.replace([np.inf, -np.inf], np.nan).dropna()
-    if len(data) < 250:
-        raise StrategyError(f"Historique insuffisant pour HAR-RV NVDA : {len(data)} lignes.")
+    if len(data) < 25:
+        raise StrategyError(f"Historique 15 min insuffisant pour HAR-RV NVDA : {len(data)} séances d'entraînement.")
 
     X = np.log(data[["rv_var_d", "rv_var_w", "rv_var_m"]].clip(lower=1e-12))
     y = np.log(data["target"].clip(lower=1e-12))
@@ -1007,10 +1025,10 @@ def _walk_forward_har_nvda(
     """
     clean = nvda[["rv_var_d", "rv_var_w", "rv_var_m"]].copy()
     valid_pos = np.flatnonzero(clean["rv_var_m"].notna().to_numpy())
-    if len(valid_pos) < 500:
-        raise StrategyError("Historique NVDA insuffisant pour le backtest walk-forward HAR.")
+    if len(valid_pos) < 32:
+        raise StrategyError("Historique 15 min NVDA insuffisant pour le backtest walk-forward HAR.")
 
-    first_origin = max(int(valid_pos[0]) + 260, len(clean) - int(eval_days) - max_horizon)
+    first_origin = max(int(valid_pos[0]) + 26, len(clean) - int(eval_days) - max_horizon)
     last_origin = len(clean) - max_horizon - 1
     records = []
     model = None
@@ -1062,8 +1080,8 @@ def _har_rv_forecast_horizons_nvda(nvda: pd.DataFrame, max_horizon: int = 5) -> 
     MAE, RMSE et QLIKE, et non par un R² in-sample.
     """
     train = nvda.dropna(subset=["rv_var_d", "rv_var_w", "rv_var_m"])
-    if len(train) < 250:
-        raise StrategyError("Historique insuffisant pour HAR-RV NVDA.")
+    if len(train) < 26:
+        raise StrategyError("Historique 15 min insuffisant pour HAR-RV NVDA.")
 
     model = _fit_har_one_step_nvda(nvda)
     var_path = _recursive_har_variance_path_nvda(nvda, model, max_horizon)

@@ -176,7 +176,7 @@ app_ui = ui.page_fluid(
             ui.h3("Prévisions HAR-RV NVIDIA — J+1 à J+5"),
             ui.output_table("nvda_har_table"),
             ui.p(
-                "HAR one-step : J+1 est prévu directement, puis J+2 à J+5 sont générés récursivement en réinjectant les variances prévues. La précision est mesurée en walk-forward out-of-sample (MAE, RMSE, QLIKE). Après J+5, le Monte Carlo fait converger sigma progressivement vers la volatilité long terme.",
+                "La RV quotidienne additionne les rendements des bougies NVDA 15 min au carré sur les séances US complètes. HAR one-step : J+1 est prévu directement, puis J+2 à J+5 sont générés récursivement. Yahoo ne fournit qu'environ 60 séances à 15 min ; l'archive s'enrichit quotidiennement et le faible nombre d'observations OOS rend les métriques initiales provisoires. Après J+5, le Monte Carlo fait converger sigma vers la volatilité long terme.",
                 class_="small-muted",
             ),
         ),
