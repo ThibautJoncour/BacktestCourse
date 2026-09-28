@@ -844,7 +844,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 21/09/2026" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 28/09/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 36
@@ -955,6 +955,32 @@ def _download_nvidia_history() -> pd.DataFrame:
     out["rv_w"] = np.sqrt(out["rv_var_w"].clip(lower=0.0)) * 100.0
     out["rv_m"] = np.sqrt(out["rv_var_m"].clip(lower=0.0)) * 100.0
     return out.replace([np.inf, -np.inf], np.nan)
+
+
+def _nvda_pricing_spot(history: pd.DataFrame) -> tuple[float, pd.Timestamp, str]:
+    """Prend un cours intraday frais pendant la séance, sinon la dernière clôture."""
+    now = time.time()
+    try:
+        response = requests.get(
+            f"https://query2.finance.yahoo.com/v8/finance/chart/{NVDA_TICKER}",
+            params={"range": "1d", "interval": "1m"},
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=20,
+        )
+        response.raise_for_status()
+        result = response.json()["chart"]["result"][0]
+        regular = result["meta"]["currentTradingPeriod"]["regular"]
+        if regular["start"] <= now < regular["end"]:
+            quote_time = int(result["timestamp"][-1])
+            quote = float(result["indicators"]["quote"][0]["close"][-1])
+            if not np.isfinite(quote) or quote <= 0 or now - quote_time > 15 * 60:
+                raise StrategyError("Cotation NVDA intraday absente ou vieille de plus de 15 min.")
+            return quote, pd.Timestamp(quote_time, unit="s", tz="UTC"), "Yahoo intraday 1 min"
+    except (requests.RequestException, ValueError, KeyError, IndexError, TypeError) as error:
+        raise StrategyError(f"Cotation NVDA intraday indisponible pour le repricing : {error}") from error
+
+    last_date = history["nvda"].dropna().index[-1]
+    return float(history.loc[last_date, "nvda"]), pd.Timestamp(last_date), "Dernière clôture 15 min"
 
 
 def _fit_har_one_step_nvda(train: pd.DataFrame) -> Pipeline:
@@ -1478,7 +1504,7 @@ def compute_daily_signal() -> dict:
     nvda = _download_nvidia_history()
     nvda_har = _har_rv_forecast_horizons_nvda(nvda, max_horizon=5)
     nvda_latest_date = nvda["nvda"].dropna().index[-1]
-    nvda_spot = float(nvda.loc[nvda_latest_date, "nvda"])
+    nvda_spot, nvda_spot_time, nvda_spot_source = _nvda_pricing_spot(nvda)
     nvda_news = compute_nvda_news_indicator(nvda_har, nvda_spot)
     nvda_products = fetch_nvda_stability_products()
     nvda_stability_mc = _price_nvda_stabilities_mc(
@@ -1523,7 +1549,7 @@ def compute_daily_signal() -> dict:
     print(f"Sigma GARCH VIX: {garch['garch_sigma']:.2f}%")
     print(f"Seuil compression GARCH: {garch['garch_threshold']:.2f}%")
     print(f"Compression GARCH VIX: {garch['garch_compression']}")
-    print(f"NVDA spot: {nvda_spot:.2f}")
+    print(f"NVDA spot repricing: {nvda_spot:.2f} ({nvda_spot_source}, {nvda_spot_time})")
     print(
         "Stability SG récupérés: "
         f"{nvda_products.attrs.get('scraped_total', len(nvda_products))}"
@@ -1611,6 +1637,8 @@ def compute_daily_signal() -> dict:
         # NVIDIA HAR-RV + Monte Carlo Stability
         "nvda_date": nvda_latest_date,
         "nvda_spot": nvda_spot,
+        "nvda_spot_time": nvda_spot_time,
+        "nvda_spot_source": nvda_spot_source,
         "nvda_har_rv_forecasts": nvda_har["nvda_har_rv_forecasts"],
         "nvda_har_rv_table": nvda_har["nvda_har_rv_table"],
         "nvda_har_rv_5d_pct": nvda_har["nvda_har_rv_5d_pct"],

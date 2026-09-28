@@ -201,9 +201,10 @@ app_ui = ui.page_fluid(
         ui.div(
             {"class": "panel"},
             ui.h3("Stability NVIDIA — prix théoriques Monte Carlo / HAR-RV"),
+            ui.output_text("nvda_pricing_inputs"),
             ui.output_table("product_table"),
             ui.p(
-                "La liste des Stability NVIDIA est récupérée automatiquement depuis SG Bourse à chaque actualisation. RR = distance à la barrière la plus proche / √(jours de bourse). Selon ta grille : RR 4–5 = Vega optimal ; RR 6–8 = Thêta optimal. Le tableau est classé par Edge décroissant. Prix = 10 € × probabilité de survie des deux barrières × actualisation.",
+                "RR = distance à la barrière la plus proche / √(jours de bourse). Le prix théorique utilise une volatilité réalisée prévue, pas la volatilité implicite de la barrière ; son Edge ne représente donc pas un arbitrage exploitable. Les prix SG de secours sont datés et peuvent être périmés. Prix = 10 € × probabilité de survie des deux barrières × actualisation.",
                 class_="small-muted",
             ),
         ),
@@ -513,6 +514,22 @@ def server(input, output, session):
             return "—"
         return f"±{r['nvda_sigma_5d_move_pct']:.2f} % · ±USD {r['nvda_sigma_5d_price']:.2f}"
 
+    @render.text
+    def nvda_pricing_inputs():
+        r = result()
+        if not r.get("ok"):
+            return "Entrées du repricing indisponibles"
+        spot_time = r.get("nvda_spot_time")
+        stamp = str(spot_time) if spot_time is not None else "date inconnue"
+        forecasts = r.get("nvda_har_rv_forecasts", {})
+        return (
+            f"Spot utilisé : {r['nvda_spot']:.2f} USD ({r.get('nvda_spot_source', '—')}, {stamp}) · "
+            f"RV 15 min arrêtée au {r['nvda_date'].date()} · "
+            f"Sigma HAR J+1 : {forecasts.get(1, float('nan')):.2f} % ; "
+            f"J+5 : {forecasts.get(5, float('nan')):.2f} % annualisés. "
+            "La sigma moyenne dépend de la maturité (voir le tableau)."
+        )
+
     @render.table
     def nvda_news_table():
         r = result()
@@ -574,6 +591,7 @@ def server(input, output, session):
         )
         out["RR"] = out["RR"].map(lambda x: "—" if pd.isna(x) else f"{x:.2f}")
         out["Zone RR"] = out.get("Zone_RR", pd.Series("", index=out.index)).replace("", "—")
+        out["Spot utilisé"] = out["Spot"].map(lambda x: f"{x:.2f} USD")
         out["Sigma HAR moy."] = out["Sigma_HAR_pct_ann"].map(lambda x: f"{x:.2f} %")
         out["Sigma J+1"] = out["Sigma_J1_pct_ann"].map(lambda x: f"{x:.2f} %")
         out["Sigma J+5"] = out["Sigma_J5_pct_ann"].map(lambda x: f"{x:.2f} %")
@@ -591,6 +609,7 @@ def server(input, output, session):
 
         return out[[
             "Code",
+            "Spot utilisé",
             "Barrières",
             "Maturite",
             "Jours_bourse",
