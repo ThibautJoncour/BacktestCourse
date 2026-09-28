@@ -46,40 +46,40 @@ NVDA_MC_SEED = 42
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-24"
+NVDA_NEWS_LAST_UPDATE = "2026-09-28"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-23",
-        "days_ahead": 3,
-        "category": "Dépenses IA / macroéconomie",
-        "headline": "L'OCDE estime que les investissements dans les data centers et les semi-conducteurs IA soutiennent la croissance mondiale et la résilience de l'économie américaine en 2026.",
+        "date": "2026-09-28",
+        "days_ahead": 1,
+        "category": "Rachat d'actions",
+        "headline": "NVIDIA augmente de 150 milliards de dollars son autorisation de rachat d'actions.",
         "direction": 1,
-        "risk_level": "élevé",
+        "risk_level": "moyen",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/oecd-expects-ai-boom-help-offset-middle-east-energy-shock-now-2026-09-23/",
+        "url": "https://www.reuters.com/business/nvidia-adds-150-billion-existing-share-repurchase-plan-2026-09-28/"
     },
     {
-        "date": "2026-09-23",
-        "days_ahead": 2,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "À la veille du sommet Trump-Xi, Reuters indique que Washington devrait maintenir des contrôles stricts à l'exportation malgré les objections de Pékin.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/trump-plans-grand-spectacle-potentially-tense-xi-talks-2026-09-23/",
-    },
-    {
-        "date": "2026-09-23",
+        "date": "2026-09-28",
         "days_ahead": 1,
-        "category": "Taux US / énergie",
-        "headline": "Le marché attribue environ 50 % de probabilité à une nouvelle hausse des taux américains en octobre, alors que les dépenses IA et les coûts de l'énergie maintiennent les taux restrictifs.",
+        "category": "Taux US / dépenses IA",
+        "headline": "Les marchés anticipent une nouvelle hausse de la Fed en octobre ; la hausse du coût du capital pèse sur les hyperscalers.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.90,
+        "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/wall-st-futures-steady-with-focus-mideast-talks-us-china-summit-2026-09-23/",
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-09-28/"
+    },
+    {
+        "date": "2026-09-28",
+        "days_ahead": 2,
+        "category": "Logiciel IA",
+        "headline": "NVIDIA met à disposition des outils de sécurité pour les agents IA, dont OpenShell.",
+        "direction": 1,
+        "risk_level": "faible",
+        "confidence": 0.7,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/litigation/nvidia-releases-ai-safety-software-it-says-could-have-stopped-hugging-face-hack-2026-09-28/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -95,7 +95,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 28/09/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -139,15 +139,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.76, "2R79S": 7.85,
-    "2R83S": 8.94, "2R85S": 9.46, "2R80S": 9.18, "2R82S": 9.69,
-    "2R78S": 9.78, "2R84S": 9.35, "2R81S": 9.58, "2R77S": 9.67,
-    "2R75S": 7.94, "2R76S": 9.27, "2R95S": 9.55, "2R89S": 9.60,
-    "01M3S": 3.94, "2R90S": 9.69, "2R96S": 8.78, "2R87S": 8.62,
-    "2R93S": 9.19, "2R98S": 9.14, "3J41S": 1.94, "2R86S": 6.94,
-    "2R91S": 8.49, "2R97S": 9.05, "2R94S": 9.46, "2R88S": 9.33,
-    "5S06S": 7.72, "5S04S": 3.42, "5S07S": 8.07, "5S05S": 6.12,
-    "917QS": 1.41, "1U26S": 5.34, "1U28S": 7.80, "1U27S": 7.97,
+    "7C57S": 9.87, "7C55S": 9.88, "2R74S": 9.23, "2R79S": 6.48,
+    "2R83S": 8.45, "2R85S": 9.51, "2R80S": 8.61, "2R82S": 9.71,
+    "2R78S": 9.73, "2R84S": 9.26, "2R81S": 9.41, "2R77S": 9.48,
+    "2R75S": 6.55, "2R76S": 8.68, "2R95S": 9.56, "2R89S": 9.48,
+    "01M3S": 1.82, "2R90S": 9.68, "2R96S": 8.65, "2R87S": 7.87,
+    "2R93S": 8.91, "2R98S": 9.30, "3J41S": 1.44, "2R86S": 5.55,
+    "2R91S": 7.77, "2R97S": 9.12, "2R94S": 9.38, "2R88S": 9.02,
+    "5S06S": 6.98, "5S04S": 1.57, "5S07S": 7.91, "5S05S": 4.93,
+    "917QS": 0.42, "1U26S": 4.28, "1U28S": 7.83, "1U27S": 7.57,
 }
 
 FEATURES = [
