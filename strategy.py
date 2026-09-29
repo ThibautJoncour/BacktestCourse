@@ -49,8 +49,74 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-28"
+NVDA_NEWS_LAST_UPDATE = "2026-09-29"
 NVDA_NEWS_EVENTS = [
+    {
+        "date": "2026-09-29",
+        "days_ahead": 1,
+        "category": "Dépenses IA",
+        "headline": "Anthropic prévoit au moins 518 milliards de dollars de dépenses d'infrastructure IA sur dix ans.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/anthropics-518-billion-ai-buildout-hinges-largely-deals-that-cannot-be-canceled-2026-09-29/"
+    },
+    {
+        "date": "2026-09-29",
+        "days_ahead": 1,
+        "category": "Taux US / dollar",
+        "headline": "Le rendement du Treasury à dix ans reste à 5,21 % et le dollar demeure ferme.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.9,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-09-29/"
+    },
+    {
+        "date": "2026-09-29",
+        "days_ahead": 2,
+        "category": "HBM / chaîne d'approvisionnement",
+        "headline": "Samsung prévoit que la HBM représentera près de 30 % des capacités DRAM du secteur en 2027.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.8,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/samsung-electronics-says-hbm-account-nearly-30-industry-dram-capacity-next-year-2026-09-29/"
+    },
+    {
+        "date": "2026-09-29",
+        "days_ahead": 2,
+        "category": "Réglementation IA",
+        "headline": "La Maison-Blanche réunit NVIDIA et d'autres dirigeants technologiques pour discuter de la réglementation de l'IA.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.75,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/government/trump-host-zuckerberg-anthropics-amodei-other-ai-titans-tuesday-2026-09-29/"
+    },
+    {
+        "date": "2026-09-29",
+        "days_ahead": 3,
+        "category": "Financement des data centers",
+        "headline": "Les écarts de crédit liés au financement de grands projets IA augmentent avec les coûts d'emprunt.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.8,
+        "source": "Reuters Breakingviews",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/are-ai-credit-cracks-warning-or-buy-signal-2026-09-29/"
+    },
+    {
+        "date": "2026-09-28",
+        "days_ahead": 3,
+        "category": "Concurrence",
+        "headline": "AMD annonce l'acquisition de World Labs pour 8,2 milliards de dollars afin de renforcer son offre en IA physique.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/technology/amd-acquire-fei-fei-lis-world-labs-82-billion-deal-2026-09-28/"
+    },
     {
         "date": "2026-09-28",
         "days_ahead": 1,
@@ -59,30 +125,8 @@ NVDA_NEWS_EVENTS = [
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-adds-150-billion-existing-share-repurchase-plan-2026-09-28/"
-    },
-    {
-        "date": "2026-09-28",
-        "days_ahead": 1,
-        "category": "Taux US / dépenses IA",
-        "headline": "Les marchés anticipent une nouvelle hausse de la Fed en octobre ; la hausse du coût du capital pèse sur les hyperscalers.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-09-28/"
-    },
-    {
-        "date": "2026-09-28",
-        "days_ahead": 2,
-        "category": "Logiciel IA",
-        "headline": "NVIDIA met à disposition des outils de sécurité pour les agents IA, dont OpenShell.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.7,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/litigation/nvidia-releases-ai-safety-software-it-says-could-have-stopped-hugging-face-hack-2026-09-28/"
+        "source": "NVIDIA Investor Relations",
+        "url": "https://investor.nvidia.com/home/default.aspx?releaseid=855961"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -98,7 +142,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 28/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 29/09/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -142,15 +186,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.87, "7C55S": 9.88, "2R74S": 9.23, "2R79S": 6.48,
-    "2R83S": 8.45, "2R85S": 9.51, "2R80S": 8.61, "2R82S": 9.71,
-    "2R78S": 9.73, "2R84S": 9.26, "2R81S": 9.41, "2R77S": 9.48,
-    "2R75S": 6.55, "2R76S": 8.68, "2R95S": 9.56, "2R89S": 9.48,
-    "01M3S": 1.82, "2R90S": 9.68, "2R96S": 8.65, "2R87S": 7.87,
-    "2R93S": 8.91, "2R98S": 9.30, "3J41S": 1.44, "2R86S": 5.55,
-    "2R91S": 7.77, "2R97S": 9.12, "2R94S": 9.38, "2R88S": 9.02,
-    "5S06S": 6.98, "5S04S": 1.57, "5S07S": 7.91, "5S05S": 4.93,
-    "917QS": 0.42, "1U26S": 4.28, "1U28S": 7.83, "1U27S": 7.57,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.70, "2R79S": 7.24,
+    "2R83S": 8.86, "2R85S": 9.57, "2R80S": 9.03, "2R82S": 9.72,
+    "2R78S": 9.78, "2R84S": 9.42, "2R81S": 9.55, "2R77S": 9.61,
+    "2R75S": 7.13, "2R76S": 9.09, "2R95S": 9.59, "2R89S": 9.58,
+    "01M3S": 2.54, "2R90S": 9.70, "2R96S": 8.85, "2R87S": 8.32,
+    "2R93S": 9.14, "2R98S": 9.34, "3J41S": 1.85, "2R86S": 6.22,
+    "2R91S": 8.23, "2R97S": 9.21, "2R94S": 9.48, "2R88S": 9.23,
+    "5S06S": 7.39, "5S04S": 2.13, "5S07S": 8.13, "5S05S": 5.39,
+    "917QS": 0.67, "1U26S": 4.77, "1U28S": 7.99, "1U27S": 7.86,
 }
 
 FEATURES = [
@@ -844,7 +888,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 28/09/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 29/09/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 36
