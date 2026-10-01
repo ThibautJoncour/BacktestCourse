@@ -49,95 +49,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-09-30"
+NVDA_NEWS_LAST_UPDATE = "2026-10-01"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-09-29",
-        "days_ahead": 1,
-        "category": "Dépenses IA / cloud",
-        "headline": "Anthropic indique que 47 % de ses ventes 2025 ont transité par Amazon et Google, parallèlement à de lourds engagements de calcul.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/anthropic-ipo-prospectus-lays-bare-deep-dependence-big-tech-partners-2026-09-29/"
-    },
-    {
         "date": "2026-09-30",
         "days_ahead": 1,
-        "category": "Taux US / dollar",
-        "headline": "Une inflation américaine inférieure aux attentes fait reculer le dollar et les rendements du Treasury.",
+        "category": "Mémoire / demande IA",
+        "headline": "Micron attribue ses résultats records à la demande IA et prévoit 61,5 milliards de dollars de chiffre d'affaires au premier trimestre 2027.",
         "direction": 1,
-        "risk_level": "moyen",
+        "risk_level": "faible",
+        "confidence": 0.95,
+        "source": "Micron",
+        "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/default.aspx"
+    },
+    {
+        "date": "2026-10-01",
+        "days_ahead": 1,
+        "category": "Financement IA",
+        "headline": "Des prêteurs demandent davantage de garanties pour financer des infrastructures adossées aux GPU NVIDIA, dont la valeur résiduelle reste contestée.",
+        "direction": -1,
+        "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/africa/dollar-set-september-rise-mainly-euros-expense-2026-09-30/"
+        "url": "https://www.reuters.com/legal/transactional/nvidias-bet-that-its-chips-can-finance-ai-boom-gets-wall-street-reality-check-2026-10-01/"
     },
     {
-        "date": "2026-09-29",
-        "days_ahead": 2,
-        "category": "Logiciels IA / demande de calcul",
-        "headline": "OpenAI lance ses agents autonomes dots et poursuit ses investissements dans les data centers.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/"
-    },
-    {
-        "date": "2026-09-30",
+        "date": "2026-10-01",
         "days_ahead": 1,
-        "category": "Chine / concurrence",
-        "headline": "DeepSeek et Huawei développent des outils de programmation pour Ascend afin de réduire leur dépendance à l'écosystème NVIDIA.",
+        "category": "Taux US / dollar",
+        "headline": "Le rendement du Treasury américain à dix ans atteint 5,34 %, un sommet depuis 2002, augmentant le taux d'actualisation des valeurs technologiques.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/deepseek-partners-with-huawei-develop-chip-programming-tools-reducing-reliance-2026-09-30/"
+        "url": "https://www.reuters.com/business/bonds-teeter-after-us-treasuries-worst-quarter-since-1994-2026-10-01/"
     },
     {
-        "date": "2026-09-30",
-        "days_ahead": 2,
-        "category": "Financement IA",
-        "headline": "La Banque d'Angleterre alerte sur la hausse des vulnérabilités liées à la dette IA et aux coûts énergétiques.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/bank-england-sees-growing-risk-that-dangers-ai-debt-will-materialise-2026-09-30/"
-    },
-    {
-        "date": "2026-09-30",
+        "date": "2026-10-01",
         "days_ahead": 3,
-        "category": "TSMC / chaîne d'approvisionnement",
-        "headline": "TSMC évalue un investissement au Texas pour accroître sa production de puces aux États-Unis.",
+        "category": "Data centers / énergie",
+        "headline": "JERA, Dell et RHAELM annoncent au Japon un data center IA de 400 MW et 15 milliards de dollars, avec une mise en service progressive prévue en 2028.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.85,
+        "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/tsmc-evaluates-potential-texas-investment-sources-say-2026-09-30/"
+        "url": "https://www.reuters.com/business/energy/jera-teams-up-with-dell-rhaelm-ai-infrastructure-development-japan-2026-10-01/"
     },
     {
-        "date": "2026-09-30",
+        "date": "2026-10-01",
         "days_ahead": 2,
-        "category": "Mémoire / chaîne d'approvisionnement",
-        "headline": "Netlist demande une interdiction d'importation de certaines puces Micron utilisées dans des systèmes NVIDIA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/litigation/netlist-seeks-us-import-ban-micron-chips-used-google-nvidia-ai-computing-2026-09-29/"
-    },
-    {
-        "date": "2026-09-30",
-        "days_ahead": 3,
-        "category": "Concurrence matérielle",
-        "headline": "HPE relève ses perspectives réseau après une commande de 1,2 milliard de dollars de racks IA équipés de processeurs AMD.",
-        "direction": -1,
+        "category": "Interconnexion / chaîne d'approvisionnement",
+        "headline": "Volantis lève 88 millions de dollars pour développer des interconnexions optiques reliant jusqu'à 220 puces mémoire autour d'un GPU.",
+        "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.85,
+        "confidence": 0.8,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/hpe-boosts-networking-growth-outlook-gets-12-billion-ai-order-cloud-firm-vultr-2026-09-30/"
+        "url": "https://www.reuters.com/business/volantis-raises-88-million-tech-connect-ai-memory-chips-2026-10-01/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -153,7 +120,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 30/09/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 01/10/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -197,15 +164,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.64, "2R79S": 6.97,
-    "2R83S": 8.78, "2R85S": 9.58, "2R80S": 8.93, "2R82S": 9.72,
-    "2R78S": 9.79, "2R84S": 9.41, "2R81S": 9.57, "2R77S": 9.63,
-    "2R75S": 7.03, "2R76S": 9.10, "2R95S": 9.62, "2R89S": 9.57,
-    "01M3S": 2.14, "2R90S": 9.71, "2R96S": 8.89, "2R87S": 8.31,
-    "2R93S": 9.11, "2R98S": 9.36, "3J41S": 1.79, "2R86S": 5.97,
-    "2R91S": 8.12, "2R97S": 9.24, "2R94S": 9.49, "2R88S": 9.20,
-    "5S06S": 7.42, "5S04S": 1.81, "5S07S": 8.22, "5S05S": 5.36,
-    "917QS": 0.53, "1U26S": 4.65, "1U28S": 8.06, "1U27S": 7.88,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.80, "2R79S": 7.30,
+    "2R83S": 8.95, "2R85S": 9.61, "2R80S": 9.11, "2R82S": 9.74,
+    "2R78S": 9.81, "2R84S": 9.48, "2R81S": 9.62, "2R77S": 9.69,
+    "2R75S": 7.38, "2R76S": 9.17, "2R95S": 9.63, "2R89S": 9.63,
+    "01M3S": 2.45, "2R90S": 9.73, "2R96S": 8.96, "2R87S": 8.40,
+    "2R93S": 9.22, "2R98S": 9.38, "3J41S": 1.90, "2R86S": 6.24,
+    "2R91S": 8.31, "2R97S": 9.28, "2R94S": 9.53, "2R88S": 9.26,
+    "5S06S": 7.47, "5S04S": 1.99, "5S07S": 8.27, "5S05S": 5.40,
+    "917QS": 0.63, "1U26S": 4.71, "1U28S": 8.09, "1U27S": 7.93,
 }
 
 FEATURES = [
@@ -899,7 +866,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 30/09/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 01/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 36
