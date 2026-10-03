@@ -49,62 +49,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-02"
+NVDA_NEWS_LAST_UPDATE = "2026-10-03"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-01",
+        "date": "2026-10-02",
         "days_ahead": 2,
-        "category": "Infrastructure IA / Europe",
-        "headline": "Bull double à 12 racks par mois la capacité de son usine française de supercalculateurs, qui assemble des systèmes NVIDIA et prévoit des NVL avec Foxconn.",
+        "category": "Demande IA / agents",
+        "headline": "L'agent Muse de Meta dépasse cinq millions de téléchargements et les fabricants de puces, dont NVIDIA, figurent parmi les principaux bénéficiaires boursiers de son adoption.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/europe/french-supercomputer-maker-bull-doubles-output-boost-europes-ai-ambitions-2026-10-01/"
+        "confidence": 0.75,
+        "source": "Reuters Breakingviews",
+        "url": "https://www.reuters.com/commentary/breakingviews/metas-muse-is-adorable-agent-value-destruction-2026-10-02/"
     },
     {
-        "date": "2026-10-01",
+        "date": "2026-10-03",
         "days_ahead": 3,
-        "category": "Dépenses IA / hyperscalers",
-        "headline": "Temasek juge soutenable le niveau actuel des dépenses IA et cite des prévisions de capex hyperscaler dépassant 1 000 milliards de dollars en 2027.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/temasek-comfortable-with-current-ai-spending-levels-executive-says-2026-10-01/"
-    },
-    {
-        "date": "2026-10-01",
-        "days_ahead": 2,
-        "category": "Réglementation IA",
-        "headline": "Le procureur général de Californie assigne OpenAI dans une enquête sur les risques cyber de ses agents, tandis que la FTC examine l'ensemble du secteur.",
+        "category": "Financement IA / hyperscalers",
+        "headline": "Des économistes mettent en doute la capacité des gains de productivité à financer les investissements IA, alors que les hyperscalers devraient trouver plus de 4 200 milliards de dollars de revenus nouveaux en cinq ans.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/litigation/california-attorney-general-issues-investigative-subpoena-openai-2026-10-01/"
-    },
-    {
-        "date": "2026-10-02",
-        "days_ahead": 3,
-        "category": "Data centers / énergie",
-        "headline": "AWS prévoit plus d'un milliard de dollars sur cinq ans pour atténuer les impacts énergétiques et hydriques dans les communautés accueillant ses data centers.",
-        "direction": 1,
-        "risk_level": "moyen",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/amazon-invest-1-billion-over-five-years-us-data-center-communities-2026-10-02/"
+        "url": "https://www.reuters.com/business/retail-consumer/ais-race-transform-world-before-money-runs-out-2026-10-03/"
     },
     {
-        "date": "2026-10-02",
-        "days_ahead": 1,
-        "category": "Taux US / dollar",
-        "headline": "Les créations d'emplois américaines ralentissent à 29 000 en septembre, faisant reculer le Treasury à dix ans et la probabilité d'une hausse de taux en octobre.",
+        "date": "2026-10-03",
+        "days_ahead": 3,
+        "category": "Réglementation IA",
+        "headline": "L'accord américain de sécurité IA signé avec NVIDIA et cinq autres groupes reste volontaire et ne prévoit aucune sanction explicite en cas de non-respect.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.95,
+        "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-10-02/"
+        "url": "https://www.reuters.com/legal/litigation/public-fears-ai-grow-trump-digs-voluntary-safeguards-2026-10-03/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -120,7 +98,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 02/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 03/10/2026
 # (36 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -164,15 +142,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.53, "2R79S": 6.15,
-    "2R83S": 8.55, "2R85S": 9.64, "2R80S": 8.66, "2R82S": 9.74,
-    "2R78S": 9.79, "2R84S": 9.41, "2R81S": 9.51, "2R77S": 9.56,
-    "2R75S": 6.21, "2R76S": 8.72, "2R95S": 9.65, "2R89S": 9.57,
-    "01M3S": 0.92, "2R90S": 9.73, "2R96S": 8.82, "2R87S": 7.80,
-    "2R93S": 9.00, "2R98S": 9.48, "3J41S": 1.18, "2R86S": 5.20,
-    "2R91S": 7.73, "2R97S": 9.32, "2R94S": 9.52, "2R88S": 9.07,
-    "5S06S": 6.85, "5S04S": 0.74, "5S07S": 8.06, "5S05S": 4.50,
-    "917QS": 0.15, "1U26S": 3.89, "1U28S": 8.06, "1U27S": 7.59,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.80, "2R79S": 6.98,
+    "2R83S": 8.97, "2R85S": 9.66, "2R80S": 9.09, "2R82S": 9.77,
+    "2R78S": 9.81, "2R84S": 9.55, "2R81S": 9.58, "2R77S": 9.71,
+    "2R75S": 6.51, "2R76S": 9.14, "2R95S": 9.68, "2R89S": 9.61,
+    "01M3S": 1.71, "2R90S": 9.75, "2R96S": 8.95, "2R87S": 8.00,
+    "2R93S": 9.25, "2R98S": 9.49, "3J41S": 1.73, "2R86S": 5.85,
+    "2R91S": 7.93, "2R97S": 9.37, "2R94S": 9.54, "2R88S": 9.18,
+    "5S06S": 7.06, "5S04S": 0.95, "5S07S": 8.38, "5S05S": 4.71,
+    "917QS": 0.23, "1U26S": 4.08, "1U28S": 8.18, "1U27S": 7.75,
 }
 
 FEATURES = [
@@ -866,7 +844,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 02/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 03/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 36
