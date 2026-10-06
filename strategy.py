@@ -49,73 +49,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-05"
+NVDA_NEWS_LAST_UPDATE = "2026-10-06"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "days_ahead": 1,
-        "category": "Chaîne d'approvisionnement / demande IA",
-        "headline": "Foxconn a publié une hausse de 47 % de son chiffre d'affaires trimestriel, supérieure aux attentes, portée par la demande IA, et prévoit une nouvelle croissance de ses activités IA au quatrième trimestre.",
+        "category": "Énergie des data centers / hyperscalers",
+        "headline": "Google et Constellation ont conclu des accords portant sur 3 590 MW dans PJM, dont 890 MW de nouvelle capacité nucléaire, pour soutenir la croissance de Google et la fiabilité du réseau.",
         "direction": 1,
         "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/foxconn-third-quarter-revenue-jumps-47-yy-beats-market-forecast-2026-10-05/"
+        "confidence": 0.95,
+        "source": "Google / Constellation",
+        "url": "https://www.googlecloudpresscorner.com/2026-10-06-Google-and-Constellation-Announce-Landmark-Agreement-to-Bring-890-MW-of-New-Nuclear-Capacity-to-PJM-Grid-as-Part-of-Long-Term-Power-Deal"
     },
     {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "days_ahead": 2,
-        "category": "Taux US / inflation",
-        "headline": "Les prix payés dans les services américains ont accéléré à 74,0 et les économistes maintiennent l'hypothèse d'une hausse des taux de la Fed en décembre.",
+        "category": "Concurrence / chaîne d'approvisionnement",
+        "headline": "AMD prévoit d'augmenter fortement son offre de puces en 2027 et travaille avec TSMC, Foxconn, Samsung et SK Hynix pour accroître sa capacité CPU, GPU et mémoire.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/us-services-sector-activity-slows-september-price-pressures-mount-2026-10-05/"
+        "url": "https://www.reuters.com/world/asia-pacific/amd-plans-substantially-increase-supply-2027-ceo-says-2026-10-06/"
     },
     {
         "date": "2026-10-05",
         "days_ahead": 2,
+        "category": "Énergie des data centers / chaîne d'approvisionnement",
+        "headline": "Morgan Stanley estime que NVIDIA et Broadcom sont relativement protégés du déficit de puissance des data centers et ne voit pas leurs prévisions 2027 menacées par ces goulets d'étranglement.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/nvidia-broadcom-shielded-ai-power-crunch-hits-chip-supply-chain-says-morgan-2026-10-05/"
+    },
+    {
+        "date": "2026-10-06",
+        "days_ahead": 3,
+        "category": "Réglementation / data centers européens",
+        "headline": "Le gouvernement espagnol prépare des règles plus strictes sur l'eau et l'électricité des data centers ; les autorités d'Aragon préviennent que certains projets pourraient être réévalués.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/technology/fast-track-permits-turn-spains-aragon-into-70-billion-data-centre-magnet-what-2026-10-06/"
+    },
+    {
+        "date": "2026-10-06",
+        "days_ahead": 3,
         "category": "Taux US / valorisation technologique",
-        "headline": "La probabilité implicite d'une hausse de la Fed en octobre est retombée à 22 %, mais le marché attribue encore 84 % de probabilité à une hausse en décembre.",
+        "headline": "Les rendements du Trésor ont reculé de leurs sommets pluriannuels tandis que l'optimisme sur l'IA a porté le Nasdaq et le S&P 500 à des records intrajournaliers.",
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/india/gold-gains-october-fed-rate-hike-prospects-fade-2026-10-05/"
+        "url": "https://www.reuters.com/business/wall-st-futures-rise-yields-oil-dip-2026-10-06/"
     },
     {
-        "date": "2026-10-05",
-        "days_ahead": 3,
-        "category": "Dépenses IA / data centers",
-        "headline": "Goldman Sachs juge intacte la croissance des data centers américains jusqu'en 2027 et prévoit une hausse de 38 % de leur demande électrique en 2026 puis en 2027.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/goldman-sees-us-data-center-growth-intact-despite-opposition-2026-10-05/"
-    },
-    {
-        "date": "2026-10-05",
-        "days_ahead": 3,
-        "category": "Taux longs / financement IA",
-        "headline": "Les rendements longs américains restent proches de leurs plus hauts en vingt ans, les déficits, l'inflation et le boom d'investissement IA maintenant les coûts de financement élevés.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/what-will-washington-do-next-if-us-bond-yields-keep-rising-2026-10-05/"
-    },
-    {
-        "date": "2026-10-04",
+        "date": "2026-10-06",
         "days_ahead": 4,
-        "category": "Réglementation IA",
-        "headline": "Sam Altman a défendu une réglementation légère et un accès large aux outils d'IA, une position cohérente avec une poursuite rapide des investissements de calcul.",
-        "direction": 1,
+        "category": "Taux US / conditions de financement",
+        "headline": "Le ralentissement des flux vers les fonds monétaires et l'offre élevée de bons du Trésor ont relevé les rendements courts et pourraient resserrer les conditions de financement.",
+        "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.75,
+        "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/openais-altman-says-ai-benefits-warrant-accepting-some-risks-2026-10-04/"
+        "url": "https://www.reuters.com/business/slowdown-money-fund-cash-flow-hits-short-term-treasuries-2026-10-06/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,8 +131,8 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 05/10/2026
-# (37 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 06/10/2026
+# (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
@@ -152,7 +152,6 @@ NVDA_FALLBACK_PRODUCTS = [
     ("2R76S", "DE000FE6NXE2", 120, 280, "2026-11-20"),
     ("2R95S", "DE000FE6NXY0", 140, 340, "2026-12-18"),
     ("2R89S", "DE000FE6NXT0", 120, 320, "2026-12-18"),
-    ("01M3S", "DE000FG2S7Z0", 100, 240, "2026-12-18"),
     ("2R90S", "DE000FE6NXU8", 120, 340, "2026-12-18"),
     ("2R96S", "DE000FE6NXZ7", 160, 300, "2026-12-18"),
     ("2R87S", "DE000FE6NXR4", 120, 280, "2026-12-18"),
@@ -166,26 +165,23 @@ NVDA_FALLBACK_PRODUCTS = [
     ("2R88S", "DE000FE6NXS2", 120, 300, "2026-12-18"),
     ("44N9S", "DE000FG8PST9", 200, 270, "2027-01-15"),
     ("5S06S", "DE000FG1E5H9", 140, 280, "2027-01-15"),
-    ("5S04S", "DE000FG1E5F3", 100, 240, "2027-01-15"),
     ("5S07S", "DE000FG1E5J5", 160, 300, "2027-01-15"),
     ("5S05S", "DE000FG1E5G1", 120, 260, "2027-01-15"),
-    ("917QS", "DE000FG4Z577", 170, 240, "2027-02-19"),
     ("1U26S", "DE000FG3T895", 120, 260, "2027-02-19"),
     ("1U28S", "DE000FG3T9B5", 160, 320, "2027-02-19"),
     ("1U27S", "DE000FG3T9A7", 140, 300, "2027-02-19"),
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.74, "2R79S": 6.43,
-    "2R83S": 8.78, "2R85S": 9.68, "2R80S": 8.89, "2R82S": 9.78,
-    "2R78S": 9.83, "2R84S": 9.52, "2R81S": 9.62, "2R77S": 9.66,
-    "2R75S": 6.48, "2R76S": 8.94, "2R95S": 9.68, "2R89S": 9.62,
-    "01M3S": 1.02, "2R90S": 9.75, "2R96S": 8.99, "2R87S": 8.02,
-    "2R93S": 9.15, "2R98S": 9.52, "3J41S": 1.38, "2R86S": 5.37,
-    "2R91S": 7.95, "2R97S": 9.42, "2R94S": 9.58, "2R88S": 9.29,
-    "44N9S": 3.48, "5S06S": 7.37, "5S04S": 0.71, "5S07S": 8.38,
-    "5S05S": 4.91, "917QS": 0.14, "1U26S": 4.24, "1U28S": 8.27,
-    "1U27S": 7.95,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.48, "2R79S": 5.48,
+    "2R83S": 8.57, "2R85S": 9.72, "2R80S": 8.66, "2R82S": 9.79,
+    "2R78S": 9.82, "2R84S": 9.52, "2R81S": 9.59, "2R77S": 9.63,
+    "2R75S": 5.54, "2R76S": 8.70, "2R95S": 9.70, "2R89S": 9.60,
+    "2R90S": 9.76, "2R96S": 8.91, "2R87S": 7.64, "2R93S": 9.05,
+    "2R98S": 9.58, "3J41S": 0.89, "2R86S": 4.49, "2R91S": 7.59,
+    "2R97S": 9.44, "2R94S": 9.56, "2R88S": 9.11, "44N9S": 3.28,
+    "5S06S": 6.64, "5S07S": 8.25, "5S05S": 3.83, "1U26S": 3.22,
+    "1U28S": 8.22, "1U27S": 7.57,
 }
 
 FEATURES = [
@@ -879,7 +875,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 05/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 06/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 37
