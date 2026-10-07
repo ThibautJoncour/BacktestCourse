@@ -49,73 +49,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-06"
+NVDA_NEWS_LAST_UPDATE = "2026-10-07"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-06",
+        "date": "2026-10-07",
         "days_ahead": 1,
-        "category": "Énergie des data centers / hyperscalers",
-        "headline": "Google et Constellation ont conclu des accords portant sur 3 590 MW dans PJM, dont 890 MW de nouvelle capacité nucléaire, pour soutenir la croissance de Google et la fiabilité du réseau.",
+        "category": "Produits NVIDIA / informatique personnelle",
+        "headline": "Microsoft doit présenter le Surface Laptop Ultra équipé de puces NVIDIA RTX Spark afin d'exécuter localement des agents IA sous Windows.",
         "direction": 1,
         "risk_level": "élevé",
         "confidence": 0.95,
-        "source": "Google / Constellation",
-        "url": "https://www.googlecloudpresscorner.com/2026-10-06-Google-and-Constellation-Announce-Landmark-Agreement-to-Bring-890-MW-of-New-Nuclear-Capacity-to-PJM-Grid-as-Part-of-Long-Term-Power-Deal"
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/microsoft-nvidia-ceos-unveil-new-ai-laptop-san-francisco-event-2026-10-07/"
     },
     {
-        "date": "2026-10-06",
+        "date": "2026-10-07",
         "days_ahead": 2,
-        "category": "Concurrence / chaîne d'approvisionnement",
-        "headline": "AMD prévoit d'augmenter fortement son offre de puces en 2027 et travaille avec TSMC, Foxconn, Samsung et SK Hynix pour accroître sa capacité CPU, GPU et mémoire.",
+        "category": "Mémoire / coût du matériel",
+        "headline": "La hausse du coût de la mémoire a conduit NVIDIA à relever d'environ 75 % le prix du DGX Spark à 6 950 dollars, ce qui pourrait freiner l'adoption de l'IA locale.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/amd-plans-substantially-increase-supply-2027-ceo-says-2026-10-06/"
+        "url": "https://www.reuters.com/business/microsoft-nvidia-ceos-unveil-new-ai-laptop-san-francisco-event-2026-10-07/"
     },
     {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "days_ahead": 2,
-        "category": "Énergie des data centers / chaîne d'approvisionnement",
-        "headline": "Morgan Stanley estime que NVIDIA et Broadcom sont relativement protégés du déficit de puissance des data centers et ne voit pas leurs prévisions 2027 menacées par ces goulets d'étranglement.",
+        "category": "Dépenses IA / énergie des data centers",
+        "headline": "Black Hills prévoit 1,8 milliard de dollars d'investissements et 564 MW de nouvelle capacité pour alimenter un projet de data center Google dans le Wyoming.",
         "direction": 1,
         "risk_level": "élevé",
-        "confidence": 0.85,
+        "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-broadcom-shielded-ai-power-crunch-hits-chip-supply-chain-says-morgan-2026-10-05/"
+        "url": "https://www.reuters.com/business/energy/black-hills-plans-18-billion-investment-power-googles-data-center-2026-10-06/"
     },
     {
         "date": "2026-10-06",
         "days_ahead": 3,
-        "category": "Réglementation / data centers européens",
-        "headline": "Le gouvernement espagnol prépare des règles plus strictes sur l'eau et l'électricité des data centers ; les autorités d'Aragon préviennent que certains projets pourraient être réévalués.",
+        "category": "Demande IA / consommation électrique",
+        "headline": "L'EIA prévoit une hausse de 2,8 % en 2027 de la demande électrique du secteur commercial, qui inclut les data centers.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "U.S. Energy Information Administration",
+        "url": "https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php"
+    },
+    {
+        "date": "2026-10-07",
+        "days_ahead": 3,
+        "category": "Dollar / énergie",
+        "headline": "L'indice dollar a progressé de 0,64 % à 102,49 tandis que le Brent repassait au-dessus de 100 dollars, deux facteurs défavorables aux valorisations technologiques.",
         "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/technology/fast-track-permits-turn-spains-aragon-into-70-billion-data-centre-magnet-what-2026-10-06/"
-    },
-    {
-        "date": "2026-10-06",
-        "days_ahead": 3,
-        "category": "Taux US / valorisation technologique",
-        "headline": "Les rendements du Trésor ont reculé de leurs sommets pluriannuels tandis que l'optimisme sur l'IA a porté le Nasdaq et le S&P 500 à des records intrajournaliers.",
-        "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-futures-rise-yields-oil-dip-2026-10-06/"
+        "url": "https://www.reuters.com/world/asia-pacific/dollar-holds-losses-markets-await-fed-minutes-speakers-2026-10-07/"
     },
     {
-        "date": "2026-10-06",
+        "date": "2026-10-07",
         "days_ahead": 4,
-        "category": "Taux US / conditions de financement",
-        "headline": "Le ralentissement des flux vers les fonds monétaires et l'offre élevée de bons du Trésor ont relevé les rendements courts et pourraient resserrer les conditions de financement.",
+        "category": "Taux US / financement IA",
+        "headline": "Le rendement du Treasury à dix ans reste proche de 5,34 %, son plus haut depuis 2002, alors que l'endettement des groupes technologiques et les émissions du Trésor entretiennent la pression sur les taux.",
         "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
+        "risk_level": "élevé",
+        "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/slowdown-money-fund-cash-flow-hits-short-term-treasuries-2026-10-06/"
+        "url": "https://www.reuters.com/business/lower-us-treasury-yield-view-persists-despite-biggest-quarterly-surge-since-1994-2026-10-07/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +131,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 06/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 07/10/2026
 # (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -173,15 +173,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.48, "2R79S": 5.48,
-    "2R83S": 8.57, "2R85S": 9.72, "2R80S": 8.66, "2R82S": 9.79,
-    "2R78S": 9.82, "2R84S": 9.52, "2R81S": 9.59, "2R77S": 9.63,
-    "2R75S": 5.54, "2R76S": 8.70, "2R95S": 9.70, "2R89S": 9.60,
-    "2R90S": 9.76, "2R96S": 8.91, "2R87S": 7.64, "2R93S": 9.05,
-    "2R98S": 9.58, "3J41S": 0.89, "2R86S": 4.49, "2R91S": 7.59,
-    "2R97S": 9.44, "2R94S": 9.56, "2R88S": 9.11, "44N9S": 3.28,
-    "5S06S": 6.64, "5S07S": 8.25, "5S05S": 3.83, "1U26S": 3.22,
-    "1U28S": 8.22, "1U27S": 7.57,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.85, "2R79S": 6.44,
+    "2R83S": 8.93, "2R85S": 9.73, "2R80S": 9.01, "2R82S": 9.80,
+    "2R78S": 9.84, "2R84S": 9.60, "2R81S": 9.67, "2R77S": 9.71,
+    "2R75S": 6.48, "2R76S": 9.16, "2R95S": 9.71, "2R89S": 9.66,
+    "2R90S": 9.77, "2R96S": 9.14, "2R87S": 8.07, "2R93S": 9.28,
+    "2R98S": 9.58, "3J41S": 1.30, "2R86S": 5.25, "2R91S": 8.02,
+    "2R97S": 9.48, "2R94S": 9.63, "2R88S": 9.28, "44N9S": 3.73,
+    "5S06S": 7.30, "5S07S": 8.39, "5S05S": 4.53, "1U26S": 4.10,
+    "1U28S": 8.33, "1U27S": 7.93,
 }
 
 FEATURES = [
@@ -875,7 +875,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 06/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 07/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 37
