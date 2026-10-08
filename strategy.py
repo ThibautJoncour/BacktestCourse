@@ -49,73 +49,84 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-07"
+NVDA_NEWS_LAST_UPDATE = "2026-10-08"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-07",
+        "date": "2026-10-08",
         "days_ahead": 1,
-        "category": "Produits NVIDIA / informatique personnelle",
-        "headline": "Microsoft doit présenter le Surface Laptop Ultra équipé de puces NVIDIA RTX Spark afin d'exécuter localement des agents IA sous Windows.",
+        "category": "Demande IA / chaîne d'approvisionnement",
+        "headline": "TSMC a publié un chiffre d'affaires trimestriel record de 1 490 milliards de dollars taïwanais, en hausse de 50 % sur un an et supérieur aux prévisions, porté par la demande d'applications IA.",
         "direction": 1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/microsoft-nvidia-ceos-unveil-new-ai-laptop-san-francisco-event-2026-10-07/"
+        "url": "https://www.reuters.com/world/asia-pacific/tsmcs-third-quarter-revenue-surges-50-yy-beating-market-forecast-2026-10-08/"
+    },
+    {
+        "date": "2026-10-08",
+        "days_ahead": 2,
+        "category": "Packaging avancé / chaîne d'approvisionnement",
+        "headline": "GlobalFoundries a conclu un accord de 2 milliards de dollars pour fabriquer aux États-Unis des interposeurs en silicium destinés à TSMC, composants essentiels des packages de puces IA.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.9,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/globalfoundries-make-key-ai-chip-component-tsmc-2026-10-08/"
+    },
+    {
+        "date": "2026-10-08",
+        "days_ahead": 2,
+        "category": "Réseaux IA / écosystème NVIDIA",
+        "headline": "Upscale AI, soutenue par NVIDIA, a lancé Token Fabric, une plateforme reliant dans un même data center des accélérateurs IA provenant de plusieurs fournisseurs.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.85,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/nvidia-backed-upscale-ai-launches-platform-connect-chips-rival-suppliers-2026-10-08/"
     },
     {
         "date": "2026-10-07",
-        "days_ahead": 2,
-        "category": "Mémoire / coût du matériel",
-        "headline": "La hausse du coût de la mémoire a conduit NVIDIA à relever d'environ 75 % le prix du DGX Spark à 6 950 dollars, ce qui pourrait freiner l'adoption de l'IA locale.",
+        "days_ahead": 3,
+        "category": "Dépenses IA / financement",
+        "headline": "SpaceX cherche à lever 40 milliards de dollars de dette et de prêts pour acheter des puces NVIDIA et accroître fortement sa capacité de calcul.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.9,
+        "source": "Reuters Breakingviews",
+        "url": "https://www.reuters.com/commentary/breakingviews/elon-musk-readies-his-signature-gambit-spacex-2026-10-07/"
+    },
+    {
+        "date": "2026-10-08",
+        "days_ahead": 3,
+        "category": "Financement des data centers",
+        "headline": "Firmus, opérateur de data centers soutenu par NVIDIA, envisage de réduire de 25 % le prix de son introduction en Bourse face à une demande internationale plus faible que prévu.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/microsoft-nvidia-ceos-unveil-new-ai-laptop-san-francisco-event-2026-10-07/"
+        "url": "https://www.reuters.com/world/asia-pacific/firmus-investor-stock-falls-after-reports-ai-data-centre-operator-may-cut-5-bln-2026-10-08/"
     },
     {
-        "date": "2026-10-06",
-        "days_ahead": 2,
-        "category": "Dépenses IA / énergie des data centers",
-        "headline": "Black Hills prévoit 1,8 milliard de dollars d'investissements et 564 MW de nouvelle capacité pour alimenter un projet de data center Google dans le Wyoming.",
-        "direction": 1,
+        "date": "2026-10-08",
+        "days_ahead": 4,
+        "category": "Taux US / énergie",
+        "headline": "La hausse du pétrole et des rendements du Treasury proches de sommets pluriannuels ravive les craintes inflationnistes et pèse sur les valorisations technologiques.",
+        "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/black-hills-plans-18-billion-investment-power-googles-data-center-2026-10-06/"
+        "url": "https://www.reuters.com/business/wall-st-futures-slide-rising-oil-yields-dampen-mood-2026-10-08/"
     },
     {
-        "date": "2026-10-06",
-        "days_ahead": 3,
-        "category": "Demande IA / consommation électrique",
-        "headline": "L'EIA prévoit une hausse de 2,8 % en 2027 de la demande électrique du secteur commercial, qui inclut les data centers.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "U.S. Energy Information Administration",
-        "url": "https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php"
-    },
-    {
-        "date": "2026-10-07",
-        "days_ahead": 3,
-        "category": "Dollar / énergie",
-        "headline": "L'indice dollar a progressé de 0,64 % à 102,49 tandis que le Brent repassait au-dessus de 100 dollars, deux facteurs défavorables aux valorisations technologiques.",
+        "date": "2026-10-08",
+        "days_ahead": 5,
+        "category": "Réglementation / énergie des data centers",
+        "headline": "Plusieurs juridictions renforcent les exigences environnementales applicables aux data centers, notamment sur la transparence de leur consommation d'eau et d'énergie.",
         "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.85,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/dollar-holds-losses-markets-await-fed-minutes-speakers-2026-10-07/"
-    },
-    {
-        "date": "2026-10-07",
-        "days_ahead": 4,
-        "category": "Taux US / financement IA",
-        "headline": "Le rendement du Treasury à dix ans reste proche de 5,34 %, son plus haut depuis 2002, alors que l'endettement des groupes technologiques et les émissions du Trésor entretiennent la pression sur les taux.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/lower-us-treasury-yield-view-persists-despite-biggest-quarterly-surge-since-1994-2026-10-07/"
+        "url": "https://www.reuters.com/sustainability/can-data-centers-be-built-sustainably-2026-10-08/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +142,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 07/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 08/10/2026
 # (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -173,15 +184,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.85, "2R79S": 6.44,
-    "2R83S": 8.93, "2R85S": 9.73, "2R80S": 9.01, "2R82S": 9.80,
-    "2R78S": 9.84, "2R84S": 9.60, "2R81S": 9.67, "2R77S": 9.71,
-    "2R75S": 6.48, "2R76S": 9.16, "2R95S": 9.71, "2R89S": 9.66,
-    "2R90S": 9.77, "2R96S": 9.14, "2R87S": 8.07, "2R93S": 9.28,
-    "2R98S": 9.58, "3J41S": 1.30, "2R86S": 5.25, "2R91S": 8.02,
-    "2R97S": 9.48, "2R94S": 9.63, "2R88S": 9.28, "44N9S": 3.73,
-    "5S06S": 7.30, "5S07S": 8.39, "5S05S": 4.53, "1U26S": 4.10,
-    "1U28S": 8.33, "1U27S": 7.93,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.89, "2R79S": 7.30,
+    "2R83S": 9.17, "2R85S": 9.74, "2R80S": 9.27, "2R82S": 9.82,
+    "2R78S": 9.85, "2R84S": 9.65, "2R81S": 9.72, "2R77S": 9.76,
+    "2R75S": 7.35, "2R76S": 9.31, "2R95S": 9.72, "2R89S": 9.70,
+    "2R90S": 9.78, "2R96S": 9.18, "2R87S": 8.50, "2R93S": 9.37,
+    "2R98S": 9.57, "3J41S": 1.95, "2R86S": 6.05, "2R91S": 8.45,
+    "2R97S": 9.49, "2R94S": 9.64, "2R88S": 9.43, "44N9S": 3.67,
+    "5S06S": 7.56, "5S07S": 8.50, "5S05S": 5.20, "1U26S": 4.47,
+    "1U28S": 8.38, "1U27S": 8.06,
 }
 
 FEATURES = [
@@ -875,7 +886,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 07/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 08/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 37
