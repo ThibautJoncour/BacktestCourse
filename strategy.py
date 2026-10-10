@@ -49,73 +49,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-09"
+NVDA_NEWS_LAST_UPDATE = "2026-10-10"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "days_ahead": 1,
-        "category": "Résultats / dépenses IA",
-        "headline": "Les entreprises liées à l'IA devraient générer l'essentiel de la hausse des bénéfices américains du troisième trimestre, tandis que les dépenses des hyperscalers continuent de soutenir la construction d'infrastructures IA.",
+        "category": "Marchés / valorisation technologique",
+        "headline": "Le Nasdaq et le S&P 500 ont chacun gagné 0,6 % vendredi, clôturant une semaine positive malgré des rendements obligataires toujours élevés.",
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/ai-related-companies-drive-most-third-quarter-us-earnings-gains-2026-10-09/"
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-dafbd0c4037ee10e2a9e305f3cfa8e70"
     },
     {
         "date": "2026-10-09",
         "days_ahead": 2,
-        "category": "Financement des data centers",
-        "headline": "Firmus, opérateur de data centers soutenu par NVIDIA, a abandonné son introduction en Bourse australienne de 5 milliards de dollars face à une demande insuffisante et se tournera vers un financement privé.",
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "Un prestataire lié à Super Micro a plaidé coupable dans un dispositif visant à détourner vers la Chine des serveurs contenant des GPU NVIDIA B200, H100 et H200 soumis aux contrôles américains.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.9,
+        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/australian-nvidia-backed-ai-data-centre-operator-firmus-shelves-ipo-2026-10-08/"
-    },
-    {
-        "date": "2026-10-09",
-        "days_ahead": 2,
-        "category": "Chine / concurrence technologique",
-        "headline": "Pékin a publié des directives visant à renforcer l'autosuffisance technologique, l'offre nationale de puissance de calcul et les bases pilotes d'IA industrielle, tout en limitant les bulles d'investissement.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/china-issues-guidelines-new-productive-forces-including-ai-2026-10-09/"
+        "url": "https://www.reuters.com/legal/government/super-micro-contractor-pleads-guilty-scheme-divert-ai-servers-with-nvidia-chips-2026-10-09/"
     },
     {
         "date": "2026-10-09",
         "days_ahead": 3,
-        "category": "Taux US / valorisation",
-        "headline": "Le rendement du Treasury américain à 10 ans a atteint 5,23 %, et plusieurs indicateurs de marché signalent un risque de nouvelles tensions obligataires défavorables aux valorisations technologiques.",
+        "category": "Taux US / financement IA",
+        "headline": "Le rendement du Treasury à 10 ans a terminé à 5,261 % et les actions de semi-conducteurs ont reculé de 0,4 %, dans un contexte où le financement des infrastructures IA devient plus coûteux et plus sélectif.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/four-signs-it-is-about-get-uglier-bond-market-2026-10-09/"
-    },
-    {
-        "date": "2026-10-09",
-        "days_ahead": 4,
-        "category": "Dollar / énergie",
-        "headline": "Le recul du pétrole a détendu les rendements obligataires mondiaux et affaibli légèrement le dollar, offrant un soutien macroéconomique de court terme aux valeurs technologiques.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.85,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/sterling-ticks-high-dollar-dips-lower-oil-prices-2026-10-09/"
-    },
-    {
-        "date": "2026-10-08",
-        "days_ahead": 5,
-        "category": "Investissement NVIDIA / recherche",
-        "headline": "NVIDIA a annoncé un engagement de 1 milliard de dollars sur cinq ans pour renforcer la recherche scientifique américaine en calcul quantique, santé et sécurité énergétique.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 1.0,
-        "source": "NVIDIA",
-        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Commits-1-Billion-to-Advance-US-Science-Over-the-Next-Five-Years/default.aspx"
+        "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-10-09/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +98,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 09/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 10/10/2026
 # (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -173,15 +140,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 7.80,
-    "2R83S": 9.30, "2R85S": 9.73, "2R80S": 9.41, "2R82S": 9.83,
-    "2R78S": 9.87, "2R84S": 9.66, "2R81S": 9.76, "2R77S": 9.80,
-    "2R75S": 7.84, "2R76S": 9.46, "2R95S": 9.72, "2R89S": 9.72,
-    "2R90S": 9.79, "2R96S": 9.24, "2R87S": 8.75, "2R93S": 9.44,
-    "2R98S": 9.52, "3J41S": 2.33, "2R86S": 6.60, "2R91S": 8.67,
-    "2R97S": 9.45, "2R94S": 9.66, "2R88S": 9.50, "44N9S": 3.74,
-    "5S06S": 7.85, "5S07S": 8.60, "5S05S": 5.71, "1U26S": 4.94,
-    "1U28S": 8.40, "1U27S": 8.24,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 8.02,
+    "2R83S": 9.35, "2R85S": 9.72, "2R80S": 9.47, "2R82S": 9.82,
+    "2R78S": 9.87, "2R84S": 9.66, "2R81S": 9.76, "2R77S": 9.81,
+    "2R75S": 8.05, "2R76S": 9.49, "2R95S": 9.73, "2R89S": 9.73,
+    "2R90S": 9.79, "2R96S": 9.26, "2R87S": 8.80, "2R93S": 9.45,
+    "2R98S": 9.54, "3J41S": 2.57, "2R86S": 6.81, "2R91S": 8.73,
+    "2R97S": 9.47, "2R94S": 9.66, "2R88S": 9.51, "44N9S": 3.83,
+    "5S06S": 7.89, "5S07S": 8.64, "5S05S": 5.88, "1U26S": 5.18,
+    "1U28S": 8.42, "1U27S": 8.26,
 }
 
 FEATURES = [
@@ -875,7 +842,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 09/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 10/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 34
