@@ -49,18 +49,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-11"
+NVDA_NEWS_LAST_UPDATE = "2026-10-12"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-10",
+        "date": "2026-10-12",
         "days_ahead": 1,
-        "category": "Investissement NVIDIA / écosystème IA",
-        "headline": "Reuters rapporte, en citant le Financial Times, que NVIDIA discute d'un investissement supplémentaire dans Reflection AI ou d'une acquisition ; aucune transaction n'est annoncée à ce stade.",
+        "category": "Concurrence / puces hyperscaler",
+        "headline": "Microsoft prévoit un déploiement de Maia 300 à l'échelle de plusieurs gigawatts en 2027 afin de réduire le coût de l'IA et sa dépendance aux fournisseurs de puces tiers.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/microsoft-plans-huge-deployment-its-own-ai-chips-with-an-eye-saving-costs-2026-10-12/"
+    },
+    {
+        "date": "2026-10-12",
+        "days_ahead": 2,
+        "category": "TSMC / chaîne d'approvisionnement",
+        "headline": "TSMC devrait publier un sixième bénéfice trimestriel record, porté par la demande d'IA et de capacités avancées utilisées notamment par NVIDIA.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.7,
+        "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-talks-invest-further-reflection-ai-or-buy-it-ft-reports-2026-10-10/"
+        "url": "https://www.reuters.com/world/china/tsmc-expected-report-sixth-straight-quarter-record-profit-thanks-ai-boom-2026-10-12/"
+    },
+    {
+        "date": "2026-10-12",
+        "days_ahead": 3,
+        "category": "Financement des infrastructures IA",
+        "headline": "Le directeur général de Broadcom estime que le capital, plutôt que la disponibilité des mémoires, constitue désormais le principal frein à la croissance technologique tirée par l'IA.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.9,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/broadcom-ceo-says-biggest-hurdle-ai-fuelled-tech-growth-is-capital-not-memory-2026-10-12/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -76,7 +98,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 11/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 12/10/2026
 # (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -118,15 +140,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 8.06,
-    "2R83S": 9.35, "2R85S": 9.72, "2R80S": 9.47, "2R82S": 9.82,
-    "2R78S": 9.87, "2R84S": 9.66, "2R81S": 9.76, "2R77S": 9.81,
-    "2R75S": 8.12, "2R76S": 9.51, "2R95S": 9.72, "2R89S": 9.73,
-    "2R90S": 9.79, "2R96S": 9.26, "2R87S": 8.83, "2R93S": 9.45,
-    "2R98S": 9.53, "3J41S": 2.57, "2R86S": 6.87, "2R91S": 8.76,
-    "2R97S": 9.46, "2R94S": 9.66, "2R88S": 9.53, "44N9S": 3.75,
-    "5S06S": 7.96, "5S07S": 8.64, "5S05S": 5.94, "1U26S": 5.18,
-    "1U28S": 8.41, "1U27S": 8.31,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 8.65,
+    "2R83S": 9.46, "2R85S": 9.70, "2R80S": 9.59, "2R82S": 9.82,
+    "2R78S": 9.87, "2R84S": 9.66, "2R81S": 9.78, "2R77S": 9.83,
+    "2R75S": 8.71, "2R76S": 9.66, "2R95S": 9.72, "2R89S": 9.76,
+    "2R90S": 9.80, "2R96S": 9.32, "2R87S": 9.14, "2R93S": 9.54,
+    "2R98S": 9.51, "3J41S": 2.96, "2R86S": 7.58, "2R91S": 9.06,
+    "2R97S": 9.46, "2R94S": 9.68, "2R88S": 9.62, "44N9S": 3.81,
+    "5S06S": 8.38, "5S07S": 8.78, "5S05S": 6.66, "1U26S": 5.76,
+    "1U28S": 8.46, "1U27S": 8.31,
 }
 
 FEATURES = [
@@ -820,7 +842,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 11/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 12/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 34
