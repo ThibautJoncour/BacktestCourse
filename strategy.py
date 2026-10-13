@@ -49,40 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-12"
+NVDA_NEWS_LAST_UPDATE = "2026-10-13"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-12",
+        "date": "2026-10-13",
         "days_ahead": 1,
-        "category": "Concurrence / puces hyperscaler",
-        "headline": "Microsoft prévoit un déploiement de Maia 300 à l'échelle de plusieurs gigawatts en 2027 afin de réduire le coût de l'IA et sa dépendance aux fournisseurs de puces tiers.",
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "La part de NVIDIA dans le marché chinois des accélérateurs IA pour data centers est tombée à 34 % au premier semestre, ses livraisons reculant de 44 % sur un an sous l'effet des contrôles américains et de la substitution locale.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.95,
+        "confidence": 0.98,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/microsoft-plans-huge-deployment-its-own-ai-chips-with-an-eye-saving-costs-2026-10-12/"
+        "url": "https://www.reuters.com/business/retail-consumer/nvidias-china-ai-chip-share-falls-huawei-closes-gap-report-finds-2026-10-13/"
     },
     {
-        "date": "2026-10-12",
+        "date": "2026-10-13",
+        "days_ahead": 1,
+        "category": "Marchés / coût du capital IA",
+        "headline": "Le recul des actions liées aux semi-conducteurs s'est accentué avec la remontée des taux et une sélection accrue des financements de data centers ; l'indice Philadelphia Semiconductor a perdu 2,7 % lundi.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.9,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/global-markets-ai-selloff-analysis-pix-2026-10-13/"
+    },
+    {
+        "date": "2026-10-13",
         "days_ahead": 2,
-        "category": "TSMC / chaîne d'approvisionnement",
-        "headline": "TSMC devrait publier un sixième bénéfice trimestriel record, porté par la demande d'IA et de capacités avancées utilisées notamment par NVIDIA.",
-        "direction": 1,
+        "category": "Concurrence / accélérateurs IA",
+        "headline": "Scaleway construira en Suède un supercalculateur IA commercial équipé de GPU AMD Instinct MI355X, concurrents directs de la gamme Blackwell de NVIDIA.",
+        "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/tsmc-expected-report-sixth-straight-quarter-record-profit-thanks-ai-boom-2026-10-12/"
+        "url": "https://www.reuters.com/business/media-telecom/scaleway-build-amd-powered-ai-supercomputer-sweden-2026-10-13/"
     },
     {
         "date": "2026-10-12",
         "days_ahead": 3,
-        "category": "Financement des infrastructures IA",
-        "headline": "Le directeur général de Broadcom estime que le capital, plutôt que la disponibilité des mémoires, constitue désormais le principal frein à la croissance technologique tirée par l'IA.",
-        "direction": -1,
+        "category": "Réseaux / efficacité énergétique IA",
+        "headline": "NVIDIA et Cisco ont annoncé le format optique USFP, conçu pour quadrupler la densité de bande passante et améliorer d'environ 1,3 fois l'efficacité énergétique des interconnexions d'usines IA.",
+        "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/broadcom-ceo-says-biggest-hurdle-ai-fuelled-tech-growth-is-capital-not-memory-2026-10-12/"
+        "confidence": 0.95,
+        "source": "NVIDIA",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Cisco-Introduce-New-Pluggable-Optics-Form-Factor-to-Scale-AI-Factories/default.aspx"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -98,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 12/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 13/10/2026
 # (34 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -140,15 +151,15 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 8.65,
-    "2R83S": 9.46, "2R85S": 9.70, "2R80S": 9.59, "2R82S": 9.82,
-    "2R78S": 9.87, "2R84S": 9.66, "2R81S": 9.78, "2R77S": 9.83,
-    "2R75S": 8.71, "2R76S": 9.66, "2R95S": 9.72, "2R89S": 9.76,
-    "2R90S": 9.80, "2R96S": 9.32, "2R87S": 9.14, "2R93S": 9.54,
-    "2R98S": 9.51, "3J41S": 2.96, "2R86S": 7.58, "2R91S": 9.06,
-    "2R97S": 9.46, "2R94S": 9.68, "2R88S": 9.62, "44N9S": 3.81,
-    "5S06S": 8.38, "5S07S": 8.78, "5S05S": 6.66, "1U26S": 5.76,
-    "1U28S": 8.46, "1U27S": 8.31,
+    "7C57S": 9.90, "7C55S": 9.90, "2R74S": 9.90, "2R79S": 8.78,
+    "2R83S": 9.54, "2R85S": 9.72, "2R80S": 9.67, "2R82S": 9.82,
+    "2R78S": 9.89, "2R84S": 9.69, "2R81S": 9.81, "2R77S": 9.86,
+    "2R75S": 8.84, "2R76S": 9.72, "2R95S": 9.72, "2R89S": 9.77,
+    "2R90S": 9.80, "2R96S": 9.36, "2R87S": 9.19, "2R93S": 9.58,
+    "2R98S": 9.50, "3J41S": 3.04, "2R86S": 7.67, "2R91S": 9.11,
+    "2R97S": 9.47, "2R94S": 9.69, "2R88S": 9.65, "44N9S": 3.95,
+    "5S06S": 8.42, "5S07S": 8.81, "5S05S": 6.71, "1U26S": 5.79,
+    "1U28S": 8.48, "1U27S": 8.59,
 }
 
 FEATURES = [
@@ -842,7 +853,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 12/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 13/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 34
