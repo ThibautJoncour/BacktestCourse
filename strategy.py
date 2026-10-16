@@ -49,51 +49,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-15"
+NVDA_NEWS_LAST_UPDATE = "2026-10-16"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-15",
-        "days_ahead": 1,
-        "category": "Demande IA / chaîne d'approvisionnement",
-        "headline": "TSMC a publié un sixième bénéfice trimestriel record, en hausse de 69 %, porté par une demande de processeurs IA jugée robuste, tout en restant prudent pour 2027.",
+        "date": "2026-10-16",
+        "days_ahead": 4,
+        "category": "Automobile / adoption",
+        "headline": "Mercedes-Benz et NVIDIA ont étendu leur partenariat stratégique pour développer la prochaine génération de conduite hautement automatisée.",
         "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.98,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/tsmc-expected-report-sixth-straight-quarter-record-profit-thanks-ai-boom-2026-10-14/"
+        "risk_level": "faible",
+        "confidence": 0.97,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/mercedes-benz-and-nvidia-expand-strategic-partnership-to-advance-safe-highly-automated-driving-in-the-next-decade"
     },
     {
-        "date": "2026-10-15",
+        "date": "2026-10-16",
+        "days_ahead": 2,
+        "category": "PC / IA locale",
+        "headline": "NVIDIA a lancé les PC portables RTX Spark, combinant Blackwell RTX, CUDA et jusqu'à 128 Go de mémoire unifiée pour l'IA locale.",
+        "direction": 1,
+        "risk_level": "faible",
+        "confidence": 0.95,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-rtx-spark-pcs-available-today-a-new-beginning-for-windows-pcs"
+    },
+    {
+        "date": "2026-10-16",
+        "days_ahead": 3,
+        "category": "Souveraineté IA / Europe",
+        "headline": "Le gouvernement allemand prévoit d'annoncer la semaine prochaine un accord avec NVIDIA pour étendre l'utilisation de l'IA dans l'industrie allemande.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.9,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/europe/germany-unveil-nvidia-ai-agreement-next-week-government-sources-say-2026-10-16/"
+    },
+    {
+        "date": "2026-10-16",
+        "days_ahead": 3,
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "La Chine a proposé de soumettre 23 technologies d'IA, dont les modèles, agents et grappes de calcul, à de nouveaux contrôles à l'exportation.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.93,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/"
+    },
+    {
+        "date": "2026-10-16",
         "days_ahead": 1,
-        "category": "Valorisation / marché des semi-conducteurs",
-        "headline": "La baisse des valeurs IA et des semi-conducteurs s'est accentuée sous l'effet des taux élevés et des doutes sur le rendement des dépenses de data centers.",
+        "category": "Financement IA / data centers",
+        "headline": "Les actions et obligations de CoreWeave ont subi de fortes pertes hebdomadaires, les investisseurs s'inquiétant de ses 50 milliards de dollars de dette et du coût du financement des infrastructures IA.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.97,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-10-15/"
+        "url": "https://www.reuters.com/business/coreweave-shares-bonds-headed-steep-weekly-losses-ai-borrowing-concerns-mount-2026-10-16/"
     },
     {
-        "date": "2026-10-15",
-        "days_ahead": 3,
-        "category": "Contrôles à l'exportation / chaîne mémoire",
-        "headline": "SK Hynix conditionne un nouveau projet d'usine américaine à l'obtention de licences pour exporter des équipements de fabrication vers son site chinois, illustrant l'incertitude réglementaire de la chaîne mémoire.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-conditions-new-us-factory-more-us-chip-equipment-exports-china-sources-2026-10-15/"
-    },
-    {
-        "date": "2026-10-15",
-        "days_ahead": 2,
+        "date": "2026-10-16",
+        "days_ahead": 1,
         "category": "Taux US / dollar",
-        "headline": "Le dollar et les rendements du Trésor ont reculé après que des responsables de la Fed ont tempéré les anticipations d'une hausse de taux en octobre malgré une inflation supérieure aux attentes.",
+        "headline": "Les rendements du Trésor et le dollar ont reculé tandis que les actions européennes rebondissaient, apportant un soutien partiel après la correction technologique.",
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/dollar-retreats-18-month-high-despite-hot-cpi-fed-officials-temper-hike-bets-2026-10-15/"
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-16/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -109,7 +131,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 15/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 16/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -148,14 +170,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.25, "2R83S": 9.28, "2R85S": 9.44, "2R80S": 9.68,
-    "2R78S": 9.83, "2R84S": 9.40, "2R81S": 9.69, "2R77S": 9.84,
-    "2R75S": 9.19, "2R76S": 9.67, "2R95S": 9.56, "2R89S": 9.69,
-    "2R90S": 9.73, "2R96S": 8.95, "2R87S": 9.33, "2R93S": 9.44,
-    "2R98S": 9.07, "3J41S": 2.23, "2R86S": 8.37, "2R91S": 9.15,
-    "2R97S": 9.04, "2R94S": 9.60, "2R88S": 9.60, "44N9S": 2.66,
-    "5S06S": 8.55, "5S07S": 8.37, "5S05S": 7.50, "1U26S": 6.64,
-    "1U28S": 7.98, "1U27S": 8.53, "80N4S": 8.27,
+    "2R79S": 9.23, "2R83S": 9.44, "2R85S": 9.57, "2R80S": 9.66,
+    "2R78S": 9.86, "2R84S": 9.57, "2R81S": 9.75, "2R77S": 9.83,
+    "2R75S": 9.32, "2R76S": 9.74, "2R95S": 9.63, "2R89S": 9.73,
+    "2R90S": 9.76, "2R96S": 9.15, "2R87S": 9.39, "2R93S": 9.54,
+    "2R98S": 9.23, "3J41S": 2.63, "2R86S": 8.46, "2R91S": 9.26,
+    "2R97S": 9.24, "2R94S": 9.60, "2R88S": 9.65, "44N9S": 3.02,
+    "5S06S": 8.66, "5S07S": 8.61, "5S05S": 7.61, "1U26S": 6.73,
+    "1U28S": 8.20, "1U27S": 8.63, "80N4S": 8.43,
 }
 
 FEATURES = [
@@ -849,7 +871,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 15/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 16/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
