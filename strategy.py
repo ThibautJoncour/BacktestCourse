@@ -49,73 +49,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-16"
+NVDA_NEWS_LAST_UPDATE = "2026-10-17"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-16",
-        "days_ahead": 4,
-        "category": "Automobile / adoption",
-        "headline": "Mercedes-Benz et NVIDIA ont étendu leur partenariat stratégique pour développer la prochaine génération de conduite hautement automatisée.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.97,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/mercedes-benz-and-nvidia-expand-strategic-partnership-to-advance-safe-highly-automated-driving-in-the-next-decade"
-    },
-    {
-        "date": "2026-10-16",
-        "days_ahead": 2,
-        "category": "PC / IA locale",
-        "headline": "NVIDIA a lancé les PC portables RTX Spark, combinant Blackwell RTX, CUDA et jusqu'à 128 Go de mémoire unifiée pour l'IA locale.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.95,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-rtx-spark-pcs-available-today-a-new-beginning-for-windows-pcs"
-    },
-    {
-        "date": "2026-10-16",
+        "date": "2026-10-17",
         "days_ahead": 3,
-        "category": "Souveraineté IA / Europe",
-        "headline": "Le gouvernement allemand prévoit d'annoncer la semaine prochaine un accord avec NVIDIA pour étendre l'utilisation de l'IA dans l'industrie allemande.",
+        "category": "Demande IA / économie",
+        "headline": "Anthropic estime que les progrès rapides de l'IA peuvent fortement accroître l'activité économique et appelle à élargir les capacités mondiales de data centers.",
         "direction": 1,
         "risk_level": "moyen",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/europe/germany-unveil-nvidia-ai-agreement-next-week-government-sources-say-2026-10-16/"
+        "url": "https://www.reuters.com/world/china/anthropics-clark-says-ais-impact-accelerating-quickly-could-vastly-boost-us-gdp-2026-10-17/"
     },
     {
-        "date": "2026-10-16",
-        "days_ahead": 3,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "La Chine a proposé de soumettre 23 technologies d'IA, dont les modèles, agents et grappes de calcul, à de nouveaux contrôles à l'exportation.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.93,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/"
-    },
-    {
-        "date": "2026-10-16",
-        "days_ahead": 1,
-        "category": "Financement IA / data centers",
-        "headline": "Les actions et obligations de CoreWeave ont subi de fortes pertes hebdomadaires, les investisseurs s'inquiétant de ses 50 milliards de dollars de dette et du coût du financement des infrastructures IA.",
+        "date": "2026-10-17",
+        "days_ahead": 2,
+        "category": "Financement IA / puces",
+        "headline": "Anthropic proposerait à Blackstone un rendement supérieur à 10 % sur 9 milliards de dollars de dette adossée à des locations de puces, signe d'un coût de financement élevé.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.97,
+        "confidence": 0.75,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/coreweave-shares-bonds-headed-steep-weekly-losses-ai-borrowing-concerns-mount-2026-10-16/"
+        "url": "https://www.reuters.com/business/anthropic-offers-blackstone-double-digit-yield-chip-financing-deal-ft-reports-2026-10-17/"
     },
     {
-        "date": "2026-10-16",
+        "date": "2026-10-17",
         "days_ahead": 1,
-        "category": "Taux US / dollar",
-        "headline": "Les rendements du Trésor et le dollar ont reculé tandis que les actions européennes rebondissaient, apportant un soutien partiel après la correction technologique.",
-        "direction": 1,
-        "risk_level": "moyen",
+        "category": "Financement IA / data centers",
+        "headline": "CoreWeave reste au centre des inquiétudes sur le financement de l'IA, avec 50 milliards de dollars de passifs, une forte consommation de trésorerie et des notations spéculatives.",
+        "direction": -1,
+        "risk_level": "élevé",
         "confidence": 0.9,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-16/"
+        "url": "https://www.reuters.com/legal/transactional/why-coreweave-is-crosshairs-ai-scare-2026-10-16/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +98,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 16/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 17/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -170,14 +137,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.23, "2R83S": 9.44, "2R85S": 9.57, "2R80S": 9.66,
-    "2R78S": 9.86, "2R84S": 9.57, "2R81S": 9.75, "2R77S": 9.83,
-    "2R75S": 9.32, "2R76S": 9.74, "2R95S": 9.63, "2R89S": 9.73,
-    "2R90S": 9.76, "2R96S": 9.15, "2R87S": 9.39, "2R93S": 9.54,
-    "2R98S": 9.23, "3J41S": 2.63, "2R86S": 8.46, "2R91S": 9.26,
-    "2R97S": 9.24, "2R94S": 9.60, "2R88S": 9.65, "44N9S": 3.02,
-    "5S06S": 8.66, "5S07S": 8.61, "5S05S": 7.61, "1U26S": 6.73,
-    "1U28S": 8.20, "1U27S": 8.63, "80N4S": 8.43,
+    "2R79S": 9.27, "2R83S": 9.31, "2R85S": 9.41, "2R80S": 9.63,
+    "2R78S": 9.82, "2R84S": 9.39, "2R81S": 9.70, "2R77S": 9.80,
+    "2R75S": 9.37, "2R76S": 9.73, "2R95S": 9.54, "2R89S": 9.69,
+    "2R90S": 9.71, "2R96S": 8.92, "2R87S": 9.42, "2R93S": 9.46,
+    "2R98S": 9.00, "3J41S": 2.28, "2R86S": 8.59, "2R91S": 9.23,
+    "2R97S": 8.98, "2R94S": 9.52, "2R88S": 9.64, "44N9S": 2.63,
+    "5S06S": 8.67, "5S07S": 8.40, "5S05S": 7.74, "1U26S": 6.83,
+    "1U28S": 7.99, "1U27S": 8.58, "80N4S": 8.30,
 }
 
 FEATURES = [
@@ -871,7 +838,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 16/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 17/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
