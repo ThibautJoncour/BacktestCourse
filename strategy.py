@@ -49,40 +49,29 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-17"
+NVDA_NEWS_LAST_UPDATE = "2026-10-18"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "days_ahead": 3,
-        "category": "Demande IA / économie",
-        "headline": "Anthropic estime que les progrès rapides de l'IA peuvent fortement accroître l'activité économique et appelle à élargir les capacités mondiales de data centers.",
+        "category": "HBM / chaîne d'approvisionnement",
+        "headline": "Samsung utiliserait le procédé 3 nm de TSMC pour produire les dies de base des prochaines mémoires NVHBM personnalisées de NVIDIA.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.9,
+        "confidence": 0.82,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/anthropics-clark-says-ais-impact-accelerating-quickly-could-vastly-boost-us-gdp-2026-10-17/"
+        "url": "https://www.reuters.com/world/asia-pacific/samsung-use-tsmc-technology-nvidias-next-generation-memory-chips-seoul-newspaper-2026-10-18/"
     },
     {
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "days_ahead": 2,
-        "category": "Financement IA / puces",
-        "headline": "Anthropic proposerait à Blackstone un rendement supérieur à 10 % sur 9 milliards de dollars de dette adossée à des locations de puces, signe d'un coût de financement élevé.",
+        "category": "Énergie / data centers",
+        "headline": "Microsoft se serait retiré d'un projet de data center de Nscale au Royaume-Uni, retardé notamment par une alimentation électrique qui ne serait pas disponible avant les années 2030.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.75,
+        "confidence": 0.82,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/anthropic-offers-blackstone-double-digit-yield-chip-financing-deal-ft-reports-2026-10-17/"
-    },
-    {
-        "date": "2026-10-17",
-        "days_ahead": 1,
-        "category": "Financement IA / data centers",
-        "headline": "CoreWeave reste au centre des inquiétudes sur le financement de l'IA, avec 50 milliards de dollars de passifs, une forte consommation de trésorerie et des notations spéculatives.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.9,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/why-coreweave-is-crosshairs-ai-scare-2026-10-16/"
+        "url": "https://www.reuters.com/business/media-telecom/microsoft-pulls-out-uk-data-center-deal-with-nscale-telegraph-reports-2026-10-18/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -98,7 +87,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 17/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -838,7 +827,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 17/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 18/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
