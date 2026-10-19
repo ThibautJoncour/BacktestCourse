@@ -49,29 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-18"
+NVDA_NEWS_LAST_UPDATE = "2026-10-19"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-18",
-        "days_ahead": 3,
-        "category": "HBM / chaîne d'approvisionnement",
-        "headline": "Samsung utiliserait le procédé 3 nm de TSMC pour produire les dies de base des prochaines mémoires NVHBM personnalisées de NVIDIA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.82,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/samsung-use-tsmc-technology-nvidias-next-generation-memory-chips-seoul-newspaper-2026-10-18/"
-    },
-    {
-        "date": "2026-10-18",
+        "date": "2026-10-19",
         "days_ahead": 2,
-        "category": "Énergie / data centers",
-        "headline": "Microsoft se serait retiré d'un projet de data center de Nscale au Royaume-Uni, retardé notamment par une alimentation électrique qui ne serait pas disponible avant les années 2030.",
+        "category": "Concurrence / puces IA",
+        "headline": "Amazon lance TorchNeuron, un outil open source permettant d'exécuter du code PyTorch sur ses puces Trainium sans réécriture, afin de réduire l'avantage logiciel de NVIDIA.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.82,
+        "confidence": 0.94,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/media-telecom/microsoft-pulls-out-uk-data-center-deal-with-nscale-telegraph-reports-2026-10-18/"
+        "url": "https://www.reuters.com/business/retail-consumer/amazon-says-its-ai-chips-will-work-with-popular-coding-language-challenging-2026-10-19/"
+    },
+    {
+        "date": "2026-10-19",
+        "days_ahead": 3,
+        "category": "Taux US / inflation",
+        "headline": "La Réserve fédérale considère de plus en plus que l'essor des investissements IA contribue aux tensions inflationnistes, maintenant un risque de taux élevés pour les actifs technologiques.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.88,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/markets/wealth/fed-sees-ai-boom-adding-inflation-headache-others-may-pay-medicine-2026-10-19/"
+    },
+    {
+        "date": "2026-10-19",
+        "days_ahead": 1,
+        "category": "Marchés / taux US",
+        "headline": "Les valeurs liées à l'IA rebondissent après leur forte baisse hebdomadaire, tandis que le recul du pétrole et des rendements américains soutient les valeurs de croissance.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.86,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-futures-climb-ai-stocks-rebound-oil-yields-fall-2026-10-19/"
+    },
+    {
+        "date": "2026-10-19",
+        "days_ahead": 2,
+        "category": "NVIDIA / événement",
+        "headline": "NVIDIA organise GTC Berlin du 20 au 22 octobre, avec la keynote de Jensen Huang prévue le 21 octobre et diffusée en direct.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.96,
+        "source": "NVIDIA",
+        "url": "https://www.nvidia.com/en-eu/gtc/faq/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -87,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 19/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -126,14 +148,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.27, "2R83S": 9.31, "2R85S": 9.41, "2R80S": 9.63,
-    "2R78S": 9.82, "2R84S": 9.39, "2R81S": 9.70, "2R77S": 9.80,
-    "2R75S": 9.37, "2R76S": 9.73, "2R95S": 9.54, "2R89S": 9.69,
-    "2R90S": 9.71, "2R96S": 8.92, "2R87S": 9.42, "2R93S": 9.46,
-    "2R98S": 9.00, "3J41S": 2.28, "2R86S": 8.59, "2R91S": 9.23,
-    "2R97S": 8.98, "2R94S": 9.52, "2R88S": 9.64, "44N9S": 2.63,
-    "5S06S": 8.67, "5S07S": 8.40, "5S05S": 7.74, "1U26S": 6.83,
-    "1U28S": 7.99, "1U27S": 8.58, "80N4S": 8.30,
+    "2R79S": 9.26, "2R83S": 9.49, "2R85S": 9.60, "2R80S": 9.69,
+    "2R78S": 9.86, "2R84S": 9.58, "2R81S": 9.76, "2R77S": 9.83,
+    "2R75S": 9.37, "2R76S": 9.76, "2R95S": 9.64, "2R89S": 9.74,
+    "2R90S": 9.76, "2R96S": 9.18, "2R87S": 9.43, "2R93S": 9.56,
+    "2R98S": 9.26, "3J41S": 2.90, "2R86S": 8.44, "2R91S": 9.32,
+    "2R97S": 9.24, "2R94S": 9.62, "2R88S": 9.67, "44N9S": 3.33,
+    "5S06S": 8.73, "5S07S": 8.65, "5S05S": 7.56, "1U26S": 6.58,
+    "1U28S": 8.25, "1U27S": 8.69, "80N4S": 8.41,
 }
 
 FEATURES = [
@@ -827,7 +849,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 18/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 19/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
