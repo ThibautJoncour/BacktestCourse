@@ -49,62 +49,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-20"
+NVDA_NEWS_LAST_UPDATE = "2026-10-21"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "days_ahead": 2,
-        "category": "Chine / demande de puces",
-        "headline": "ByteDance, Alibaba et Tencent ont commandé plus de trois millions de RTX PRO 5500 NVIDIA, pour une valeur catalogue supérieure à 35 milliards de dollars, mais NVIDIA ne garantit pas de pouvoir satisfaire toute la demande.",
+        "category": "Chaîne d'approvisionnement",
+        "headline": "NVIDIA et ses partenaires annoncent une hausse de 2,5 fois de la capacité de substrats sur trois ans, plus de 300 % de capacité supplémentaire de packaging avancé chez Amkor d'ici fin 2028 et une forte expansion des moteurs optiques.",
         "direction": 1,
         "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/bytedance-alibaba-tencent-place-over-35-billion-worth-nvidia-chip-orders-2026-10-20/"
+        "confidence": 0.98,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout"
     },
     {
-        "date": "2026-10-19",
+        "date": "2026-10-21",
         "days_ahead": 3,
-        "category": "NVIDIA / CPU",
-        "headline": "La plateforme cloud IA Modal adoptera les processeurs Vera de NVIDIA après des tests montrant deux fois plus de travail exécuté par ses agents que sur les puces Intel et AMD actuellement déployées.",
+        "category": "Data centers / énergie",
+        "headline": "L'écosystème européen adopte NVIDIA DSX, dont MaxLPS vise jusqu'à 30 % d'énergie en moins à production de jetons égale et dont les fonctions de flexibilité doivent faciliter les raccordements au réseau électrique.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.92,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-wins-fast-growing-ai-startup-modal-new-central-processors-2026-10-19/"
+        "confidence": 0.96,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/european-ecosystem-builds-worlds-most-efficient-ai-factories-with-nvidia-dsx"
     },
     {
-        "date": "2026-10-19",
+        "date": "2026-10-21",
         "days_ahead": 3,
-        "category": "Hyperscalers / financement",
-        "headline": "S&P Global estime que les grands hyperscalers pourraient avoir davantage d'engagements liés à l'IA que déclaré et prévoit plus de 7 000 milliards de dollars de dépenses IA entre 2025 et 2030, avec un flux de trésorerie disponible négatif au moins jusqu'à l'an prochain.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/top-hyperscalers-likely-have-more-ai-linked-debt-than-now-known-sp-global-warns-2026-10-19/"
+        "category": "Télécoms / IA-RAN",
+        "headline": "T-Mobile a réalisé le premier appel AI-RAN sur un réseau commercial avec NVIDIA et Nokia, tandis que BT, Deutsche Telekom et Elisa préparent ou déploient des essais sur réseaux actifs.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.95,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-nokia-and-leading-telecom-operators-turn-networks-into-distributed-intelligence-platforms"
     },
     {
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "days_ahead": 4,
-        "category": "Europe / investissements IA",
-        "headline": "NVIDIA investira dans quatre startups allemandes dans le cadre de son engagement européen de près de 10 milliards de dollars, tandis qu'Amazon prévoit plus de 16 milliards d'euros d'investissements allemands en 2027, notamment dans le cloud et l'IA.",
+        "category": "Robotique / edge AI",
+        "headline": "NVIDIA étend Isaac avec un humanoïde de référence, de nouveaux jeux de données et outils d'apprentissage ; Agile ONE SN utilisera Isaac GR00T et Jetson Thor.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/investments-pledged-during-2026-invest-germany-summit-2026-10-20/"
+        "confidence": 0.94,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-advances-isaac-platform-for-general-purpose-robotics-with-new-reference-humanoid-frameworks-simulation-pipelines-and-data"
     },
     {
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "days_ahead": 1,
-        "category": "Marchés / énergie",
-        "headline": "La hausse persistante du pétrole pèse sur l'appétit pour le risque et les semi-conducteurs européens reculent avant une série de résultats de groupes liés à l'IA.",
+        "category": "Macro / énergie et dollar",
+        "headline": "Le pétrole progresse de plus de deux dollars sur les tensions au Moyen-Orient et le dollar conserve son attrait de valeur refuge, maintenant un risque d'inflation et de pression sur les valorisations technologiques.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.84,
+        "confidence": 0.88,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-20/"
+        "url": "https://www.reuters.com/world/africa/dollar-back-foot-us-yields-crude-prices-dip-aussie-buoyed-by-hawkish-rba-2026-10-21/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -120,7 +120,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 20/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 21/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -159,14 +159,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.42, "2R83S": 9.47, "2R85S": 9.55, "2R80S": 9.72,
-    "2R78S": 9.86, "2R84S": 9.54, "2R81S": 9.77, "2R77S": 9.84,
-    "2R75S": 9.50, "2R76S": 9.79, "2R95S": 9.62, "2R89S": 9.75,
-    "2R90S": 9.76, "2R96S": 9.09, "2R87S": 9.51, "2R93S": 9.58,
-    "2R98S": 9.16, "3J41S": 2.59, "2R86S": 8.72, "2R91S": 9.32,
-    "2R97S": 9.22, "2R94S": 9.62, "2R88S": 9.69, "44N9S": 2.90,
-    "5S06S": 8.82, "5S07S": 8.59, "5S05S": 7.84, "1U26S": 6.88,
-    "1U28S": 8.12, "1U27S": 8.69, "80N4S": 8.40,
+    "2R79S": 9.23, "2R83S": 9.56, "2R85S": 9.66, "2R80S": 9.74,
+    "2R78S": 9.88, "2R84S": 9.64, "2R81S": 9.80, "2R77S": 9.87,
+    "2R75S": 9.30, "2R76S": 9.80, "2R95S": 9.67, "2R89S": 9.77,
+    "2R90S": 9.78, "2R96S": 9.28, "2R87S": 9.43, "2R93S": 9.59,
+    "2R98S": 9.36, "3J41S": 3.05, "2R86S": 8.29, "2R91S": 9.31,
+    "2R97S": 9.34, "2R94S": 9.65, "2R88S": 9.70, "44N9S": 3.59,
+    "5S06S": 8.71, "5S07S": 8.77, "5S05S": 7.35, "1U26S": 6.39,
+    "1U28S": 8.36, "1U27S": 8.72, "80N4S": 8.48,
 }
 
 FEATURES = [
@@ -860,7 +860,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 20/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 21/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
