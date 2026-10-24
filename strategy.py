@@ -49,62 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-23"
+NVDA_NEWS_LAST_UPDATE = "2026-10-24"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-10-23",
-        "days_ahead": 1,
-        "category": "Marchés / financement IA",
-        "headline": "Les semi-conducteurs ont chuté de près de 7 % et le Nasdaq de 2,6 % jeudi, les investisseurs réévaluant le financement nécessaire à l'infrastructure IA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.96,
+        "days_ahead": 5,
+        "category": "Dépenses IA / data centers",
+        "headline": "BofA Global Research estime que les dépenses mondiales de data centers atteindront 1 000 milliards de dollars en 2026 et 2 100 milliards en 2028, portées par la demande de services IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-23/"
+        "url": "https://www.reuters.com/business/data-center-spending-more-than-double-21-trillion-by-2028-2026-10-23/"
     },
     {
-        "date": "2026-10-23",
-        "days_ahead": 5,
-        "category": "Hyperscalers / résultats",
-        "headline": "Les résultats d'Alphabet, Microsoft et Amazon testeront la rentabilité des investissements IA, estimés à environ 800 milliards de dollars cette année pour les hyperscalers.",
+        "date": "2026-10-24",
+        "days_ahead": 4,
+        "category": "Contrôles technologiques / Chine",
+        "headline": "La Chine a demandé aux États-Unis d'abandonner l'élargissement proposé des restrictions sur les investissements dans les technologies sensibles, notamment le calcul haute performance, et s'est réservé le droit de prendre des contre-mesures.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-week-ahead-earnings-flood-fed-meeting-pose-pivotal-tests-rickety-ai-2026-10-23/"
+        "url": "https://www.reuters.com/world/china/china-urges-us-halt-proposed-expansion-outbound-investment-curbs-2026-10-24/"
     },
     {
         "date": "2026-10-23",
-        "days_ahead": 3,
-        "category": "Neoclouds / dette",
-        "headline": "La hausse des spreads de crédit et le nouveau recul de CoreWeave renforcent les doutes sur la soutenabilité du financement des infrastructures IA.",
+        "days_ahead": 2,
+        "category": "Taux US / énergie",
+        "headline": "Le Brent a clôturé à 116,72 dollars et le rendement du Treasury à dix ans à 4,99 %, renforçant les risques d'inflation et de coût du capital pour les investissements IA.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.92,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-10-23/"
+        "confidence": 0.97,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/stocks-markets-ai-oil-inflation-7b47ef3b037bfba4e34f685329b9b963"
     },
     {
-        "date": "2026-10-23",
-        "days_ahead": 4,
-        "category": "Adoption / secteur public",
-        "headline": "Une cour d'appel de Louisiane a acheté deux serveurs Dell équipés de puces NVIDIA pour développer et tester ses propres outils d'intelligence artificielle.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.91,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/government/louisiana-court-buys-ai-servers-test-how-tech-can-streamline-workload-2026-10-22/"
-    },
-    {
-        "date": "2026-10-23",
-        "days_ahead": 3,
-        "category": "Monétisation de l'IA",
-        "headline": "SpaceX a publié son premier bénéfice depuis son introduction en Bourse, avec environ la moitié de son chiffre d'affaires trimestriel provenant de ses activités IA.",
-        "direction": 1,
-        "risk_level": "moyen",
+        "date": "2026-10-24",
+        "days_ahead": 5,
+        "category": "Data centers / financement et énergie",
+        "headline": "La hausse des coûts d'emprunt, les retards de raccordement électrique et plusieurs moratoires américains remettent en cause le rythme de construction des data centers IA et donc la demande future de puces.",
+        "direction": -1,
+        "risk_level": "élevé",
         "confidence": 0.86,
         "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/musks-ai-win-metas-cash-burn-coreweave-conundrum-financial-week-five-charts-2026-10-23/"
+        "url": "https://www.reuters.com/commentary/breakingviews/global-markets-breakingviews-2026-10-24/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -120,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 23/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -159,14 +148,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.41, "2R83S": 9.44, "2R85S": 9.52, "2R80S": 9.70,
-    "2R78S": 9.85, "2R84S": 9.50, "2R81S": 9.75, "2R77S": 9.84,
-    "2R75S": 9.51, "2R76S": 9.79, "2R95S": 9.59, "2R89S": 9.73,
-    "2R90S": 9.75, "2R96S": 8.99, "2R87S": 9.49, "2R93S": 9.51,
-    "2R98S": 9.06, "3J41S": 2.16, "2R86S": 8.77, "2R91S": 9.32,
-    "2R97S": 9.05, "2R94S": 9.56, "2R88S": 9.67, "44N9S": 2.38,
-    "5S06S": 8.80, "5S07S": 8.38, "5S05S": 7.98, "1U26S": 7.05,
-    "1U28S": 7.92, "1U27S": 8.64, "80N4S": 8.29,
+    "2R79S": 9.50, "2R83S": 9.39, "2R85S": 9.45, "2R80S": 9.70,
+    "2R78S": 9.85, "2R84S": 9.44, "2R81S": 9.74, "2R77S": 9.84,
+    "2R75S": 9.60, "2R76S": 9.80, "2R95S": 9.56, "2R89S": 9.72,
+    "2R90S": 9.74, "2R96S": 8.89, "2R87S": 9.53, "2R93S": 9.50,
+    "2R98S": 8.95, "3J41S": 1.91, "2R86S": 8.89, "2R91S": 9.34,
+    "2R97S": 8.93, "2R94S": 9.54, "2R88S": 9.68, "44N9S": 2.09,
+    "5S06S": 8.82, "5S07S": 8.31, "5S05S": 8.08, "1U26S": 7.17,
+    "1U28S": 7.80, "1U27S": 8.63, "80N4S": 8.25,
 }
 
 FEATURES = [
@@ -860,7 +849,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 23/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 24/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
