@@ -49,51 +49,18 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-24"
+NVDA_NEWS_LAST_UPDATE = "2026-10-25"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-23",
+        "date": "2026-10-25",
         "days_ahead": 5,
-        "category": "Dépenses IA / data centers",
-        "headline": "BofA Global Research estime que les dépenses mondiales de data centers atteindront 1 000 milliards de dollars en 2026 et 2 100 milliards en 2028, portées par la demande de services IA.",
+        "category": "Géopolitique IA / infrastructures",
+        "headline": "Les États-Unis et la Chine structurent des blocs IA concurrents ; l'accès aux puces et data centers américains incite plusieurs pays à rejoindre l'écosystème technologique des États-Unis, tandis que NVIDIA participe à un projet de data centers pouvant atteindre 10 milliards de dollars au Kazakhstan.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/data-center-spending-more-than-double-21-trillion-by-2028-2026-10-23/"
-    },
-    {
-        "date": "2026-10-24",
-        "days_ahead": 4,
-        "category": "Contrôles technologiques / Chine",
-        "headline": "La Chine a demandé aux États-Unis d'abandonner l'élargissement proposé des restrictions sur les investissements dans les technologies sensibles, notamment le calcul haute performance, et s'est réservé le droit de prendre des contre-mesures.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/china-urges-us-halt-proposed-expansion-outbound-investment-curbs-2026-10-24/"
-    },
-    {
-        "date": "2026-10-23",
-        "days_ahead": 2,
-        "category": "Taux US / énergie",
-        "headline": "Le Brent a clôturé à 116,72 dollars et le rendement du Treasury à dix ans à 4,99 %, renforçant les risques d'inflation et de coût du capital pour les investissements IA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.97,
         "source": "Associated Press",
-        "url": "https://apnews.com/article/stocks-markets-ai-oil-inflation-7b47ef3b037bfba4e34f685329b9b963"
-    },
-    {
-        "date": "2026-10-24",
-        "days_ahead": 5,
-        "category": "Data centers / financement et énergie",
-        "headline": "La hausse des coûts d'emprunt, les retards de raccordement électrique et plusieurs moratoires américains remettent en cause le rythme de construction des data centers IA et donc la demande future de puces.",
-        "direction": -1,
-        "risk_level": "élevé",
         "confidence": 0.86,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/breakingviews/global-markets-breakingviews-2026-10-24/"
+        "url": "https://apnews.com/article/china-us-ai-blocs-9974a3e5dc955a93935d131a4aeb8886"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -109,7 +76,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 25/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -849,7 +816,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 24/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 25/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
