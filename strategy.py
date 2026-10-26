@@ -49,18 +49,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-25"
+NVDA_NEWS_LAST_UPDATE = "2026-10-26"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-10-25",
-        "days_ahead": 5,
-        "category": "Géopolitique IA / infrastructures",
-        "headline": "Les États-Unis et la Chine structurent des blocs IA concurrents ; l'accès aux puces et data centers américains incite plusieurs pays à rejoindre l'écosystème technologique des États-Unis, tandis que NVIDIA participe à un projet de data centers pouvant atteindre 10 milliards de dollars au Kazakhstan.",
+        "days_ahead": 3,
+        "category": "Dépenses IA / financement",
+        "headline": "SpaceX a annoncé avoir bouclé 40 milliards de dollars de dette principalement destinée à l'achat de GPU NVIDIA livrables aux premier et deuxième trimestres 2027.",
         "direction": 1,
-        "risk_level": "moyen",
-        "source": "Associated Press",
-        "confidence": 0.86,
-        "url": "https://apnews.com/article/china-us-ai-blocs-9974a3e5dc955a93935d131a4aeb8886"
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/media-telecom/musk-says-spacex-raised-40-billion-debt-gpus-2026-10-25/"
+    },
+    {
+        "date": "2026-10-26",
+        "days_ahead": 2,
+        "category": "Dépenses IA / hyperscalers",
+        "headline": "Meta prévoit de lever jusqu'à 95 milliards de dollars en actions pour financer son expansion IA et maintient 825 milliards de dollars d'engagements futurs, principalement liés aux data centers et infrastructures IA.",
+        "direction": 1,
+        "risk_level": "élevé",
+        "confidence": 0.93,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/"
+    },
+    {
+        "date": "2026-10-26",
+        "days_ahead": 2,
+        "category": "Financement IA / valorisations",
+        "headline": "Le dossier d'introduction en Bourse d'Anthropic révèle 80,7 milliards de dollars de perte nette au premier semestre et ravive les doutes sur la rentabilité des investissements massifs en calcul IA.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/anthropic-opens-books-ais-explosive-growth-staggering-costs-2026-10-26/"
+    },
+    {
+        "date": "2026-10-26",
+        "days_ahead": 4,
+        "category": "Écosystème logiciel / semi-conducteurs",
+        "headline": "Cadence a lancé Maestro, une suite de modèles de conception de puces bâtie en partie sur Nemotron et sécurisée avec OpenShell de NVIDIA.",
+        "direction": 1,
+        "risk_level": "faible",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/cadence-unveils-nvidia-backed-ai-models-that-chipmakers-can-run-in-house-2026-10-26/"
+    },
+    {
+        "date": "2026-10-26",
+        "days_ahead": 3,
+        "category": "Chine / concurrence IA",
+        "headline": "L'indice chinois STAR50, concentré sur l'IA et les semi-conducteurs, a chuté de 40 % en moins de quatre mois, ce qui menace les levées de fonds des acteurs technologiques chinois.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/china-ai-bubble-has-already-burst-2026-10-26/"
+    },
+    {
+        "date": "2026-10-26",
+        "days_ahead": 2,
+        "category": "Taux US / marchés",
+        "headline": "La Fed est attendue en pause mercredi après la hausse de septembre, mais les marchés jugent encore possibles une hausse en décembre et deux relèvements de 25 points de base d'ici mi-2027.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/us-stock-futures-edge-up-oil-falls-heading-into-earnings-barrage-2026-10-26/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -76,7 +131,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 25/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 26/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -115,14 +170,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.50, "2R83S": 9.39, "2R85S": 9.45, "2R80S": 9.70,
-    "2R78S": 9.85, "2R84S": 9.44, "2R81S": 9.74, "2R77S": 9.84,
-    "2R75S": 9.60, "2R76S": 9.80, "2R95S": 9.56, "2R89S": 9.72,
-    "2R90S": 9.74, "2R96S": 8.89, "2R87S": 9.53, "2R93S": 9.50,
-    "2R98S": 8.95, "3J41S": 1.91, "2R86S": 8.89, "2R91S": 9.34,
-    "2R97S": 8.93, "2R94S": 9.54, "2R88S": 9.68, "44N9S": 2.09,
-    "5S06S": 8.82, "5S07S": 8.31, "5S05S": 8.08, "1U26S": 7.17,
-    "1U28S": 7.80, "1U27S": 8.63, "80N4S": 8.25,
+    "2R79S": 9.42, "2R83S": 9.57, "2R85S": 9.57, "2R80S": 9.75,
+    "2R78S": 9.87, "2R84S": 9.63, "2R81S": 9.77, "2R77S": 9.85,
+    "2R75S": 9.49, "2R76S": 9.82, "2R95S": 9.66, "2R89S": 9.76,
+    "2R90S": 9.78, "2R96S": 8.94, "2R87S": 9.52, "2R93S": 9.59,
+    "2R98S": 9.28, "3J41S": 2.93, "2R86S": 8.55, "2R91S": 9.36,
+    "2R97S": 9.27, "2R94S": 9.64, "2R88S": 9.70, "44N9S": 3.24,
+    "5S06S": 8.77, "5S07S": 8.33, "5S05S": 8.11, "1U26S": 7.19,
+    "1U28S": 7.82, "1U27S": 8.64, "80N4S": 8.25,
 }
 
 FEATURES = [
@@ -816,7 +871,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 25/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 26/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
