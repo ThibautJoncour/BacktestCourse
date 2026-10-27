@@ -49,73 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-26"
+NVDA_NEWS_LAST_UPDATE = "2026-10-27"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-25",
-        "days_ahead": 3,
-        "category": "Dépenses IA / financement",
-        "headline": "SpaceX a annoncé avoir bouclé 40 milliards de dollars de dette principalement destinée à l'achat de GPU NVIDIA livrables aux premier et deuxième trimestres 2027.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/media-telecom/musk-says-spacex-raised-40-billion-debt-gpus-2026-10-25/"
-    },
-    {
-        "date": "2026-10-26",
+        "date": "2026-10-27",
         "days_ahead": 2,
         "category": "Dépenses IA / hyperscalers",
-        "headline": "Meta prévoit de lever jusqu'à 95 milliards de dollars en actions pour financer son expansion IA et maintient 825 milliards de dollars d'engagements futurs, principalement liés aux data centers et infrastructures IA.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.93,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/meta-launches-35-billion-stock-offering-fund-ai-expansion-2026-10-26/"
-    },
-    {
-        "date": "2026-10-26",
-        "days_ahead": 2,
-        "category": "Financement IA / valorisations",
-        "headline": "Le dossier d'introduction en Bourse d'Anthropic révèle 80,7 milliards de dollars de perte nette au premier semestre et ravive les doutes sur la rentabilité des investissements massifs en calcul IA.",
+        "headline": "Amazon, Microsoft et Alphabet sont attendus en accélération dans le cloud, mais le coût croissant du financement IA et les contraintes pesant sur les data centers mettent la rentabilité de leurs dépenses à l'épreuve.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/anthropic-opens-books-ais-explosive-growth-staggering-costs-2026-10-26/"
+        "url": "https://www.reuters.com/technology/big-tech-earnings-test-ai-boom-amid-market-turmoil-2026-10-27/"
     },
     {
-        "date": "2026-10-26",
-        "days_ahead": 4,
-        "category": "Écosystème logiciel / semi-conducteurs",
-        "headline": "Cadence a lancé Maestro, une suite de modèles de conception de puces bâtie en partie sur Nemotron et sécurisée avec OpenShell de NVIDIA.",
-        "direction": 1,
-        "risk_level": "faible",
+        "date": "2026-10-27",
+        "days_ahead": 3,
+        "category": "Semi-conducteurs / demande IA",
+        "headline": "La Banque de Corée estime que les exportations sud-coréennes de semi-conducteurs pourraient manquer de 50 à 100 milliards de dollars les prévisions 2027 si les grands groupes technologiques américains ralentissent leurs dépenses IA.",
+        "direction": -1,
+        "risk_level": "moyen",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/cadence-unveils-nvidia-backed-ai-models-that-chipmakers-can-run-in-house-2026-10-26/"
+        "url": "https://www.reuters.com/world/asia-pacific/bank-korea-warns-countrys-chip-exports-could-fall-by-up-100-billion-if-ai-2026-10-27/"
     },
     {
-        "date": "2026-10-26",
-        "days_ahead": 3,
-        "category": "Chine / concurrence IA",
-        "headline": "L'indice chinois STAR50, concentré sur l'IA et les semi-conducteurs, a chuté de 40 % en moins de quatre mois, ce qui menace les levées de fonds des acteurs technologiques chinois.",
+        "date": "2026-10-27",
+        "days_ahead": 1,
+        "category": "Marchés / sentiment IA",
+        "headline": "NVIDIA a gagné 2,4 % lundi et mené la hausse des valeurs technologiques avant les résultats des grands groupes cloud, signe d'un appétit tactique persistant pour le thème IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.90,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/be3a56f58a77c5be863f0289d280be92"
+    },
+    {
+        "date": "2026-10-27",
+        "days_ahead": 2,
+        "category": "Taux US / énergie",
+        "headline": "La Fed est attendue en pause malgré une inflation encore supérieure à sa cible, tandis que le pétrole reste proche de ses plus hauts de six mois, deux facteurs susceptibles de maintenir la pression sur les valorisations technologiques.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/china-ai-bubble-has-already-burst-2026-10-26/"
-    },
-    {
-        "date": "2026-10-26",
-        "days_ahead": 2,
-        "category": "Taux US / marchés",
-        "headline": "La Fed est attendue en pause mercredi après la hausse de septembre, mais les marchés jugent encore possibles une hausse en décembre et deux relèvements de 25 points de base d'ici mi-2027.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/us-stock-futures-edge-up-oil-falls-heading-into-earnings-barrage-2026-10-26/"
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-10-27/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 26/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 27/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -170,14 +148,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.42, "2R83S": 9.57, "2R85S": 9.57, "2R80S": 9.75,
-    "2R78S": 9.87, "2R84S": 9.63, "2R81S": 9.77, "2R77S": 9.85,
-    "2R75S": 9.49, "2R76S": 9.82, "2R95S": 9.66, "2R89S": 9.76,
-    "2R90S": 9.78, "2R96S": 8.94, "2R87S": 9.52, "2R93S": 9.59,
-    "2R98S": 9.28, "3J41S": 2.93, "2R86S": 8.55, "2R91S": 9.36,
-    "2R97S": 9.27, "2R94S": 9.64, "2R88S": 9.70, "44N9S": 3.24,
-    "5S06S": 8.77, "5S07S": 8.33, "5S05S": 8.11, "1U26S": 7.19,
-    "1U28S": 7.82, "1U27S": 8.64, "80N4S": 8.25,
+    "2R79S": 9.46, "2R83S": 9.61, "2R85S": 9.68, "2R80S": 9.77,
+    "2R78S": 9.89, "2R84S": 9.67, "2R81S": 9.82, "2R77S": 9.88,
+    "2R75S": 9.54, "2R76S": 9.83, "2R95S": 9.68, "2R89S": 9.78,
+    "2R90S": 9.79, "2R96S": 9.27, "2R87S": 9.53, "2R93S": 9.62,
+    "2R98S": 9.34, "3J41S": 3.05, "2R86S": 8.63, "2R91S": 9.41,
+    "2R97S": 9.32, "2R94S": 9.66, "2R88S": 9.73, "44N9S": 3.25,
+    "5S06S": 8.81, "5S07S": 8.72, "5S05S": 7.63, "1U26S": 6.82,
+    "1U28S": 8.20, "1U27S": 8.69, "80N4S": 8.42,
 }
 
 FEATURES = [
@@ -871,7 +849,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 26/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 27/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
