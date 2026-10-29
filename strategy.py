@@ -49,62 +49,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-28"
+NVDA_NEWS_LAST_UPDATE = "2026-10-29"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-10-28",
         "days_ahead": 2,
-        "category": "Cloud / partenariat NVIDIA",
-        "headline": "NVIDIA et Oracle étendent Vera Rubin NVL72 et les CPU Vera sur OCI à une capacité de plusieurs gigawatts, avec disponibilité générale annoncée.",
+        "category": "Dépenses IA / hyperscalers",
+        "headline": "Microsoft a publié une croissance de 48 % d'Azure et de 30 % de Microsoft Cloud, confirmant une demande toujours forte pour les infrastructures IA.",
         "direction": 1,
         "risk_level": "élevé",
         "confidence": 0.98,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure"
+        "source": "Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/press-release-webcast"
+    },
+    {
+        "date": "2026-10-29",
+        "days_ahead": 3,
+        "category": "HBM / chaîne d'approvisionnement",
+        "headline": "Samsung a accéléré ses ventes de HBM4 et prévoit qu'en 2027 la demande liée à l'IA dépassera largement l'offre du secteur.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.95,
+        "source": "Samsung Electronics",
+        "url": "https://news.samsung.com/be/samsung-electronics-announces-third-quarter-2026-results"
     },
     {
         "date": "2026-10-28",
         "days_ahead": 2,
-        "category": "Concurrence / accélérateurs IA",
-        "headline": "OpenAI prévoit d'acheter des accélérateurs IA de Google, selon The Information cité par Reuters, ce qui accroît le risque de substitution face aux GPU NVIDIA.",
+        "category": "Réglementation / antitrust",
+        "headline": "Le département américain de la Justice examine l'acquisition de Hugging Face par NVIDIA et poursuit ses questions sur les acquisitions et pratiques commerciales du groupe.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.82,
+        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/openai-plans-buy-googles-ai-chips-information-reports-2026-10-28/"
+        "url": "https://www.reuters.com/world/us/doj-is-inquiring-about-nvidias-purchase-hugging-face-sources-say-2026-10-28/"
     },
     {
-        "date": "2026-10-28",
-        "days_ahead": 1,
-        "category": "HBM / chaîne d'approvisionnement",
-        "headline": "SK Hynix a publié un bénéfice trimestriel multiplié par plus de sept, soutenant le sentiment sur la demande de mémoire avancée destinée à l'IA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-28/"
-    },
-    {
-        "date": "2026-10-27",
+        "date": "2026-10-29",
         "days_ahead": 4,
-        "category": "Dépenses data centers",
-        "headline": "UPS estime que les dépenses mondiales de data centers pourraient dépasser 1 000 milliards de dollars en 2026 et plus que doubler d'ici la fin de la décennie, signalant une demande structurelle durable.",
-        "direction": 1,
-        "risk_level": "moyen",
+        "category": "Énergie / data centers",
+        "headline": "Des électeurs de dix États américains doivent se prononcer sur des mesures susceptibles de retarder, interdire ou alourdir les exigences imposées aux data centers.",
+        "direction": -1,
+        "risk_level": "élevé",
         "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/ups-ceo-sees-15-billion-annual-revenue-opportunity-data-center-boom-2026-10-27/"
+        "url": "https://www.reuters.com/legal/litigation/ai-data-center-boom-faces-backlash-us-ballot-box-2026-10-29/"
     },
     {
-        "date": "2026-10-28",
+        "date": "2026-10-29",
+        "days_ahead": 1,
+        "category": "Rentabilité des dépenses IA",
+        "headline": "Alphabet a subi une forte baisse après une consommation de trésorerie supérieure aux attentes liée à plus de 51 milliards de dollars d'investissements, renforçant les doutes sur le rendement des dépenses IA.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.95,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/1b5c71d31b4ce1e46b0db47b33141f6b"
+    },
+    {
+        "date": "2026-10-29",
         "days_ahead": 1,
         "category": "Taux US / énergie",
-        "headline": "La Fed est attendue en pause avec des dissensions potentiellement restrictives, tandis que le pétrole reste élevé, ce qui pèse sur les multiples des valeurs technologiques.",
-        "direction": -1,
-        "risk_level": "élevé",
+        "headline": "Le rendement du Treasury à dix ans est revenu à 4,98 % et le Brent a reculé de 1,2 %, offrant un soutien relatif aux valorisations technologiques.",
+        "direction": 1,
+        "risk_level": "moyen",
         "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-10-28/"
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/1b5c71d31b4ce1e46b0db47b33141f6b"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -120,7 +131,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 28/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 29/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -159,14 +170,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.49, "2R83S": 9.64, "2R85S": 9.69, "2R80S": 9.79,
-    "2R78S": 9.90, "2R84S": 9.68, "2R81S": 9.83, "2R77S": 9.90,
-    "2R75S": 9.56, "2R76S": 9.86, "2R95S": 9.69, "2R89S": 9.79,
-    "2R90S": 9.80, "2R96S": 9.29, "2R87S": 9.54, "2R93S": 9.63,
-    "2R98S": 9.36, "3J41S": 3.07, "2R86S": 8.60, "2R91S": 9.42,
-    "2R97S": 9.34, "2R94S": 9.68, "2R88S": 9.74, "44N9S": 3.21,
-    "5S06S": 8.77, "5S07S": 8.75, "5S05S": 7.62, "1U26S": 6.56,
-    "1U28S": 8.34, "1U27S": 8.76, "80N4S": 8.44,
+    "2R79S": 9.57, "2R83S": 9.61, "2R85S": 9.66, "2R80S": 9.79,
+    "2R78S": 9.90, "2R84S": 9.67, "2R81S": 9.82, "2R77S": 9.89,
+    "2R75S": 9.65, "2R76S": 9.86, "2R95S": 9.68, "2R89S": 9.79,
+    "2R90S": 9.80, "2R96S": 9.22, "2R87S": 9.57, "2R93S": 9.62,
+    "2R98S": 9.28, "3J41S": 2.56, "2R86S": 8.86, "2R91S": 9.45,
+    "2R97S": 9.27, "2R94S": 9.66, "2R88S": 9.75, "44N9S": 2.63,
+    "5S06S": 8.91, "5S07S": 8.65, "5S05S": 8.00, "1U26S": 7.06,
+    "1U28S": 8.30, "1U27S": 8.76, "80N4S": 8.43,
 }
 
 FEATURES = [
@@ -860,7 +871,7 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
                 "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 28/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Source_prix": "fallback SG 29/10/2026 (non temps réel)" if px is not None else "prix indisponible",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
