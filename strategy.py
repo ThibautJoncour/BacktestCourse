@@ -49,73 +49,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-30"
+NVDA_NEWS_LAST_UPDATE = "2026-10-31"
 NVDA_NEWS_EVENTS = [
-    {
-        "date": "2026-10-29",
-        "days_ahead": 5,
-        "category": "Dépenses IA / hyperscalers",
-        "headline": "Amazon maintient environ 220 milliards de dollars de dépenses d'investissement en 2026, principalement pour développer ses capacités d'intelligence artificielle.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.98,
-        "source": "Amazon Investor Relations",
-        "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx"
-    },
-    {
-        "date": "2026-10-29",
-        "days_ahead": 4,
-        "category": "Demande cloud IA",
-        "headline": "AWS a accru son chiffre d'affaires de 39,3 % sur un an à 46 milliards de dollars et Amazon a annoncé de nouveaux accords AWS avec NVIDIA et d'autres grands clients IA.",
-        "direction": 1,
-        "risk_level": "élevé",
-        "confidence": 0.98,
-        "source": "Amazon Investor Relations",
-        "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx"
-    },
-    {
-        "date": "2026-10-29",
-        "days_ahead": 3,
-        "category": "Rentabilité des dépenses IA",
-        "headline": "Le flux de trésorerie disponible d'Amazon est devenu négatif de 42,4 milliards de dollars sur douze mois, principalement sous l'effet d'une hausse de 94,8 milliards des achats d'immobilisations liés à l'IA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.98,
-        "source": "Amazon Investor Relations",
-        "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx"
-    },
-    {
-        "date": "2026-10-29",
-        "days_ahead": 2,
-        "category": "Concurrents / semi-conducteurs",
-        "headline": "Intel prévoit un chiffre d'affaires de 15 à 16 milliards de dollars au quatrième trimestre et anticipe la poursuite du ralentissement des PC au moins jusqu'au premier semestre 2027.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.96,
-        "source": "Intel Investor Relations",
-        "url": "https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-26-000188/q326earningsrelease.htm"
-    },
     {
         "date": "2026-10-30",
         "days_ahead": 1,
-        "category": "Sentiment semi-conducteurs",
-        "headline": "Les inquiétudes sur le coût et le rendement des investissements IA ont déclenché une baisse sectorielle; NVIDIA reculait de 3 % et l'indice des semi-conducteurs de 5,7 %.",
+        "category": "Sentiment IA / valorisation",
+        "headline": "Le Nasdaq 100 a perdu plus de 5,8 % en octobre, soit plus de 2 000 milliards de dollars de capitalisation, alors que les investisseurs réévaluent le rendement et le financement des dépenses IA des hyperscalers.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.95,
+        "confidence": 0.96,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/nasdaq-futures-tumble-amazon-intel-results-deepen-ai-spending-woes-2026-10-30/"
+        "url": "https://www.reuters.com/business/media-telecom/nasdaq-faces-2-trillion-wipeout-october-ai-spending-fears-deepen-2026-10-30/"
     },
     {
         "date": "2026-10-30",
         "days_ahead": 5,
-        "category": "Taux US / financement IA",
-        "headline": "Les marchés anticipent plus de 50 points de base de hausse des taux américains d'ici mi-2027, ce qui renchérit le financement par dette des infrastructures IA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
+        "category": "Énergie des data centers",
+        "headline": "Alliant Energy vise environ 1 GW de nouveaux contrats de data centers dans les six mois, en plus de 3,4 GW déjà contractualisés avec Google, Meta et QTS.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.94,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/nasdaq-futures-tumble-amazon-intel-results-deepen-ai-spending-woes-2026-10-30/"
+        "url": "https://www.reuters.com/business/energy/alliant-targets-1-gw-new-data-center-contracts-six-months-power-demand-surges-2026-10-30/"
+    },
+    {
+        "date": "2026-10-30",
+        "days_ahead": 2,
+        "category": "Taux US / coût du capital",
+        "headline": "Le rendement du Treasury américain à 10 ans a reculé de 5,8 points de base à 4,931 %, ce qui réduit marginalement le taux d'actualisation et le coût de financement des investissements IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.92,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/global-markets-global-markets-2026-10-30/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -131,7 +98,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 30/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 31/10/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -170,14 +137,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.57, "2R83S": 9.58, "2R85S": 9.63, "2R80S": 9.78,
-    "2R78S": 9.89, "2R84S": 9.62, "2R81S": 9.81, "2R77S": 9.89,
-    "2R75S": 9.65, "2R76S": 9.86, "2R95S": 9.66, "2R89S": 9.78,
-    "2R90S": 9.79, "2R96S": 9.20, "2R87S": 9.59, "2R93S": 9.61,
-    "2R98S": 9.26, "3J41S": 2.57, "2R86S": 8.88, "2R91S": 9.45,
-    "2R97S": 9.25, "2R94S": 9.65, "2R88S": 9.74, "44N9S": 2.63,
-    "5S06S": 8.88, "5S07S": 8.60, "5S05S": 7.97, "1U26S": 7.07,
-    "1U28S": 8.13, "1U27S": 8.79, "80N4S": 8.42,
+    "2R79S": 9.58, "2R83S": 9.29, "2R85S": 9.33, "2R80S": 9.69,
+    "2R78S": 9.84, "2R84S": 9.32, "2R81S": 9.72, "2R77S": 9.83,
+    "2R75S": 9.70, "2R76S": 9.81, "2R95S": 9.44, "2R89S": 9.69,
+    "2R90S": 9.70, "2R96S": 8.60, "2R87S": 9.56, "2R93S": 9.40,
+    "2R98S": 8.65, "3J41S": 1.14, "2R86S": 9.20, "2R91S": 9.29,
+    "2R97S": 8.63, "2R94S": 9.43, "2R88S": 9.66, "44N9S": 1.11,
+    "5S06S": 8.78, "5S07S": 7.92, "5S05S": 8.51, "1U26S": 7.57,
+    "1U28S": 7.29, "1U27S": 8.44, "80N4S": 8.05,
 }
 
 FEATURES = [
