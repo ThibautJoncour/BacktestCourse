@@ -49,40 +49,18 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-10-31"
+NVDA_NEWS_LAST_UPDATE = "2026-11-01"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-30",
-        "days_ahead": 1,
-        "category": "Sentiment IA / valorisation",
-        "headline": "Le Nasdaq 100 a perdu plus de 5,8 % en octobre, soit plus de 2 000 milliards de dollars de capitalisation, alors que les investisseurs réévaluent le rendement et le financement des dépenses IA des hyperscalers.",
+        "date": "2026-10-31",
+        "days_ahead": 4,
+        "category": "Énergie / réglementation des data centers",
+        "headline": "Plus de la moitié des États américains ont adopté ou envisagent des mesures imposant davantage de coûts d'infrastructure électrique aux data centers, tandis qu'un texte bipartisan similaire est étudié au Congrès.",
         "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.96,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/media-telecom/nasdaq-faces-2-trillion-wipeout-october-ai-spending-fears-deepen-2026-10-30/"
-    },
-    {
-        "date": "2026-10-30",
-        "days_ahead": 5,
-        "category": "Énergie des data centers",
-        "headline": "Alliant Energy vise environ 1 GW de nouveaux contrats de data centers dans les six mois, en plus de 3,4 GW déjà contractualisés avec Google, Meta et QTS.",
-        "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/alliant-targets-1-gw-new-data-center-contracts-six-months-power-demand-surges-2026-10-30/"
-    },
-    {
-        "date": "2026-10-30",
-        "days_ahead": 2,
-        "category": "Taux US / coût du capital",
-        "headline": "Le rendement du Treasury américain à 10 ans a reculé de 5,8 points de base à 4,931 %, ce qui réduit marginalement le taux d'actualisation et le coût de financement des investissements IA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.92,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/global-markets-global-markets-2026-10-30/"
+        "confidence": 0.88,
+        "source": "Axios",
+        "url": "https://www.axios.com/2026/10/31/who-pays-ai-power-boom"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -98,7 +76,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 31/10/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 01/11/2026
 # (31 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
