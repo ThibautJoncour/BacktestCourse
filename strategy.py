@@ -49,18 +49,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-01"
+NVDA_NEWS_LAST_UPDATE = "2026-11-02"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-10-31",
+        "date": "2026-11-02",
+        "days_ahead": 1,
+        "category": "Sentiment IA / valorisation",
+        "headline": "Le secteur technologique du S&P 500 a perdu 6,8 % en octobre, sa plus forte baisse mensuelle depuis mars 2025, sur fond d'inquiétudes concernant le financement et le rendement des dépenses IA.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/october-dive-ai-related-shares-tests-broader-us-stock-markets-resilience-2026-11-02/"
+    },
+    {
+        "date": "2026-11-02",
         "days_ahead": 4,
-        "category": "Énergie / réglementation des data centers",
-        "headline": "Plus de la moitié des États américains ont adopté ou envisagent des mesures imposant davantage de coûts d'infrastructure électrique aux data centers, tandis qu'un texte bipartisan similaire est étudié au Congrès.",
+        "category": "Concurrence / puces personnalisées",
+        "headline": "Marvell a conclu un accord pour acquérir Lumentum pour 115 milliards de dollars afin de renforcer son offre de puces personnalisées et de connectivité optique pour les data centers IA.",
         "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.88,
-        "source": "Axios",
-        "url": "https://www.axios.com/2026/10/31/who-pays-ai-power-boom"
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/marvell-buy-lumentum-115-billion-deal-ai-data-center-bet-2026-11-02/"
+    },
+    {
+        "date": "2026-11-02",
+        "days_ahead": 3,
+        "category": "Demande IA / clients",
+        "headline": "Anthropic a déclaré un chiffre d'affaires trimestriel de 16,96 milliards de dollars, contre 11,56 milliards au trimestre précédent, tandis que sa perte nette s'est réduite à 23,29 milliards.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.94,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/"
+    },
+    {
+        "date": "2026-11-02",
+        "days_ahead": 2,
+        "category": "Réglementation / élections américaines",
+        "headline": "Les élections de mi-mandat pourraient conduire à un contrôle accru des entreprises d'IA et des constructions de data centers si les démocrates remportent une ou deux chambres du Congrès.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.84,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/finance/investors-gaming-out-congress-control-spending-ai-outlook-2026-11-02/"
+    },
+    {
+        "date": "2026-11-02",
+        "days_ahead": 5,
+        "category": "Taux US / coût du capital",
+        "headline": "Plusieurs responsables de la Réserve fédérale ont signalé qu'une nouvelle hausse des taux américains restait probable avant la fin de l'année.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-11-02/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -76,8 +120,8 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 01/11/2026
-# (31 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 02/11/2026
+# (32 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
@@ -111,18 +155,19 @@ NVDA_FALLBACK_PRODUCTS = [
     ("1U26S", "DE000FG3T895", 120, 260, "2027-02-19"),
     ("1U28S", "DE000FG3T9B5", 160, 320, "2027-02-19"),
     ("1U27S", "DE000FG3T9A7", 140, 300, "2027-02-19"),
+    ("6538S", "DE000FG9VRH2", 180, 230, "2027-02-19"),
     ("80N4S", "DE000FG83MG9", 140, 320, "2027-03-19"),
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.58, "2R83S": 9.29, "2R85S": 9.33, "2R80S": 9.69,
-    "2R78S": 9.84, "2R84S": 9.32, "2R81S": 9.72, "2R77S": 9.83,
-    "2R75S": 9.70, "2R76S": 9.81, "2R95S": 9.44, "2R89S": 9.69,
-    "2R90S": 9.70, "2R96S": 8.60, "2R87S": 9.56, "2R93S": 9.40,
-    "2R98S": 8.65, "3J41S": 1.14, "2R86S": 9.20, "2R91S": 9.29,
-    "2R97S": 8.63, "2R94S": 9.43, "2R88S": 9.66, "44N9S": 1.11,
-    "5S06S": 8.78, "5S07S": 7.92, "5S05S": 8.51, "1U26S": 7.57,
-    "1U28S": 7.29, "1U27S": 8.44, "80N4S": 8.05,
+    "2R79S": 9.64, "2R83S": 9.50, "2R85S": 9.52, "2R80S": 9.77,
+    "2R78S": 9.87, "2R84S": 9.53, "2R81S": 9.79, "2R77S": 9.86,
+    "2R75S": 9.68, "2R76S": 9.83, "2R95S": 9.59, "2R89S": 9.74,
+    "2R90S": 9.75, "2R96S": 8.98, "2R87S": 9.60, "2R93S": 9.54,
+    "2R98S": 9.03, "3J41S": 1.99, "2R86S": 9.18, "2R91S": 9.42,
+    "2R97S": 9.01, "2R94S": 9.57, "2R88S": 9.70, "44N9S": 1.89,
+    "5S06S": 8.94, "5S07S": 8.37, "5S05S": 8.43, "1U26S": 7.48,
+    "1U28S": 7.83, "1U27S": 8.68, "6538S": 1.22, "80N4S": 8.37,
 }
 
 FEATURES = [
