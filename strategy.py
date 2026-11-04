@@ -49,51 +49,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-03"
+NVDA_NEWS_LAST_UPDATE = "2026-11-04"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-03",
+        "date": "2026-11-04",
         "days_ahead": 1,
-        "category": "Marchés / taux US",
-        "headline": "Les indices technologiques asiatiques ont chuté de 3,6 % sur de nouvelles inquiétudes liées à l'IA, tandis que le rendement du Treasury américain à dix ans est monté à 4,9187 %.",
+        "category": "Réglementation / data centers",
+        "headline": "La victoire démocrate au Congrès accroît le risque d'auditions, d'enquêtes et de contraintes sur les data centers, après des campagnes victorieuses contre leur expansion au Texas et en Géorgie.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.97,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-03/"
+        "url": "https://www.reuters.com/business/aerospace-defense/ai-data-center-stocks-dip-renewables-surge-after-democrat-sweep-us-midterm-2026-11-04/"
+    },
+    {
+        "date": "2026-11-04",
+        "days_ahead": 1,
+        "category": "Taux US / dollar",
+        "headline": "Le rendement du Treasury américain à dix ans a baissé de 1,7 point de base à 4,933 % et l'indice dollar est tombé à 101,39, son plus bas niveau depuis un mois.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/africa/dollar-dips-with-us-midterm-results-focus-2026-11-04/"
+    },
+    {
+        "date": "2026-11-04",
+        "days_ahead": 3,
+        "category": "Concurrence / accélérateurs IA",
+        "headline": "AMD prévoit une croissance de chiffre d'affaires supérieure à 80 % en 2027 et son activité data centers a progressé de 97 %, renforçant son statut d'alternative à NVIDIA.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/amd-shares-jump-ai-driven-data-center-strength-fuels-growth-outlook-2026-11-04/"
+    },
+    {
+        "date": "2026-11-03",
+        "days_ahead": 4,
+        "category": "Dépenses IA / hyperscalers",
+        "headline": "Meta lève 15 milliards de dollars par obligations pour financer ses investissements croissants dans les data centers, la puissance de calcul et l'infrastructure IA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.97,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/technology/meta-raises-15-billion-in-five-part-us-bond-sale-2026-11-03/"
     },
     {
         "date": "2026-11-03",
         "days_ahead": 2,
-        "category": "Financement IA / valorisation",
-        "headline": "Des dirigeants financiers ont averti qu'un coût du capital plus élevé et des attentes de croissance trop fortes pouvaient provoquer une correction du secteur de l'IA.",
+        "category": "Financement / infrastructure IA",
+        "headline": "Le financement du pipeline mondial de data centers, estimé à 1 800 milliards de dollars, devient plus sélectif et plus coûteux, ce qui pourrait réduire ou retarder des projets.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/blackstone-president-says-more-tech-sector-fundraising-ahead-keep-up-with-ai-2026-11-03/"
-    },
-    {
-        "date": "2026-11-03",
-        "days_ahead": 3,
-        "category": "Dépenses IA / hyperscalers",
-        "headline": "Alphabet, Amazon, Microsoft et Meta ont indiqué que leurs dépenses d'IA ne ralentiraient pas, alors que la demande de puissance de calcul reste supérieure à l'offre.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.93,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/blackstone-president-says-more-tech-sector-fundraising-ahead-keep-up-with-ai-2026-11-03/"
-    },
-    {
-        "date": "2026-11-03",
-        "days_ahead": 5,
-        "category": "Demande institutionnelle / infrastructure IA",
-        "headline": "AustralianSuper a maintenu sa préférence pour les fabricants de semi-conducteurs et les data centers hyperscale, avec NVIDIA parmi ses principales expositions liées à l'IA.",
-        "direction": 1,
-        "risk_level": "moyen",
         "confidence": 0.91,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/australiansuper-digs-down-ai-picks-and-shovels-ride-out-global-ai-upheaval-2026-11-03/"
+        "source": "Reuters Breakingviews",
+        "url": "https://www.reuters.com/commentary/breakingviews/ai-boom-teeters-capital-balancing-act-2026-11-03/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -109,7 +120,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 03/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 04/11/2026
 # (32 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -149,14 +160,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.55, "2R83S": 9.34, "2R85S": 9.39, "2R80S": 9.70,
-    "2R78S": 9.85, "2R84S": 9.39, "2R81S": 9.72, "2R77S": 9.84,
-    "2R75S": 9.69, "2R76S": 9.82, "2R95S": 9.48, "2R89S": 9.70,
-    "2R90S": 9.71, "2R96S": 8.70, "2R87S": 9.57, "2R93S": 9.44,
-    "2R98S": 8.76, "3J41S": 1.53, "2R86S": 9.12, "2R91S": 9.33,
-    "2R97S": 8.75, "2R94S": 9.47, "2R88S": 9.67, "44N9S": 1.56,
-    "5S06S": 8.79, "5S07S": 8.10, "5S05S": 8.32, "1U26S": 7.39,
-    "1U28S": 7.51, "1U27S": 8.51, "6538S": 1.10, "80N4S": 8.10,
+    "2R79S": 9.68, "2R83S": 9.49, "2R85S": 9.48, "2R80S": 9.78,
+    "2R78S": 9.89, "2R84S": 9.49, "2R81S": 9.79, "2R77S": 9.88,
+    "2R75S": 9.78, "2R76S": 9.87, "2R95S": 9.53, "2R89S": 9.75,
+    "2R90S": 9.75, "2R96S": 8.76, "2R87S": 9.63, "2R93S": 9.51,
+    "2R98S": 8.80, "3J41S": 1.29, "2R86S": 9.31, "2R91S": 9.42,
+    "2R97S": 8.79, "2R94S": 9.54, "2R88S": 9.71, "44N9S": 1.27,
+    "5S06S": 8.93, "5S07S": 8.10, "5S05S": 8.61, "1U26S": 7.72,
+    "1U28S": 7.51, "1U27S": 8.62, "6538S": 1.30, "80N4S": 8.16,
 }
 
 FEATURES = [
