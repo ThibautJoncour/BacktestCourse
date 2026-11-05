@@ -49,62 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-04"
+NVDA_NEWS_LAST_UPDATE = "2026-11-05"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "days_ahead": 1,
-        "category": "Réglementation / data centers",
-        "headline": "La victoire démocrate au Congrès accroît le risque d'auditions, d'enquêtes et de contraintes sur les data centers, après des campagnes victorieuses contre leur expansion au Texas et en Géorgie.",
+        "category": "Chine / contrôles technologiques",
+        "headline": "Environ 600 000 accélérateurs NVIDIA H200 sont stockés à Hong Kong dans l'attente d'une autorisation d'importation à grande échelle de Pékin vers la Chine continentale.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.97,
+        "confidence": 0.94,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/aerospace-defense/ai-data-center-stocks-dip-renewables-surge-after-democrat-sweep-us-midterm-2026-11-04/"
+        "url": "https://www.reuters.com/world/china/nvidia-chips-pile-up-hong-kong-china-withholds-import-approval-2026-11-05/"
     },
     {
-        "date": "2026-11-04",
-        "days_ahead": 1,
-        "category": "Taux US / dollar",
-        "headline": "Le rendement du Treasury américain à dix ans a baissé de 1,7 point de base à 4,933 % et l'indice dollar est tombé à 101,39, son plus bas niveau depuis un mois.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.96,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/africa/dollar-dips-with-us-midterm-results-focus-2026-11-04/"
-    },
-    {
-        "date": "2026-11-04",
-        "days_ahead": 3,
-        "category": "Concurrence / accélérateurs IA",
-        "headline": "AMD prévoit une croissance de chiffre d'affaires supérieure à 80 % en 2027 et son activité data centers a progressé de 97 %, renforçant son statut d'alternative à NVIDIA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.96,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/amd-shares-jump-ai-driven-data-center-strength-fuels-growth-outlook-2026-11-04/"
-    },
-    {
-        "date": "2026-11-03",
-        "days_ahead": 4,
-        "category": "Dépenses IA / hyperscalers",
-        "headline": "Meta lève 15 milliards de dollars par obligations pour financer ses investissements croissants dans les data centers, la puissance de calcul et l'infrastructure IA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.97,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/technology/meta-raises-15-billion-in-five-part-us-bond-sale-2026-11-03/"
-    },
-    {
-        "date": "2026-11-03",
+        "date": "2026-11-05",
         "days_ahead": 2,
-        "category": "Financement / infrastructure IA",
-        "headline": "Le financement du pipeline mondial de data centers, estimé à 1 800 milliards de dollars, devient plus sélectif et plus coûteux, ce qui pourrait réduire ou retarder des projets.",
+        "category": "Réglementation / data centers",
+        "headline": "UBS estime qu'environ 30 % des ajouts de capacité de data centers prévus aux États-Unis en 2028 pourraient être menacés par des suspensions de construction.",
         "direction": -1,
         "risk_level": "élevé",
+        "confidence": 0.93,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/ai-data-center-stocks-slip-democratic-sweep-clouds-expansion-plans-2026-11-05/"
+    },
+    {
+        "date": "2026-11-05",
+        "days_ahead": 4,
+        "category": "Demande IA / data centers",
+        "headline": "Legrand a relevé sa prévision de croissance après une demande robuste des data centers et indique que ses clients prévoient de maintenir, voire d'accroître, leurs investissements.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.92,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/energy/us-data-centre-backlash-could-boost-legrands-energy-efficient-offering-ceo-says-2026-11-05/"
+    },
+    {
+        "date": "2026-11-05",
+        "days_ahead": 3,
+        "category": "Taux US / énergie",
+        "headline": "Le Brent est tombé sous 100 dollars, à un plus bas de deux mois, tandis que les rendements du Treasury ont atteint un plus bas de deux mois, réduisant les tensions sur l'inflation et le coût du capital.",
+        "direction": 1,
+        "risk_level": "moyen",
         "confidence": 0.91,
-        "source": "Reuters Breakingviews",
-        "url": "https://www.reuters.com/commentary/breakingviews/ai-boom-teeters-capital-balancing-act-2026-11-03/"
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-05/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -120,8 +109,8 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 04/11/2026
-# (32 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 05/11/2026
+# (30 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
@@ -142,13 +131,11 @@ NVDA_FALLBACK_PRODUCTS = [
     ("2R87S", "DE000FE6NXR4", 120, 280, "2026-12-18"),
     ("2R93S", "DE000FE6NXW4", 140, 300, "2026-12-18"),
     ("2R98S", "DE000FE6NX14", 160, 340, "2026-12-18"),
-    ("3J41S", "DE000FG340X0", 200, 250, "2026-12-18"),
     ("2R86S", "DE000FE6NXQ6", 120, 260, "2026-12-18"),
     ("2R91S", "DE000FE6NXV6", 140, 280, "2026-12-18"),
     ("2R97S", "DE000FE6NX06", 160, 320, "2026-12-18"),
     ("2R94S", "DE000FE6NXX2", 140, 320, "2026-12-18"),
     ("2R88S", "DE000FE6NXS2", 120, 300, "2026-12-18"),
-    ("44N9S", "DE000FG8PST9", 200, 270, "2027-01-15"),
     ("5S06S", "DE000FG1E5H9", 140, 280, "2027-01-15"),
     ("5S07S", "DE000FG1E5J5", 160, 300, "2027-01-15"),
     ("5S05S", "DE000FG1E5G1", 120, 260, "2027-01-15"),
@@ -160,14 +147,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.68, "2R83S": 9.49, "2R85S": 9.48, "2R80S": 9.78,
-    "2R78S": 9.89, "2R84S": 9.49, "2R81S": 9.79, "2R77S": 9.88,
-    "2R75S": 9.78, "2R76S": 9.87, "2R95S": 9.53, "2R89S": 9.75,
-    "2R90S": 9.75, "2R96S": 8.76, "2R87S": 9.63, "2R93S": 9.51,
-    "2R98S": 8.80, "3J41S": 1.29, "2R86S": 9.31, "2R91S": 9.42,
-    "2R97S": 8.79, "2R94S": 9.54, "2R88S": 9.71, "44N9S": 1.27,
-    "5S06S": 8.93, "5S07S": 8.10, "5S05S": 8.61, "1U26S": 7.72,
-    "1U28S": 7.51, "1U27S": 8.62, "6538S": 1.30, "80N4S": 8.16,
+    "2R79S": 9.61, "2R83S": 8.75, "2R85S": 8.77, "2R80S": 9.61,
+    "2R78S": 9.85, "2R84S": 8.75, "2R81S": 9.62, "2R77S": 9.86,
+    "2R75S": 9.84, "2R76S": 9.85, "2R95S": 9.13, "2R89S": 9.62,
+    "2R90S": 9.61, "2R96S": 7.60, "2R87S": 9.59, "2R93S": 9.12,
+    "2R98S": 7.60, "2R86S": 9.52, "2R91S": 9.12, "2R97S": 7.59,
+    "2R94S": 9.13, "2R88S": 9.62, "5S06S": 8.61, "5S07S": 6.83,
+    "5S05S": 9.10, "1U26S": 8.43, "1U28S": 6.14, "1U27S": 8.10,
+    "6538S": 0.97, "80N4S": 7.58,
 }
 
 FEATURES = [
