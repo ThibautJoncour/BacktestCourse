@@ -49,51 +49,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-05"
+NVDA_NEWS_LAST_UPDATE = "2026-11-06"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-05",
+        "date": "2026-11-06",
         "days_ahead": 1,
-        "category": "Chine / contrôles technologiques",
-        "headline": "Environ 600 000 accélérateurs NVIDIA H200 sont stockés à Hong Kong dans l'attente d'une autorisation d'importation à grande échelle de Pékin vers la Chine continentale.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/nvidia-chips-pile-up-hong-kong-china-withholds-import-approval-2026-11-05/"
-    },
-    {
-        "date": "2026-11-05",
-        "days_ahead": 2,
         "category": "Réglementation / data centers",
-        "headline": "UBS estime qu'environ 30 % des ajouts de capacité de data centers prévus aux États-Unis en 2028 pourraient être menacés par des suspensions de construction.",
+        "headline": "Les opposants aux data centers ont remporté 40 des 41 référendums locaux suivis lors des élections américaines, renforçant le risque de restrictions sur les nouvelles capacités.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.93,
+        "confidence": 0.96,
         "source": "Reuters",
-        "url": "https://www.reuters.com/legal/transactional/ai-data-center-stocks-slip-democratic-sweep-clouds-expansion-plans-2026-11-05/"
+        "url": "https://www.reuters.com/world/us/donald-trump/data-centers-took-beating-midterms-ai-firms-felt-pain-2026-11-06/"
     },
     {
-        "date": "2026-11-05",
-        "days_ahead": 4,
-        "category": "Demande IA / data centers",
-        "headline": "Legrand a relevé sa prévision de croissance après une demande robuste des data centers et indique que ses clients prévoient de maintenir, voire d'accroître, leurs investissements.",
-        "direction": 1,
+        "date": "2026-11-06",
+        "days_ahead": 2,
+        "category": "Financement / data centers",
+        "headline": "ING met en vente un portefeuille d'environ 500 millions de dollars de prêts liés aux data centers, dont un prêt associé au projet Stargate au Nouveau-Mexique.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.88,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/finance/ing-puts-500-million-data-center-loans-up-sale-bloomberg-news-reports-2026-11-06/"
+    },
+    {
+        "date": "2026-11-06",
+        "days_ahead": 3,
+        "category": "Taux US / dollar",
+        "headline": "Un rapport sur l'emploi américain supérieur aux attentes a ramené le rendement du Treasury à 10 ans à 4,86 %, maintenant un coût du capital élevé pour les valeurs de croissance et les projets de data centers.",
+        "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.92,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/energy/us-data-centre-backlash-could-boost-legrands-energy-efficient-offering-ceo-says-2026-11-05/"
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/bba6f0bf9035a6e6b1c4fef3e8230b89"
     },
     {
-        "date": "2026-11-05",
-        "days_ahead": 3,
-        "category": "Taux US / énergie",
-        "headline": "Le Brent est tombé sous 100 dollars, à un plus bas de deux mois, tandis que les rendements du Treasury ont atteint un plus bas de deux mois, réduisant les tensions sur l'inflation et le coût du capital.",
+        "date": "2026-11-06",
+        "days_ahead": 1,
+        "category": "Marché / sentiment IA",
+        "headline": "NVIDIA a rebondi de 5,6 % à l'ouverture après deux fortes baisses, tandis que plusieurs valeurs liées aux infrastructures IA ont également repris du terrain.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.91,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-05/"
+        "confidence": 0.95,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/bba6f0bf9035a6e6b1c4fef3e8230b89"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -109,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 05/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 06/11/2026
 # (30 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -147,14 +147,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.61, "2R83S": 8.75, "2R85S": 8.77, "2R80S": 9.61,
-    "2R78S": 9.85, "2R84S": 8.75, "2R81S": 9.62, "2R77S": 9.86,
-    "2R75S": 9.84, "2R76S": 9.85, "2R95S": 9.13, "2R89S": 9.62,
-    "2R90S": 9.61, "2R96S": 7.60, "2R87S": 9.59, "2R93S": 9.12,
-    "2R98S": 7.60, "2R86S": 9.52, "2R91S": 9.12, "2R97S": 7.59,
-    "2R94S": 9.13, "2R88S": 9.62, "5S06S": 8.61, "5S07S": 6.83,
-    "5S05S": 9.10, "1U26S": 8.43, "1U28S": 6.14, "1U27S": 8.10,
-    "6538S": 0.97, "80N4S": 7.58,
+    "2R79S": 9.28, "2R83S": 8.20, "2R85S": 8.29, "2R80S": 9.39,
+    "2R78S": 9.80, "2R84S": 8.24, "2R81S": 9.44, "2R77S": 9.77,
+    "2R75S": 9.62, "2R76S": 9.73, "2R95S": 8.80, "2R89S": 9.48,
+    "2R90S": 9.50, "2R96S": 7.06, "2R87S": 9.31, "2R93S": 8.72,
+    "2R98S": 7.18, "2R86S": 9.01, "2R91S": 8.58, "2R97S": 7.16,
+    "2R94S": 8.78, "2R88S": 9.43, "5S06S": 7.93, "5S07S": 6.32,
+    "5S05S": 8.36, "1U26S": 7.52, "1U28S": 5.76, "1U27S": 7.49,
+    "6538S": 0.36, "80N4S": 7.07,
 }
 
 FEATURES = [
