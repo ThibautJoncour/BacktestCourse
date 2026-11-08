@@ -49,53 +49,8 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-07"
-NVDA_NEWS_EVENTS = [
-    {
-        "date": "2026-11-07",
-        "days_ahead": 1,
-        "category": "Réglementation / data centers",
-        "headline": "La victoire démocrate aux élections américaines a accru les anticipations de restrictions sur les nouveaux data centers, en particulier au Texas, et maintient une forte volatilité sur les valeurs IA.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/stock-market-winners-losers-defense-ai-musk-4ac9a6a3c35aeec37374fc8083bf9395"
-    },
-    {
-        "date": "2026-11-07",
-        "days_ahead": 2,
-        "category": "Énergie / data centers",
-        "headline": "Des actions coordonnées contre les grands data centers sont annoncées dans 16 pays européens après l'intrusion de manifestants sur le chantier d'un centre Microsoft à Amsterdam.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.93,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/b4f3f9f368697bb37416bcb4fabdd67c"
-    },
-    {
-        "date": "2026-11-07",
-        "days_ahead": 3,
-        "category": "Taux US / dollar",
-        "headline": "La présidente de la Fed de San Francisco, Mary Daly, estime que de nouvelles hausses de taux resteront probablement nécessaires malgré la correction des valeurs technologiques.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/daly-says-fed-rate-hike-likely-despite-painful-tech-stock-dive-2026-11-06/"
-    },
-    {
-        "date": "2026-11-07",
-        "days_ahead": 1,
-        "category": "Marché / sentiment IA",
-        "headline": "NVIDIA a terminé la séance de vendredi en hausse de 2,8 %, tandis que le Nasdaq a gagné 1,1 %, interrompant la baisse mondiale des valeurs liées à l'IA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.95,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/bba6f0bf9035a6e6b1c4fef3e8230b89"
-    },
-]
+NVDA_NEWS_LAST_UPDATE = "2026-11-08"
+NVDA_NEWS_EVENTS = []
 # END AUTO-UPDATED NVDA NEWS
 
 
@@ -109,7 +64,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 07/11/2026
+# Catalogue de secours vérifié sur la page publique SG Bourse le 08/11/2026
 # (30 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
