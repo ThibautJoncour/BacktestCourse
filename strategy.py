@@ -49,8 +49,53 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-08"
-NVDA_NEWS_EVENTS = []
+NVDA_NEWS_LAST_UPDATE = "2026-11-09"
+NVDA_NEWS_EVENTS = [
+    {
+        "date": "2026-11-08",
+        "days_ahead": 1,
+        "category": "Gouvernance / sécurité",
+        "headline": "Le conseil de NVIDIA a ouvert une enquête indépendante après des informations selon lesquelles Jensen Huang aurait été visé par une opération de renseignement étrangère, tout en indiquant n'avoir aucune raison de croire que des secrets ou la sécurité nationale ont été compromis.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
+        "source": "NVIDIA",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx"
+    },
+    {
+        "date": "2026-11-09",
+        "days_ahead": 2,
+        "category": "Concurrence / puces IA",
+        "headline": "Google a lancé les TPU 8tx et 8i Max et élargit leur accès via Google Cloud, renforçant sa concurrence avec NVIDIA sur les accélérateurs d'IA destinés aux entreprises.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.97,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/google-to-introduce-two-variants-its-in-house-chips-bloomberg-news-reports-2026-11-09/"
+    },
+    {
+        "date": "2026-11-09",
+        "days_ahead": 3,
+        "category": "Infrastructure IA / Corée",
+        "headline": "NVIDIA, Rebellions et SK Telecom vont intégrer les processeurs R200 de Rebellions à NVLink Fusion et à l'architecture MGX pour une infrastructure d'IA souveraine en Corée.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.98,
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion"
+    },
+    {
+        "date": "2026-11-09",
+        "days_ahead": 5,
+        "category": "Écosystème IA / investissements",
+        "headline": "NVIDIA a annoncé un investissement dans Point2 et des investissements prévus dans Motif Technologies, RLWRLD et Upstage afin d'étendre son écosystème IA en Corée.",
+        "direction": 1,
+        "risk_level": "faible",
+        "confidence": 0.97,
+        "source": "NVIDIA",
+        "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/"
+    },
+]
 # END AUTO-UPDATED NVDA NEWS
 
 
@@ -64,7 +109,7 @@ NVDA_SG_TIMEOUT = 15
 # Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
 # dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
 
-# Catalogue de secours vérifié sur la page publique SG Bourse le 08/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 09/11/2026
 # (30 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -102,14 +147,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.20, "2R83S": 7.57, "2R85S": 7.62, "2R80S": 9.28,
-    "2R78S": 9.73, "2R84S": 7.61, "2R81S": 9.29, "2R77S": 9.71,
-    "2R75S": 9.68, "2R76S": 9.71, "2R95S": 8.51, "2R89S": 9.40,
-    "2R90S": 9.40, "2R96S": 6.45, "2R87S": 9.38, "2R93S": 8.53,
-    "2R98S": 6.50, "2R86S": 9.24, "2R91S": 8.45, "2R97S": 6.49,
-    "2R94S": 8.55, "2R88S": 9.41, "5S06S": 7.88, "5S07S": 5.77,
-    "5S05S": 8.69, "1U26S": 7.91, "1U28S": 5.19, "1U27S": 7.28,
-    "6538S": 0.24, "80N4S": 6.77,
+    "2R79S": 8.92, "2R83S": 6.50, "2R85S": 6.58, "2R80S": 8.94,
+    "2R78S": 9.71, "2R84S": 6.44, "2R81S": 8.99, "2R77S": 9.69,
+    "2R75S": 9.64, "2R76S": 9.68, "2R95S": 8.51, "2R89S": 9.40,
+    "2R90S": 9.40, "2R96S": 5.26, "2R87S": 9.38, "2R93S": 8.53,
+    "2R98S": 5.34, "2R86S": 9.08, "2R91S": 8.45, "2R97S": 5.33,
+    "2R94S": 8.55, "2R88S": 9.41, "5S06S": 7.24, "5S07S": 4.57,
+    "5S05S": 8.52, "1U26S": 7.91, "1U28S": 5.19, "1U27S": 7.28,
+    "6538S": 0.24, "80N4S": 6.04,
 }
 
 FEATURES = [
