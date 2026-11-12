@@ -97,8 +97,8 @@ NVDA_STABILITY_URL = (
 )
 NVDA_SG_TIMEOUT = 15
 
-# Prix connus conservés uniquement comme secours si SG ne renvoie pas de cotation
-# dans le HTML au moment du refresh. Les barrières/maturités restent récupérées du site.
+# Anciennes observations de prix conservées pour audit historique uniquement.
+# Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
 # Catalogue de secours synchronisé avec la page publique SG Bourse le 11/11/2026
 # (29 produits).
@@ -755,12 +755,9 @@ def _parse_sg_stability_html(html: str) -> list[dict]:
             sell = _sg_number(cells[i_sell]) if i_sell is not None and i_sell < len(cells) else None
 
             # Pour acheter le warrant, on privilégie la cotation d'achat affichée par SG.
-            # Si elle est absente, on prend Vente, puis le dernier prix de secours connu.
+            # Si aucune cotation n'est affichée, ne pas réutiliser un ancien prix.
             market_price = buy if buy is not None else sell
-            price_source = "SG live HTML"
-            if market_price is None:
-                market_price = NVDA_FALLBACK_MARKET_PRICES.get(code)
-                price_source = "fallback ancien prix" if market_price is not None else "indisponible"
+            price_source = "SG HTML Achat" if buy is not None else ("SG HTML Vente" if sell is not None else "cotation SG indisponible")
 
             out.append({
                 "Code": code,
@@ -830,15 +827,14 @@ def fetch_nvda_stability_products() -> pd.DataFrame:
         # toute l'application : on reprend le dernier catalogue SG embarqué.
         fallback_rows = []
         for code, isin, low, high, maturity in NVDA_FALLBACK_PRODUCTS:
-            px = NVDA_FALLBACK_MARKET_PRICES.get(code)
             fallback_rows.append({
                 "Code": code,
                 "ISIN": isin,
                 "Barriere_basse": float(low),
                 "Barriere_haute": float(high),
                 "Maturite": maturity,
-                "Prix_marche": np.nan if px is None else float(px),
-                "Source_prix": "fallback SG 29/10/2026 (non temps réel)" if px is not None else "prix indisponible",
+                "Prix_marche": np.nan,
+                "Source_prix": "cotation SG indisponible (prix historiques exclus)",
             })
         products = pd.DataFrame(fallback_rows)
         products.attrs["expected_total"] = 31
