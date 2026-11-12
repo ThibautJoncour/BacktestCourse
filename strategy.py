@@ -51,40 +51,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-11"
+NVDA_NEWS_LAST_UPDATE = "2026-11-12"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-11",
+        "date": "2026-11-12",
         "days_ahead": 1,
         "category": "Contrôles à l'exportation / Chine",
-        "headline": "Une université chinoise liée à l'armée et placée sur liste noire américaine a acquis des H200 NVIDIA et loué des capacités utilisant plusieurs puces soumises à restrictions.",
+        "headline": "Des entreprises chinoises d'IA cherchent à réserver des capacités de calcul NVIDIA dans des data centers hors de Chine, par crainte d'un durcissement américain sur l'accès distant aux puces avancées.",
         "direction": -1,
         "risk_level": "élevé",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/chinese-ai-firms-rush-secure-nvidia-chip-capacity-spy-scandal-stirs-fear-us-2026-11-12/"
+    },
+    {
+        "date": "2026-11-11",
+        "days_ahead": 2,
+        "category": "Réglementation / Chine",
+        "headline": "Les sénateurs Elizabeth Warren et Chris Coons ont demandé la conservation de tous les documents fédéraux concernant les exportations de puces NVIDIA vers la Chine et un briefing au Congrès.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
+        "source": "United States Senate",
+        "url": "https://www.banking.senate.gov/imo/media/doc/20261111_warren_coons_letter_to_wh_commerce_state_re_nvidia_record_retentionpdf.pdf"
+    },
+    {
+        "date": "2026-11-12",
+        "days_ahead": 4,
+        "category": "HBM / chaîne d'approvisionnement",
+        "headline": "Samsung a lancé une usine de packaging HBM de 6 000 milliards de wons à Asan, avec environ 40 000 milliards de wons d'équipements avancés et une mise en service avancée à juin 2028.",
+        "direction": 1,
+        "risk_level": "moyen",
         "confidence": 0.98,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/pla-linked-chinese-university-bought-nvidia-h200-chips-despite-us-blacklist-2026-11-11/"
-    },
-    {
-        "date": "2026-11-10",
-        "days_ahead": 2,
-        "category": "Gouvernance",
-        "headline": "Les administrateurs indépendants de NVIDIA ont confié l'enquête à l'ancien procureur fédéral par intérim Joon H. Kim et au cabinet Wachtell Lipton.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.99,
-        "source": "NVIDIA",
-        "url": "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-the-Independent-Members-of-the-NVIDIA-Board/default.aspx"
-    },
-    {
-        "date": "2026-11-10",
-        "days_ahead": 3,
-        "category": "Dépenses IA / hyperscalers",
-        "headline": "CoreWeave a publié 3,661 milliards de dollars de chiffre d'affaires trimestriel, un carnet de commandes de 132,5 milliards et relevé sa prévision annuelle de revenus à 13,0-13,3 milliards.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.99,
-        "source": "CoreWeave",
-        "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx"
+        "url": "https://www.reuters.com/world/asia-pacific/south-koreas-lee-says-samsung-chip-packaging-expansion-spur-30-billion-2026-11-12/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,7 +100,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 11/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 12/11/2026
 # (29 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -137,14 +137,14 @@ NVDA_FALLBACK_PRODUCTS = [
 ]
 
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 8.99, "2R83S": 5.55, "2R85S": 5.58, "2R80S": 9.00,
-    "2R78S": 9.73, "2R84S": 5.57, "2R81S": 9.02, "2R77S": 9.73,
-    "2R75S": 9.70, "2R76S": 9.72, "2R95S": 7.81, "2R89S": 9.23,
-    "2R90S": 9.25, "2R96S": 4.14, "2R87S": 9.20, "2R93S": 7.81,
-    "2R98S": 4.19, "2R86S": 9.16, "2R91S": 7.76, "2R97S": 4.19,
-    "2R94S": 7.82, "2R88S": 9.23, "5S06S": 6.93, "5S07S": 3.49,
-    "5S05S": 8.59, "1U26S": 7.89, "1U28S": 3.00, "1U27S": 6.26,
-    "80N4S": 5.71,
+    "2R79S": 7.46, "2R83S": 5.55, "2R85S": 5.58, "2R80S": 7.47,
+    "2R78S": 9.43, "2R84S": 5.57, "2R81S": 7.48, "2R77S": 9.43,
+    "2R75S": 9.42, "2R76S": 9.42, "2R95S": 5.97, "2R89S": 8.67,
+    "2R90S": 8.68, "2R96S": 4.14, "2R87S": 8.64, "2R93S": 5.96,
+    "2R98S": 4.19, "2R86S": 8.58, "2R91S": 5.92, "2R97S": 4.19,
+    "2R94S": 5.98, "2R88S": 8.65, "5S06S": 5.10, "5S07S": 3.49,
+    "5S05S": 7.85, "1U26S": 7.06, "1U28S": 3.00, "1U27S": 4.53,
+    "80N4S": 4.10,
 }
 
 FEATURES = [
