@@ -39,6 +39,8 @@ MATURITY = pd.Timestamp("2027-01-15")
 # STABILITY NVIDIA - MONTE CARLO AVEC SIGMA HAR-RV
 # ============================================================
 NVDA_TICKER = "NVDA"
+# Override de scénario demandé le 2026-11-12 (USD); None = cotation automatique.
+NVDA_MANUAL_SPOT = 163.0
 NVDA_REDEMPTION = 10.0
 NVDA_MC_PATHS = 50_000
 NVDA_RISK_FREE_RATE = 0.02
@@ -950,7 +952,12 @@ def _download_nvidia_history() -> pd.DataFrame:
 
 
 def _nvda_pricing_spot(history: pd.DataFrame) -> tuple[float, pd.Timestamp, str]:
-    """Prend un cours intraday frais pendant la séance, sinon la dernière clôture."""
+    """Prend le spot manuel si configuré, sinon la cotation Yahoo."""
+    if NVDA_MANUAL_SPOT is not None:
+        spot = float(NVDA_MANUAL_SPOT)
+        if not np.isfinite(spot) or spot <= 0:
+            raise StrategyError("Spot manuel NVDA invalide.")
+        return spot, pd.Timestamp("2026-11-12", tz="UTC"), "Spot manuel utilisateur (2026-11-12)"
     now = time.time()
     try:
         response = requests.get(
