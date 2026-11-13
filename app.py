@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -234,6 +235,12 @@ app_ui = ui.page_fluid(
             {"class": "panel"},
             ui.h3("Stability NVIDIA — prix théoriques Monte Carlo / HAR-RV"),
             ui.output_text("nvda_pricing_inputs"),
+            ui.p(
+                "Les colonnes « Achat/Vente SG archivés » reprennent l'export du "
+                "13/11/2026 : ce ne sont PAS des cotations actuelles. "
+                "« Prix marché » et « Edge » restent indisponibles sans cours SG valide.",
+                class_="small-muted",
+            ),
             ui.output_table("product_table"),
             ui.p(
                 "RR = distance à la barrière la plus proche / √(jours de bourse). Le prix théorique utilise une volatilité réalisée prévue, pas la volatilité implicite de la barrière ; son Edge ne représente donc pas un arbitrage exploitable. Les prix SG de secours sont datés et peuvent être périmés. Prix = 10 € × probabilité de survie des deux barrières × actualisation.",
@@ -768,6 +775,33 @@ def server(input, output, session):
 
         out = table.copy()
 
+        # Export SG daté : prix archivés affichables, jamais utilisés comme prix live.
+        archived_path = Path(__file__).with_name("data") / "sg_stability_prices_2026-11-13.csv"
+        if archived_path.exists():
+            try:
+                archived = pd.read_csv(archived_path, dtype={"code": str, "isin": str})
+                cols = ["code", "isin", "snapshot_date", "sg_achat_eur", "sg_vente_eur"]
+                archived = archived[cols].drop_duplicates(subset=["code", "isin"], keep="last")
+                out = out.merge(
+                    archived, left_on=["Code", "ISIN"], right_on=["code", "isin"],
+                    how="left", validate="many_to_one",
+                )
+            except (OSError, ValueError, KeyError, pd.errors.ParserError):
+                out["sg_achat_eur"] = float("nan")
+                out["sg_vente_eur"] = float("nan")
+                out["snapshot_date"] = None
+        else:
+            out["sg_achat_eur"] = float("nan")
+            out["sg_vente_eur"] = float("nan")
+            out["snapshot_date"] = None
+        out["Achat SG archivé"] = out["sg_achat_eur"].map(
+            lambda x: "—" if pd.isna(x) or x <= 0 else f"{x:.2f} €"
+        )
+        out["Vente SG archivée"] = out["sg_vente_eur"].map(
+            lambda x: "—" if pd.isna(x) or x <= 0 else f"{x:.2f} €"
+        )
+        out["Date archive SG"] = out["snapshot_date"].fillna("—")
+
         # Classement des Stability par edge décroissant (valeur numérique).
         # Le tri est effectué avant le formatage en chaîne pour éviter un tri lexicographique.
         out = out.sort_values(
@@ -810,6 +844,9 @@ def server(input, output, session):
             "Survie MC",
             "Prix théorique",
             "Prix marché",
+            "Achat SG archivé",
+            "Vente SG archivée",
+            "Date archive SG",
             "Edge",
             "Source prix",
             "SE MC",
