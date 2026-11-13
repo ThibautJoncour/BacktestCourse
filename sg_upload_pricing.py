@@ -136,16 +136,16 @@ def _read_xlsx_without_openpyxl(path: Path) -> pd.DataFrame:
 
 
 def _read_sg_xlsx(path: Path) -> pd.DataFrame:
-    try:
-        return pd.read_excel(path, engine="openpyxl", sheet_name=0)
-    except ImportError:
-        return _read_xlsx_without_openpyxl(path)
+    # Always parse .xlsx as ZIP/XML, independent of installed optional packages.
+    return _read_xlsx_without_openpyxl(path)
 
 
 def parse_sg_export(path: str | Path) -> tuple[pd.DataFrame, float]:
     path = Path(path)
-    if path.suffix.lower() != ".xlsx":
-        raise ValueError("Importer un fichier SG Excel au format .xlsx.")
+    # Shiny stores uploads in temporary files whose paths may have no .xlsx suffix.
+    # The UI checks the original filename; validate the actual ZIP content here.
+    if not path.is_file():
+        raise ValueError("Fichier d'import temporaire introuvable.")
     if path.stat().st_size > 8 * 1024 * 1024:
         raise ValueError("Fichier trop volumineux (limite 8 Mo).")
 
