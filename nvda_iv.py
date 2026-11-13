@@ -199,10 +199,52 @@ def _load_optionsband_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFr
     }
 
 
+
+# Verified public snapshot from 2026-11-13 (Options Band NVDA volatility page).
+# NOT live data. Used ONLY as a visibly dated last-resort reference curve.
+_REFERENCE_SNAPSHOT_DATE = "2026-11-13"
+_REFERENCE_SNAPSHOT = [
+    ("2026-11-20", 87.1),
+    ("2026-12-18", 58.1),
+    ("2027-01-15", 52.1),
+    ("2027-02-19", 49.3),
+    ("2027-03-19", 49.4),
+    ("2027-04-16", 48.0),
+]
+
+
+def _load_reference_snapshot(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
+    today = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
+    end = today + pd.DateOffset(months=max_months)
+    rows = []
+    for date_str, iv in _REFERENCE_SNAPSHOT:
+        expiry = pd.Timestamp(date_str)
+        if not today < expiry <= end:
+            continue
+        rows.append({
+            "Echeance": date_str,
+            "Jours": (expiry - today).days,
+            "IV_ATM_pct": iv,
+            "Strike_call": float("nan"),
+            "Strike_put": float("nan"),
+            "Cotes": "Référence datée",
+            "Qualite": "Indicative (archive 13/11/2026)",
+        })
+    if not rows:
+        raise RuntimeError("L'archive du 13/11/2026 ne contient plus d'échéance future.")
+    return pd.DataFrame(rows), {
+        "spot": float("nan"),
+        "spot_date": _REFERENCE_SNAPSHOT_DATE,
+        "fetched_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "available_months": len(rows),
+        "source": "ARCHIVE 13/11/2026 — Options Band (NON ACTUALISÉE)",
+    }
+
+
 def load_nvda_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
     """Try a public IV-by-expiry API first; fallback to Yahoo only if necessary."""
     errors = []
-    for provider in (_load_optionsband_atm_term_structure, _load_yahoo_atm_term_structure):
+    for provider in (_load_optionsband_atm_term_structure, _load_yahoo_atm_term_structure, _load_reference_snapshot):
         try:
             return provider(max_months=max_months)
         except Exception as exc:
