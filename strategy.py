@@ -136,15 +136,19 @@ NVDA_FALLBACK_PRODUCTS = [
     ("80N4S", "DE000FG83MG9", 140, 320, "2027-03-19"),
 ]
 
+# Prix d'achat de référence issus de l'export SG utilisateur du 13/11/2026.
+# Historique NON LIVE, conservé pour audit uniquement : le fallback de
+# fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-13"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 7.46, "2R83S": 5.55, "2R85S": 5.58, "2R80S": 7.47,
-    "2R78S": 9.43, "2R84S": 5.57, "2R81S": 7.48, "2R77S": 9.43,
-    "2R75S": 9.42, "2R76S": 9.42, "2R95S": 5.97, "2R89S": 8.67,
-    "2R90S": 8.68, "2R96S": 4.14, "2R87S": 8.64, "2R93S": 5.96,
-    "2R98S": 4.19, "2R86S": 8.58, "2R91S": 5.92, "2R97S": 4.19,
-    "2R94S": 5.98, "2R88S": 8.65, "5S06S": 5.10, "5S07S": 3.49,
-    "5S05S": 7.85, "1U26S": 7.06, "1U28S": 3.00, "1U27S": 4.53,
-    "80N4S": 4.10,
+    "2R79S": 9.19, "2R83S": 5.55, "2R85S": 5.58, "2R80S": 9.21,
+    "2R78S": 9.86, "2R84S": 5.57, "2R81S": 9.21, "2R77S": 9.86,
+    "2R75S": 9.85, "2R76S": 9.86, "2R95S": 7.57, "2R89S": 9.30,
+    "2R90S": 9.30, "2R96S": 4.14, "2R87S": 9.25, "2R93S": 7.57,
+    "2R98S": 4.19, "2R86S": 9.17, "2R91S": 7.53, "2R97S": 4.19,
+    "2R94S": 7.57, "2R88S": 9.28, "5S06S": 6.55, "5S07S": 3.49,
+    "5S05S": 8.53, "1U26S": 7.68, "1U28S": 3.00, "1U27S": 5.80,
+    "80N4S": 5.28,
 }
 
 FEATURES = [
