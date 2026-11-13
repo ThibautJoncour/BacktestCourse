@@ -312,16 +312,25 @@ def server(input, output, session):
 
     @render.text
     def nvda_iv_caption():
+        import math
+
         payload, error = nvda_iv_data()
         if error:
             return "Données IV indisponibles : " + error
         df, meta = payload
+        spot = meta.get("spot", float("nan"))
+        spot_label = f"Spot NVDA : ${spot:.2f} · " if math.isfinite(spot) else ""
+        source = meta.get("source", "source non précisée")
+        archived = "ARCHIVE" in source.upper()
+        freshness = (
+            "ATTENTION : courbe de référence historique, NON ACTUALISÉE · "
+            if archived else ""
+        )
         return (
-            f"Spot NVDA : ${meta['spot']:.2f} "
-            f"(clôture du {meta['spot_date']}) · "
-            f"Extraction {meta['fetched_at_utc']} · "
-            f"{len(df)}/{meta['available_months']} échéances mensuelles exploitables · "
-            f"Source : {meta['source']}"
+            freshness + spot_label
+            + f"Date source : {meta['spot_date']} · "
+            + f"Lecture : {meta['fetched_at_utc']} · "
+            + f"{len(df)} échéances · Source : {source}"
         )
 
     @render.table
