@@ -298,6 +298,16 @@ app_ui = ui.page_fluid(
             ),
             ui.input_numeric("hedge_quantity", "Nombre de Stability par ligne", value=100, min=1),
             ui.input_numeric("hedge_eurusd", "EUR/USD (USD pour 1 EUR, à actualiser)", value=1.10, min=0.01, step=0.01),
+            ui.download_button(
+                "download_nvda_warrants",
+                "Télécharger les Call/Put NVIDIA (CSV)",
+                class_="btn btn-outline-primary",
+            ),
+            ui.p(
+                "Le CSV contient uniquement les warrants réellement récupérés ou importés. "
+                "Aucun prix ni Greek n'est inventé lorsque la page SG est inaccessible.",
+                class_="small-muted",
+            ),
             ui.output_text("warrant_hedge_status"),
             ui.h4("Greeks Stability HAR–MC"),
             ui.output_table("stability_greeks_table"),
@@ -425,6 +435,24 @@ def server(input, output, session):
             return data, ("SG HTML public" if len(data) else "SG indisponible : importer un fichier")
         except Exception as exc:
             return pd.DataFrame(), "Import warrants impossible : " + str(exc)
+
+    @render.download(filename=lambda: f"sg_nvda_call_put_{datetime.now():%Y%m%d_%H%M}.csv")
+    def download_nvda_warrants():
+        import io
+        data, source = warrant_catalogue()
+        if data.empty:
+            # Explicitly show the failure in the exported file, not an invented universe.
+            export = pd.DataFrame([{
+                "Statut": "INDISPONIBLE",
+                "Message": "Aucune ligne warrant Call/Put extraite. Importer un export SG CSV/XLSX.",
+                "Source": source,
+                "Date_export": datetime.now().isoformat(timespec="minutes"),
+            }])
+        else:
+            export = data.copy()
+            export.insert(0, "Date_export", datetime.now().isoformat(timespec="minutes"))
+            export.insert(1, "Source", source)
+        yield export.to_csv(index=False, sep=";", decimal=",").encode("utf-8-sig")
 
     @reactive.calc
     def hedged_stability_data():
