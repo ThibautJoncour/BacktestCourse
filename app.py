@@ -8,6 +8,7 @@ from shiny import App, reactive, render, ui
 
 from strategy import compute_daily_signal
 from nvda_iv import load_nvda_atm_term_structure
+from nvda_expected_move import compare_expected_moves
 
 
 APP_TITLE = "Signal Stability + Pricing NVDA"
@@ -188,6 +189,22 @@ app_ui = ui.page_fluid(
         ),
         ui.div(
             {"class": "panel"},
+            ui.h3("NVIDIA — mouvement attendu : marché IV vs HAR-RV"),
+            ui.output_plot("nvda_expected_move_plot", height="380px"),
+            ui.output_text("nvda_expected_move_caption"),
+            ui.output_table("nvda_expected_move_table"),
+            ui.p(
+                "±1 écart-type indicatif : IV ATM × √(jours calendaires/365), "
+                "HAR-RV : somme des variances journalières prévues sur les séances "
+                "(252 séances/an). Après J+5 : volatilité long terme HAR constante. "
+                "Amplitude non directionnelle, ni intervalle garanti ni probabilité "
+                "de toucher une barrière. Le spot peut être un scénario manuel. "
+                "Une IV archivée ne représente pas le marché actuel.",
+                class_="small-muted",
+            ),
+        ),
+        ui.div(
+            {"class": "panel"},
             ui.h3("Prévisions HAR-RV NVIDIA — J+1 à J+5"),
             ui.output_table("nvda_har_table"),
             ui.p(
@@ -268,6 +285,74 @@ def server(input, output, session):
             return load_nvda_atm_term_structure(max_months=9), None
         except Exception as exc:
             return None, str(exc)
+
+    @reactive.calc
+    def nvda_expected_move_data():
+        iv_payload, iv_error = nvda_iv_data()
+        if iv_error:
+            return None, "IV : " + iv_error
+        r = result()
+        if not r.get("ok"):
+            return None, "HAR-RV : " + r.get("error", "indisponible")
+        try:
+            df, meta = iv_payload
+            return compare_expected_moves(df, meta, r), None
+        except Exception as exc:
+            return None, str(exc)
+
+    @render.plot
+    def nvda_expected_move_plot():
+        from matplotlib.ticker import FuncFormatter
+
+        payload, error = nvda_expected_move_data()
+        fig, ax = plt.subplots(figsize=(7.4, 4.1), dpi=110)
+        if error:
+            ax.text(0.5, 0.5, error, transform=ax.transAxes,
+                    ha="center", va="center", wrap=True)
+            ax.set_axis_off()
+        else:
+            df, meta = payload
+            x = list(range(len(df)))
+            ax.plot(x, df["IV ± ($)"], marker="o", label="Marché IV : ± $")
+            ax.plot(x, df["HAR ± ($)"], marker="s", label="HAR-RV : ± $")
+            labels = pd.to_datetime(df["Échéance"]).dt.strftime("%b %y")
+            ax.set_xticks(x, labels.tolist())
+            ax.tick_params(axis="x", labelsize=9)
+            ax.yaxis.set_major_formatter(FuncFormatter(lambda val, _: f"${val:.0f}"))
+            ax.set_ylabel("Amplitude ± en USD (1σ)", fontsize=10)
+            ax.set_xlabel("Échéance", fontsize=10)
+            ax.grid(axis="y", alpha=0.25)
+            ax.legend(loc="best", fontsize=8, frameon=False)
+            ax.margins(x=0.08, y=0.14)
+        fig.subplots_adjust(left=0.18, right=0.97, bottom=0.19, top=0.96)
+        return fig
+
+    @render.text
+    def nvda_expected_move_caption():
+        payload, error = nvda_expected_move_data()
+        if error:
+            return "Comparaison indisponible : " + error
+        _, meta = payload
+        old = "ARCHIVE" in meta["iv_source"].upper()
+        warning = "IV HISTORIQUE NON ACTUALISÉE · " if old else ""
+        return (
+            warning
+            + f"Spot de référence : ${meta['spot']:.2f} ({meta['spot_source']}) · "
+            + f"Source IV : {meta['iv_source']} · Date IV : {meta['iv_date']}. "
+            + "Toutes les fourchettes utilisent le même spot de référence."
+        )
+
+    @render.table
+    def nvda_expected_move_table():
+        payload, error = nvda_expected_move_data()
+        if error:
+            return pd.DataFrame({"Statut": [error]})
+        df, _ = payload
+        return df[[
+            "Échéance", "IV ATM (%)", "IV ± (%)", "IV ± ($)",
+            "IV bas ($)", "IV haut ($)", "HAR ± (%)", "HAR ± ($)",
+            "HAR bas ($)", "HAR haut ($)", "Écart IV−HAR (pts)", "Fiabilité IV",
+        ]]
 
     @render.plot
     def nvda_iv_curve():
