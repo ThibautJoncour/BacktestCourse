@@ -181,7 +181,7 @@ app_ui = ui.page_fluid(
             ui.p(
                 "IV annualisée observée sur les options cotées (calls/puts proches du spot, "
                 "moyenne call/put). Les croix signalent une IV indicative (bid/ask incomplets). Ce n'est pas une prévision "
-                "de volatilité future. Source Yahoo Finance via yfinance ; les données "
+                "de volatilité future. Source prioritaire : Options Band (Cboe différé), secours : Yahoo via yfinance ; les données "
                 "peuvent être différées et les échéances sans cotations valides sont exclues.",
                 class_="small-muted",
             ),
@@ -317,10 +317,11 @@ def server(input, output, session):
             return "Données IV indisponibles : " + error
         df, meta = payload
         return (
-            f"Spot NVDA Yahoo : ${meta['spot']:.2f} "
+            f"Spot NVDA : ${meta['spot']:.2f} "
             f"(clôture du {meta['spot_date']}) · "
             f"Extraction {meta['fetched_at_utc']} · "
-            f"{len(df)}/{meta['available_months']} échéances mensuelles exploitables"
+            f"{len(df)}/{meta['available_months']} échéances mensuelles exploitables · "
+            f"Source : {meta['source']}"
         )
 
     @render.table
