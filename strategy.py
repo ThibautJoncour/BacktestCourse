@@ -51,40 +51,73 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-12"
+NVDA_NEWS_LAST_UPDATE = "2026-11-13"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-11-12",
         "days_ahead": 1,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "Des entreprises chinoises d'IA cherchent à réserver des capacités de calcul NVIDIA dans des data centers hors de Chine, par crainte d'un durcissement américain sur l'accès distant aux puces avancées.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/chinese-ai-firms-rush-secure-nvidia-chip-capacity-spy-scandal-stirs-fear-us-2026-11-12/"
-    },
-    {
-        "date": "2026-11-11",
-        "days_ahead": 2,
-        "category": "Réglementation / Chine",
-        "headline": "Les sénateurs Elizabeth Warren et Chris Coons ont demandé la conservation de tous les documents fédéraux concernant les exportations de puces NVIDIA vers la Chine et un briefing au Congrès.",
+        "category": "Gouvernance",
+        "headline": "NVIDIA a annoncé la démission immédiate de Jensen Huang; Colette Kress devient CEO par intérim et le conseil recherche un successeur permanent.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
-        "source": "United States Senate",
-        "url": "https://www.banking.senate.gov/imo/media/doc/20261111_warren_coons_letter_to_wh_commerce_state_re_nvidia_record_retentionpdf.pdf"
+        "source": "NVIDIA",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+    },
+    {
+        "date": "2026-11-13",
+        "days_ahead": 2,
+        "category": "Gouvernance / dépenses IA",
+        "headline": "Reuters rapporte que Colette Kress avait contesté certains financements massifs de clients et qu'un projet de soutien à un data center OpenAI avait été ramené de 250 à 120 milliards de dollars.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.90,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/colette-kress-cfo-who-challenged-huangs-bets-is-nvidias-interim-ceo-2026-11-13/"
     },
     {
         "date": "2026-11-12",
-        "days_ahead": 4,
-        "category": "HBM / chaîne d'approvisionnement",
-        "headline": "Samsung a lancé une usine de packaging HBM de 6 000 milliards de wons à Asan, avec environ 40 000 milliards de wons d'équipements avancés et une mise en service avancée à juin 2028.",
+        "days_ahead": 2,
+        "category": "Flux de marché",
+        "headline": "Les achats de particuliers ont amorti la baisse de NVIDIA après un recul initial de 14 %, avec 111 millions de dollars d'achats estimés durant la première demi-heure.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.98,
+        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/south-koreas-lee-says-samsung-chip-packaging-expansion-spur-30-billion-2026-11-12/"
+        "url": "https://www.reuters.com/business/retail-consumer/retail-buyers-limit-nvidia-stock-rout-2026-11-12/"
+    },
+    {
+        "date": "2026-11-13",
+        "days_ahead": 3,
+        "category": "Résultats / guidance NVIDIA",
+        "headline": "Les résultats NVIDIA du 17 novembre seront le premier test majeur sous la direction intérimaire de Colette Kress, dans un marché qui sanctionnerait fortement une déception.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.94,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-week-ahead-nvidia-results-anthropic-ipo-pose-tests-tumultuous-ai-trade-2026-11-13/"
+    },
+    {
+        "date": "2026-11-13",
+        "days_ahead": 4,
+        "category": "Taux US / inflation",
+        "headline": "Les prix à la production américains ont progressé de 0,3 % en octobre et de 6,5 % sur un an, renforçant les anticipations de nouvelles hausses de taux de la Fed.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/us-producer-prices-rise-further-october-2026-11-13/"
+    },
+    {
+        "date": "2026-11-13",
+        "days_ahead": 5,
+        "category": "Semi-conducteurs / demande IA",
+        "headline": "SMIC estime que la demande IA reste forte et que la chaîne d'approvisionnement des puces IA restera tendue jusqu'en 2027 sous l'effet des data centers et clouds privés.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/technology/smic-says-ai-chip-supply-chain-will-remain-tight-through-2027-2026-11-13/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,55 +133,45 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 12/11/2026
-# (29 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 13/11/2026
+# (21 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
-    ("2R79S", "DE000FE6NXH5", 140, 260, "2026-11-20"),
-    ("2R83S", "DE000FE6NXM5", 160, 280, "2026-11-20"),
-    ("2R85S", "DE000FE6NXP8", 160, 320, "2026-11-20"),
-    ("2R80S", "DE000FE6NXJ1", 140, 280, "2026-11-20"),
-    ("2R78S", "DE000FE6NXG7", 120, 320, "2026-11-20"),
-    ("2R84S", "DE000FE6NXN3", 160, 300, "2026-11-20"),
-    ("2R81S", "DE000FE6NXK9", 140, 300, "2026-11-20"),
-    ("2R77S", "DE000FE6NXF9", 120, 300, "2026-11-20"),
-    ("2R75S", "DE000FE6NXD4", 120, 260, "2026-11-20"),
-    ("2R76S", "DE000FE6NXE2", 120, 280, "2026-11-20"),
-    ("2R95S", "DE000FE6NXY0", 140, 340, "2026-12-18"),
-    ("2R89S", "DE000FE6NXT0", 120, 320, "2026-12-18"),
-    ("2R90S", "DE000FE6NXU8", 120, 340, "2026-12-18"),
-    ("2R96S", "DE000FE6NXZ7", 160, 300, "2026-12-18"),
-    ("2R87S", "DE000FE6NXR4", 120, 280, "2026-12-18"),
-    ("2R93S", "DE000FE6NXW4", 140, 300, "2026-12-18"),
-    ("2R98S", "DE000FE6NX14", 160, 340, "2026-12-18"),
-    ("2R86S", "DE000FE6NXQ6", 120, 260, "2026-12-18"),
-    ("2R91S", "DE000FE6NXV6", 140, 280, "2026-12-18"),
-    ("2R97S", "DE000FE6NX06", 160, 320, "2026-12-18"),
-    ("2R94S", "DE000FE6NXX2", 140, 320, "2026-12-18"),
-    ("2R88S", "DE000FE6NXS2", 120, 300, "2026-12-18"),
-    ("5S06S", "DE000FG1E5H9", 140, 280, "2027-01-15"),
-    ("5S07S", "DE000FG1E5J5", 160, 300, "2027-01-15"),
-    ("5S05S", "DE000FG1E5G1", 120, 260, "2027-01-15"),
-    ("1U26S", "DE000FG3T895", 120, 260, "2027-02-19"),
-    ("1U28S", "DE000FG3T9B5", 160, 320, "2027-02-19"),
-    ("1U27S", "DE000FG3T9A7", 140, 300, "2027-02-19"),
-    ("80N4S", "DE000FG83MG9", 140, 320, "2027-03-19"),
+    ('2R79S', 'DE000FE6NXH5', 140, 260, '2026-11-20'),
+    ('2R80S', 'DE000FE6NXJ1', 140, 280, '2026-11-20'),
+    ('2R78S', 'DE000FE6NXG7', 120, 320, '2026-11-20'),
+    ('2R81S', 'DE000FE6NXK9', 140, 300, '2026-11-20'),
+    ('2R77S', 'DE000FE6NXF9', 120, 300, '2026-11-20'),
+    ('2R75S', 'DE000FE6NXD4', 120, 260, '2026-11-20'),
+    ('2R76S', 'DE000FE6NXE2', 120, 280, '2026-11-20'),
+    ('2R95S', 'DE000FE6NXY0', 140, 340, '2026-12-18'),
+    ('2R89S', 'DE000FE6NXT0', 120, 320, '2026-12-18'),
+    ('2R90S', 'DE000FE6NXU8', 120, 340, '2026-12-18'),
+    ('2R87S', 'DE000FE6NXR4', 120, 280, '2026-12-18'),
+    ('2R93S', 'DE000FE6NXW4', 140, 300, '2026-12-18'),
+    ('2R86S', 'DE000FE6NXQ6', 120, 260, '2026-12-18'),
+    ('2R91S', 'DE000FE6NXV6', 140, 280, '2026-12-18'),
+    ('2R94S', 'DE000FE6NXX2', 140, 320, '2026-12-18'),
+    ('2R88S', 'DE000FE6NXS2', 120, 300, '2026-12-18'),
+    ('5S06S', 'DE000FG1E5H9', 140, 280, '2027-01-15'),
+    ('5S05S', 'DE000FG1E5G1', 120, 260, '2027-01-15'),
+    ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
+    ('1U27S', 'DE000FG3T9A7', 140, 300, '2027-02-19'),
+    ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat de référence issus de l'export SG utilisateur du 13/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 13/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
 NVDA_FALLBACK_PRICE_ASOF = "2026-11-13"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.19, "2R83S": 5.55, "2R85S": 5.58, "2R80S": 9.21,
-    "2R78S": 9.86, "2R84S": 5.57, "2R81S": 9.21, "2R77S": 9.86,
-    "2R75S": 9.85, "2R76S": 9.86, "2R95S": 7.57, "2R89S": 9.30,
-    "2R90S": 9.30, "2R96S": 4.14, "2R87S": 9.25, "2R93S": 7.57,
-    "2R98S": 4.19, "2R86S": 9.17, "2R91S": 7.53, "2R97S": 4.19,
-    "2R94S": 7.57, "2R88S": 9.28, "5S06S": 6.55, "5S07S": 3.49,
-    "5S05S": 8.53, "1U26S": 7.68, "1U28S": 3.00, "1U27S": 5.80,
-    "80N4S": 5.28,
+    "2R79S": 0.00, "2R80S": 0.00, "2R78S": 9.59, "2R81S": 0.00,
+    "2R77S": 9.59, "2R75S": 9.57, "2R76S": 9.59, "2R95S": 6.12,
+    "2R89S": 8.78, "2R90S": 8.79, "2R87S": 8.75, "2R93S": 6.12,
+    "2R86S": 8.69, "2R91S": 6.09, "2R94S": 6.11, "2R88S": 8.78,
+    "5S06S": 5.25, "5S05S": 8.01, "1U26S": 7.18, "1U27S": 4.62,
+    "80N4S": 4.18,
 }
 
 FEATURES = [
