@@ -10,6 +10,7 @@ from shiny import App, reactive, render, ui
 from strategy import compute_daily_signal
 from nvda_iv import load_nvda_atm_term_structure
 from nvda_expected_move import compare_expected_moves
+from sg_upload_pricing import price_uploaded_export
 
 
 APP_TITLE = "Signal Stability + Pricing NVDA"
@@ -249,6 +250,26 @@ app_ui = ui.page_fluid(
         ),
         ui.div(
             {"class": "panel"},
+            ui.h3("Importer un export Stability SG — repricing HAR-RV / Monte Carlo"),
+            ui.input_file(
+                "sg_export_file",
+                "Choisir un export SG (.xlsx)",
+                accept=[".xlsx"],
+                multiple=False,
+            ),
+            ui.p(
+                "Calcul du prix théorique avec le spot NVIDIA de l'export, "
+                "le HAR-RV disponible et le Monte Carlo à la date du calcul. "
+                "Les cotations Achat/Vente du fichier sont des références NON LIVE : "
+                "leur horodatage n'est pas fourni. L'écart affiché est un scénario, "
+                "pas un edge négociable. Les options arrivées à maturité sont exclues.",
+                class_="small-muted",
+            ),
+            ui.output_text("sg_upload_status"),
+            ui.output_table("sg_upload_table"),
+        ),
+        ui.div(
+            {"class": "panel"},
             ui.h3("Détail du calcul"),
             ui.output_table("model_table"),
         ),
@@ -284,6 +305,67 @@ def server(input, output, session):
                 "error": str(exc),
                 "generated_at": datetime.now(),
             }
+
+    @reactive.calc
+    def sg_upload_result():
+        uploads = input.sg_export_file()
+        if not uploads:
+            return None, None
+        try:
+            upload = uploads[0]
+            filepath = upload["datapath"]
+            if not str(upload.get("name", "")).lower().endswith(".xlsx"):
+                raise ValueError("Le fichier doit être au format .xlsx.")
+            return price_uploaded_export(filepath, result()), None
+        except Exception as exc:
+            return None, str(exc)
+
+    @render.text
+    def sg_upload_status():
+        payload, error = sg_upload_result()
+        if error:
+            return "Échec import / repricing : " + error
+        if payload is None:
+            return "Aucun fichier importé. Choisir un export Excel SG pour calculer le scénario."
+        table, info = payload
+        return (
+            f"{info['count']} produits NVDA revalorisés · "
+            f"{info['quoted']} cotations Achat positives · "
+            f"{info['excluded_expired']} échéances passées exclues · "
+            f"Spot export : {info['spot_export']:.2f} USD · "
+            f"Valorisation : {info['valuation_date']} · "
+            "Date des cotations SG : inconnue (export utilisateur)."
+        )
+
+    @render.table
+    def sg_upload_table():
+        payload, error = sg_upload_result()
+        if error:
+            return pd.DataFrame({"Erreur d'import": [error]})
+        if payload is None:
+            return pd.DataFrame()
+        table, info = payload
+        out = table.copy()
+        out["Barrières USD"] = out.apply(
+            lambda x: f"{x['Barriere_basse']:.0f}–{x['Barriere_haute']:.0f}", axis=1
+        )
+        fmt = lambda x: "—" if pd.isna(x) else f"{x:.2f} €"
+        out["Prix modèle MC"] = out["Prix_theorique_MC"].map(fmt)
+        out["Achat SG export"] = out["Achat_export"].map(fmt)
+        out["Vente SG export"] = out["Vente_export"].map(fmt)
+        out["Écart scénario (€)"] = out["Ecart_scenario_achat"].map(
+            lambda x: "—" if pd.isna(x) else f"{x:+.2f} €"
+        )
+        out["Écart scénario (%)"] = out["Rendement_scenario_pct"].map(
+            lambda x: "—" if pd.isna(x) else f"{x:+.1f} %"
+        )
+        out["Survie MC"] = out["Prob_survie_MC"].map(lambda x: f"{x*100:.1f} %")
+        out["Sigma MC"] = out["Sigma_RMS_pct_ann"].map(lambda x: f"{x:.1f} %")
+        return out[[
+            "Code", "Maturite", "Barrières USD", "Prix modèle MC",
+            "Achat SG export", "Vente SG export", "Écart scénario (€)",
+            "Écart scénario (%)", "Survie MC", "Sigma MC",
+        ]].rename(columns={"Maturite": "Maturité"})
 
     @reactive.calc
     def nvda_iv_data():
