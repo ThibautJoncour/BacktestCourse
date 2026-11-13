@@ -57,7 +57,7 @@ def _near_atm(frame: pd.DataFrame, spot: float, side: str):
     }
 
 
-def load_nvda_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
+def _load_yahoo_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
     ticker = yf.Ticker("NVDA")
     history = ticker.history(period="5d", auto_adjust=False)
     if history.empty or "Close" not in history or history["Close"].dropna().empty:
@@ -107,3 +107,104 @@ def load_nvda_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dic
         "available_months": len(expirations),
         "source": "Yahoo Finance / yfinance (potentiellement différé)",
     }
+
+
+def _load_optionsband_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
+    """Public delayed ATM IV series; no API key. Fail transparently on unknown schema."""
+    import requests
+
+    response = requests.get(
+        "https://optionsband.com/api/v1/expirations/NVDA",
+        params={"limit": 24},
+        headers={"Accept": "application/json", "User-Agent": "NVDA-IV-Research/1.0"},
+        timeout=12,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if not isinstance(payload, dict):
+        raise ValueError("Format de réponse Options Band inattendu")
+    data = payload.get("data", payload)
+    if isinstance(data, list):
+        entries = data
+        info = payload
+    elif isinstance(data, dict):
+        entries = next(
+            (data[k] for k in ("expirations", "rows", "items", "results", "term_structure")
+             if isinstance(data.get(k), list)), None
+        )
+        info = data
+    else:
+        entries = None
+        info = payload
+    if not entries:
+        raise ValueError("Aucune échéance dans la réponse Options Band")
+    today = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
+    horizon = today + pd.DateOffset(months=max_months)
+    rows = []
+    for item in entries:
+        if not isinstance(item, dict):
+            continue
+        expiration = next(
+            (item[k] for k in ("expiration", "expiry", "expiration_date", "expirationDate", "date")
+             if item.get(k)), None
+        )
+        raw_iv = next(
+            (item[k] for k in ("atm_iv", "iv_atm", "atmIv", "atm_iv_pct", "ivAtm")
+             if item.get(k) is not None), None
+        )
+        if expiration is None or raw_iv is None:
+            continue
+        expiry = pd.to_datetime(expiration, errors="coerce", utc=True)
+        if pd.isna(expiry):
+            continue
+        expiry = expiry.tz_localize(None).normalize()
+        if not today < expiry <= horizon:
+            continue
+        try:
+            iv = float(raw_iv)
+        except (TypeError, ValueError):
+            continue
+        if not np.isfinite(iv):
+            continue
+        # Fractional vol from API: 0.6 -> 60%; percent values already >= 1.
+        iv_pct = iv * 100 if iv < 1 else iv
+        if not 5 <= iv_pct <= 300:
+            continue
+        rows.append({
+            "Echeance": expiry.strftime("%Y-%m-%d"),
+            "Jours": int((expiry - today).days),
+            "IV_ATM_pct": round(iv_pct, 2),
+            "Strike_call": float("nan"),
+            "Strike_put": float("nan"),
+            "Cotes": "ATM fournisseur",
+            "Qualite": "Bid/ask valides" if item.get("quote_quality") == "valid" else "Indicative (source différée)",
+        })
+    if not rows:
+        raise ValueError("Aucune IV ATM valide extraite d'Options Band")
+    frame = pd.DataFrame(rows).drop_duplicates("Echeance").sort_values("Jours")
+    # Only show listed monthly expirations.
+    frame["month"] = pd.to_datetime(frame["Echeance"]).dt.to_period("M")
+    frame = frame.drop_duplicates("month").drop(columns="month")
+    spot = info.get("underlying_price", info.get("spot", float("nan")))
+    try:
+        spot = float(spot)
+    except (TypeError, ValueError):
+        spot = float("nan")
+    return frame, {
+        "spot": spot,
+        "spot_date": str(payload.get("as_of") or info.get("as_of") or "non communiqué")[:10],
+        "fetched_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "available_months": len(frame),
+        "source": "Options Band (options Cboe différées ; IV fournisseur)",
+    }
+
+
+def load_nvda_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
+    """Try a public IV-by-expiry API first; fallback to Yahoo only if necessary."""
+    errors = []
+    for provider in (_load_optionsband_atm_term_structure, _load_yahoo_atm_term_structure):
+        try:
+            return provider(max_months=max_months)
+        except Exception as exc:
+            errors.append(f"{provider.__name__}: {type(exc).__name__}: {exc}")
+    raise RuntimeError("Sources IV indisponibles. " + " | ".join(errors))
