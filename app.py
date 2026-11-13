@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from shiny import App, reactive, render, ui
 
 from strategy import compute_daily_signal
+from nvda_iv import load_nvda_atm_term_structure
 
 
 APP_TITLE = "Signal Stability + Pricing NVDA"
@@ -173,6 +174,20 @@ app_ui = ui.page_fluid(
         ),
         ui.div(
             {"class": "panel"},
+            ui.h3("NVIDIA — courbe de volatilité implicite ATM par échéance"),
+            ui.output_plot("nvda_iv_curve", height="380px"),
+            ui.output_text("nvda_iv_caption"),
+            ui.output_table("nvda_iv_table"),
+            ui.p(
+                "IV annualisée observée sur les options cotées (calls/puts proches du spot, "
+                "pondération inverse du bid-ask spread). Ce n'est pas une prévision "
+                "de volatilité future. Source Yahoo Finance via yfinance ; les données "
+                "peuvent être différées et les échéances sans cotations valides sont exclues.",
+                class_="small-muted",
+            ),
+        ),
+        ui.div(
+            {"class": "panel"},
             ui.h3("Prévisions HAR-RV NVIDIA — J+1 à J+5"),
             ui.output_table("nvda_har_table"),
             ui.p(
@@ -245,6 +260,63 @@ def server(input, output, session):
                 "error": str(exc),
                 "generated_at": datetime.now(),
             }
+
+    @reactive.calc
+    def nvda_iv_data():
+        refresh_counter.get()
+        try:
+            return load_nvda_atm_term_structure(max_months=9), None
+        except Exception as exc:
+            return None, str(exc)
+
+    @render.plot
+    def nvda_iv_curve():
+        payload, error = nvda_iv_data()
+        fig, ax = plt.subplots(figsize=(10, 4))
+        if error:
+            ax.text(
+                0.5, 0.5, "IV ATM indisponible : " + error,
+                transform=ax.transAxes, ha="center", va="center", wrap=True,
+            )
+            ax.set_axis_off()
+        else:
+            df, meta = payload
+            x = pd.to_datetime(df["Echeance"])
+            ax.plot(x, df["IV_ATM_pct"], marker="o", linewidth=2)
+            ax.set_ylabel("Volatilité implicite annualisée (%)")
+            ax.set_xlabel("Échéance")
+            ax.grid(alpha=0.25)
+            fig.autofmt_xdate()
+        fig.tight_layout()
+        return fig
+
+    @render.text
+    def nvda_iv_caption():
+        payload, error = nvda_iv_data()
+        if error:
+            return "Données IV indisponibles : " + error
+        df, meta = payload
+        return (
+            f"Spot NVDA Yahoo : ${meta['spot']:.2f} "
+            f"(clôture du {meta['spot_date']}) · "
+            f"Extraction {meta['fetched_at_utc']} · "
+            f"{len(df)} échéances exploitables"
+        )
+
+    @render.table
+    def nvda_iv_table():
+        payload, error = nvda_iv_data()
+        if error:
+            return pd.DataFrame({"Statut": ["Pas de données IV disponibles"]})
+        df, _ = payload
+        return df.rename(columns={
+            "Echeance": "Échéance",
+            "Jours": "Jours restants",
+            "IV_ATM_pct": "IV ATM (%)",
+            "Strike_call": "Strike call",
+            "Strike_put": "Strike put",
+            "Cotes": "Cotations retenues",
+        })
 
     @render.ui
     def regime_panel():
