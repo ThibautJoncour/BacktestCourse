@@ -180,7 +180,7 @@ app_ui = ui.page_fluid(
             ui.output_table("nvda_iv_table"),
             ui.p(
                 "IV annualisée observée sur les options cotées (calls/puts proches du spot, "
-                "pondération inverse du bid-ask spread). Ce n'est pas une prévision "
+                "moyenne call/put). Les croix signalent une IV indicative (bid/ask incomplets). Ce n'est pas une prévision "
                 "de volatilité future. Source Yahoo Finance via yfinance ; les données "
                 "peuvent être différées et les échéances sans cotations valides sont exclues.",
                 class_="small-muted",
@@ -271,8 +271,10 @@ def server(input, output, session):
 
     @render.plot
     def nvda_iv_curve():
+        from matplotlib.ticker import FuncFormatter
+
         payload, error = nvda_iv_data()
-        fig, ax = plt.subplots(figsize=(10, 4))
+        fig, ax = plt.subplots(figsize=(7.4, 4.1), dpi=110)
         if error:
             ax.text(
                 0.5, 0.5, "IV ATM indisponible : " + error,
@@ -281,13 +283,31 @@ def server(input, output, session):
             ax.set_axis_off()
         else:
             df, meta = payload
-            x = pd.to_datetime(df["Echeance"])
-            ax.plot(x, df["IV_ATM_pct"], marker="o", linewidth=2)
-            ax.set_ylabel("Volatilité implicite annualisée (%)")
-            ax.set_xlabel("Échéance")
-            ax.grid(alpha=0.25)
-            fig.autofmt_xdate()
-        fig.tight_layout()
+            x = list(range(len(df)))
+            confirmed = df["Qualite"].eq("Bid/ask valides")
+            ax.plot(x, df["IV_ATM_pct"], linewidth=1.8, alpha=0.6)
+            ax.scatter(
+                [i for i, ok in enumerate(confirmed) if ok],
+                df.loc[confirmed, "IV_ATM_pct"],
+                s=65, label="Bid/ask valides", zorder=3,
+            )
+            ax.scatter(
+                [i for i, ok in enumerate(confirmed) if not ok],
+                df.loc[~confirmed, "IV_ATM_pct"],
+                s=65, marker="x", label="IV indicative", zorder=3,
+            )
+            dates = pd.to_datetime(df["Echeance"])
+            ax.set_xticks(x, dates.dt.strftime("%b %y").tolist())
+            ax.tick_params(axis="x", labelrotation=0, labelsize=9)
+            ax.tick_params(axis="y", labelsize=9)
+            ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:.0f}%"))
+            ax.set_ylabel("IV annualisée", fontsize=10)
+            ax.set_xlabel("Maturité mensuelle", fontsize=10)
+            ax.grid(axis="y", alpha=0.25)
+            ax.margins(x=0.08, y=0.15)
+            if not confirmed.all():
+                ax.legend(loc="best", fontsize=8, frameon=False)
+        fig.subplots_adjust(left=0.17, right=0.97, bottom=0.19, top=0.96)
         return fig
 
     @render.text
@@ -300,7 +320,7 @@ def server(input, output, session):
             f"Spot NVDA Yahoo : ${meta['spot']:.2f} "
             f"(clôture du {meta['spot_date']}) · "
             f"Extraction {meta['fetched_at_utc']} · "
-            f"{len(df)} échéances exploitables"
+            f"{len(df)}/{meta['available_months']} échéances mensuelles exploitables"
         )
 
     @render.table
@@ -316,6 +336,7 @@ def server(input, output, session):
             "Strike_call": "Strike call",
             "Strike_put": "Strike put",
             "Cotes": "Cotations retenues",
+            "Qualite": "Fiabilité",
         })
 
     @render.ui
