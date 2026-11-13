@@ -200,6 +200,80 @@ def _load_optionsband_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFr
 
 
 
+def _load_optionsband_public_page(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
+    """Parse Options Band's public NVDA term-structure table, if reachable."""
+    import requests
+    from bs4 import BeautifulSoup
+
+    response = requests.get(
+        "https://optionsband.com/stocks/NVDA/volatility",
+        headers={"User-Agent": "Mozilla/5.0 (compatible; research-dashboard/1.0)"},
+        timeout=15,
+    )
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+    heading = soup.find(
+        lambda tag: tag.name in ("h2", "h3")
+        and "IV term structure" in tag.get_text(" ", strip=True)
+    )
+    if heading is None:
+        raise ValueError("Section IV term structure absente de la page")
+    table = heading.find_next("table")
+    if table is None:
+        raise ValueError("Table des échéances absente")
+    headers = [cell.get_text(" ", strip=True).lower() for cell in table.find("tr").find_all(["th", "td"])]
+    date_idx = next((i for i, h in enumerate(headers) if "expir" in h), None)
+    iv_idx = next((i for i, h in enumerate(headers) if "atm iv" in h), None)
+    if date_idx is None or iv_idx is None:
+        raise ValueError(f"Colonnes IV ATM inconnues: {headers}")
+    today = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
+    limit = today + pd.DateOffset(months=max_months)
+    entries = []
+    for tr in table.find_all("tr")[1:]:
+        cells = [td.get_text(" ", strip=True) for td in tr.find_all(["td", "th"])]
+        if max(date_idx, iv_idx) >= len(cells):
+            continue
+        expiry = pd.to_datetime(cells[date_idx], errors="coerce")
+        if pd.isna(expiry):
+            continue
+        expiry = expiry.normalize()
+        if not today < expiry <= limit:
+            continue
+        try:
+            iv = float(cells[iv_idx].replace("%", "").strip())
+        except ValueError:
+            continue
+        if 5 <= iv <= 300:
+            entries.append((expiry, iv))
+    if not entries:
+        raise ValueError("Aucune échéance et IV ATM future lisible dans la page")
+    monthly = {}
+    for expiry, iv in entries:
+        key = (expiry.year, expiry.month)
+        target = _third_friday(*key)
+        if key not in monthly or abs((expiry-target).days) < abs((monthly[key][0]-target).days):
+            monthly[key] = (expiry, iv)
+    rows = [
+        {
+            "Echeance": expiry.strftime("%Y-%m-%d"),
+            "Jours": (expiry-today).days,
+            "IV_ATM_pct": iv,
+            "Strike_call": float("nan"),
+            "Strike_put": float("nan"),
+            "Cotes": "ATM fournisseur",
+            "Qualite": "Indicative (Cboe différé)",
+        }
+        for expiry, iv in sorted(monthly.values())
+    ]
+    return pd.DataFrame(rows), {
+        "spot": float("nan"),
+        "spot_date": "voir source",
+        "fetched_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "available_months": len(rows),
+        "source": "Options Band — page publique (Cboe différé)",
+    }
+
+
 # Verified public snapshot from 2026-11-13 (Options Band NVDA volatility page).
 # NOT live data. Used ONLY as a visibly dated last-resort reference curve.
 _REFERENCE_SNAPSHOT_DATE = "2026-11-13"
@@ -244,7 +318,7 @@ def _load_reference_snapshot(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
 def load_nvda_atm_term_structure(max_months: int = 9) -> tuple[pd.DataFrame, dict]:
     """Try a public IV-by-expiry API first; fallback to Yahoo only if necessary."""
     errors = []
-    for provider in (_load_optionsband_atm_term_structure, _load_yahoo_atm_term_structure, _load_reference_snapshot):
+    for provider in (_load_optionsband_atm_term_structure, _load_yahoo_atm_term_structure, _load_optionsband_public_page, _load_reference_snapshot):
         try:
             return provider(max_months=max_months)
         except Exception as exc:
