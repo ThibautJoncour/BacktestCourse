@@ -251,6 +251,10 @@ app_ui = ui.page_fluid(
         ui.div(
             {"class": "panel"},
             ui.h3("Importer un export Stability SG — repricing HAR-RV / Monte Carlo"),
+            ui.p(
+                "Version import : XLSX-ZIP-XML-v2 (13/11/2026) — sans openpyxl",
+                class_="small-muted",
+            ),
             ui.input_file(
                 "sg_export_file",
                 "Choisir un export SG (.xlsx)",
