@@ -11,6 +11,7 @@ from strategy import compute_daily_signal
 from nvda_iv import load_nvda_atm_term_structure
 from nvda_expected_move import compare_expected_moves
 from sg_upload_pricing import price_uploaded_export
+from stability_delta_hedge import (fetch_sg_warrants, import_warrants, stability_greeks, propose_warrant_hedges)
 
 
 APP_TITLE = "Signal Stability + Pricing NVDA"
@@ -274,6 +275,37 @@ app_ui = ui.page_fluid(
         ),
         ui.div(
             {"class": "panel"},
+            ui.h3("Stability NVDA — delta-neutral avec warrant CALL / PUT"),
+            ui.p(
+                "Greeks Stability calculés par bump/reprice HAR–Monte Carlo (estimations de modèle, "
+                "pas Greeks SG). On sélectionne un PUT pour la borne basse, un CALL pour la borne haute, "
+                "avec strike proche de la barrière et échéance au moins égale au Stability. "
+                "Le hedge vise delta = 0 mais conserve le KO. Il modifie également gamma et vega.",
+                class_="small-muted",
+            ),
+            ui.input_file(
+                "warrant_export_file",
+                "Importer les warrants SG NVIDIA (.xlsx ou .csv)",
+                accept=[".xlsx", ".csv"],
+                multiple=False,
+            ),
+            ui.p(
+                "Source SG : https://sgbourse.fr/product-search/warrants/"
+                "actions%2520am%C3%A9ricaines/nvidia/all-assets?ShowFilter=false "
+                "— récupération automatique tentée ; en cas d'échec, importer un export SG. "
+                "Les données SG ne sont pas garanties live.",
+                class_="small-muted",
+            ),
+            ui.input_numeric("hedge_quantity", "Nombre de Stability par ligne", value=100, min=1),
+            ui.input_numeric("hedge_eurusd", "EUR/USD (USD pour 1 EUR, à actualiser)", value=1.10, min=0.01, step=0.01),
+            ui.output_text("warrant_hedge_status"),
+            ui.h4("Greeks Stability HAR–MC"),
+            ui.output_table("stability_greeks_table"),
+            ui.h4("Couvertures théoriques par barrière la plus proche"),
+            ui.output_table("stability_hedges_table"),
+        ),
+        ui.div(
+            {"class": "panel"},
             ui.h3("Détail du calcul"),
             ui.output_table("model_table"),
         ),
@@ -370,6 +402,79 @@ def server(input, output, session):
             "Achat SG export", "Vente SG export", "Écart scénario (€)",
             "Écart scénario (%)", "Survie MC", "Sigma MC",
         ]].rename(columns={"Maturite": "Maturité"})
+
+    @reactive.calc
+    def warrant_catalogue():
+        upload = input.warrant_export_file()
+        try:
+            if upload:
+                f=upload[0]
+                original=str(f.get("name","")).lower()
+                if not original.endswith((".xlsx",".csv")):
+                    raise ValueError("Importer un fichier .xlsx ou .csv.")
+                # Shiny's datapath is an extensionless temporary file.
+                if original.endswith(".csv"):
+                    import tempfile
+                    with tempfile.NamedTemporaryFile(suffix=".csv") as tmp:
+                        from pathlib import Path
+                        tmp.write(Path(f["datapath"]).read_bytes())
+                        tmp.flush()
+                        return import_warrants(tmp.name), "Export utilisateur (non-live)"
+                return import_warrants(f["datapath"]), "Export utilisateur (non-live)"
+            data=fetch_sg_warrants()
+            return data, ("SG HTML public" if len(data) else "SG indisponible : importer un fichier")
+        except Exception as exc:
+            return pd.DataFrame(), "Import warrants impossible : " + str(exc)
+
+    @reactive.calc
+    def hedged_stability_data():
+        raw=result()
+        if not raw.get("ok"):
+            return None, "Signal/HAR indisponible"
+        products=raw.get("nvda_stability_mc")
+        if not isinstance(products,pd.DataFrame) or products.empty:
+            return None, "Aucun Stability valorisé"
+        try:
+            greeks=stability_greeks(products,raw)
+            warrants,source=warrant_catalogue()
+            hedge=propose_warrant_hedges(
+                greeks,warrants,
+                quantity=int(input.hedge_quantity()),
+                eurusd=float(input.hedge_eurusd()),
+            )
+            return (greeks,hedge),source
+        except Exception as exc:
+            return None, "Calcul hedge impossible : " + str(exc)
+
+    @render.text
+    def warrant_hedge_status():
+        payload,status=hedged_stability_data()
+        if payload is None:
+            return status
+        greeks,hedges=payload
+        return (
+            f"{len(greeks)} Stability avec Delta/Gamma/Vega HAR–MC · "
+            f"{int((hedges['Warrant']!='—').sum())} couvertures candidates · "
+            f"warrants : {status}. "
+            "Quantités théoriques non exécutables sans vérification des cotations SG, du FX et des Greeks."
+        )
+
+    @render.table
+    def stability_greeks_table():
+        payload,_=hedged_stability_data()
+        if payload is None:
+            return pd.DataFrame()
+        table=payload[0]
+        cols=["Code","Barriere_basse","Barriere_haute","Prix_theorique_MC",
+              "Delta_MC_EUR_par_USD","Gamma_MC_EUR_par_USD2","Vega_MC_EUR_par_1pp"]
+        return table[cols].round(5)
+
+    @render.table
+    def stability_hedges_table():
+        payload,_=hedged_stability_data()
+        if payload is None:
+            return pd.DataFrame()
+        return payload[1].round(5)
 
     @reactive.calc
     def nvda_iv_data():
