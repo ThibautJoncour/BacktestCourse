@@ -1637,6 +1637,7 @@ def compute_daily_signal() -> dict:
         "nvda_har_rv_forecasts": nvda_har["nvda_har_rv_forecasts"],
         "nvda_har_rv_table": nvda_har["nvda_har_rv_table"],
         "nvda_har_rv_5d_pct": nvda_har["nvda_har_rv_5d_pct"],
+        "nvda_har_long_run_vol_pct": nvda_har["nvda_har_long_run_vol_pct"],
         **nvda_news,
         "nvda_stability_mc": nvda_stability_mc,
         "nvda_stability_count": int(len(nvda_products)),
