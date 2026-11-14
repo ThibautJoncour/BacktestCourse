@@ -51,73 +51,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-13"
+NVDA_NEWS_LAST_UPDATE = "2026-11-14"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-12",
+        "date": "2026-11-14",
         "days_ahead": 1,
         "category": "Gouvernance",
-        "headline": "NVIDIA a annoncé la démission immédiate de Jensen Huang; Colette Kress devient CEO par intérim et le conseil recherche un successeur permanent.",
+        "headline": "Reuters rapporte que Jensen Huang avait présenté à plusieurs dirigeants de NVIDIA sa relation avec Alice Huang comme de simples interactions commerciales avant sa démission.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.99,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
-    },
-    {
-        "date": "2026-11-13",
-        "days_ahead": 2,
-        "category": "Gouvernance / dépenses IA",
-        "headline": "Reuters rapporte que Colette Kress avait contesté certains financements massifs de clients et qu'un projet de soutien à un data center OpenAI avait été ramené de 250 à 120 milliards de dollars.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/colette-kress-cfo-who-challenged-huangs-bets-is-nvidias-interim-ceo-2026-11-13/"
-    },
-    {
-        "date": "2026-11-12",
-        "days_ahead": 2,
-        "category": "Flux de marché",
-        "headline": "Les achats de particuliers ont amorti la baisse de NVIDIA après un recul initial de 14 %, avec 111 millions de dollars d'achats estimés durant la première demi-heure.",
-        "direction": 1,
-        "risk_level": "moyen",
         "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/retail-buyers-limit-nvidia-stock-rout-2026-11-12/"
+        "url": "https://www.reuters.com/world/china/ex-nvidia-ceo-misled-top-lawyer-affair-with-chinese-businesswoman-sources-say-2026-11-14/"
     },
     {
         "date": "2026-11-13",
+        "days_ahead": 2,
+        "category": "Gouvernance / succession",
+        "headline": "Le conseil de NVIDIA a indiqué sélectionner un cabinet de recrutement et ne pas avoir encore formellement engagé de candidat pour remplacer Jensen Huang.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/media-telecom/arms-haas-approached-by-nvidia-board-part-ceo-search-ft-reports-2026-11-13/"
+    },
+    {
+        "date": "2026-11-14",
         "days_ahead": 3,
-        "category": "Résultats / guidance NVIDIA",
-        "headline": "Les résultats NVIDIA du 17 novembre seront le premier test majeur sous la direction intérimaire de Colette Kress, dans un marché qui sanctionnerait fortement une déception.",
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "Des élus américains des deux partis renforcent leurs appels à durcir les contrôles sur les puces IA vers la Chine, certains demandant l'arrêt immédiat des exportations avancées.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/wall-st-week-ahead-nvidia-results-anthropic-ipo-pose-tests-tumultuous-ai-trade-2026-11-13/"
+        "confidence": 0.97,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/nvidia-trump-xi-huang-ai-rivalry-aba7f92a1ec2f0f9e4b4da206d640d61"
     },
     {
         "date": "2026-11-13",
         "days_ahead": 4,
-        "category": "Taux US / inflation",
-        "headline": "Les prix à la production américains ont progressé de 0,3 % en octobre et de 6,5 % sur un an, renforçant les anticipations de nouvelles hausses de taux de la Fed.",
+        "category": "Financement des data centers",
+        "headline": "La Réserve fédérale estime que les émissions de dette liées au calcul avancé ont dépassé 680 milliards de dollars en 2026 et souligne les vulnérabilités des financements complexes de data centers.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/us-producer-prices-rise-further-october-2026-11-13/"
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
     },
     {
         "date": "2026-11-13",
         "days_ahead": 5,
-        "category": "Semi-conducteurs / demande IA",
-        "headline": "SMIC estime que la demande IA reste forte et que la chaîne d'approvisionnement des puces IA restera tendue jusqu'en 2027 sous l'effet des data centers et clouds privés.",
+        "category": "Demande IA / marchés de capitaux",
+        "headline": "Le carnet de l'introduction en Bourse d'Anthropic était six fois sursouscrit jeudi, signalant une demande institutionnelle encore forte pour l'écosystème IA.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.95,
+        "confidence": 0.90,
         "source": "Reuters",
-        "url": "https://www.reuters.com/technology/smic-says-ai-chip-supply-chain-will-remain-tight-through-2027-2026-11-13/"
+        "url": "https://www.reuters.com/business/finance/investors-flock-anthropic-ipo-question-durability-ai-lead-2026-11-13/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -133,7 +122,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 13/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 14/11/2026
 # (21 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -161,17 +150,17 @@ NVDA_FALLBACK_PRODUCTS = [
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 13/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 14/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-13"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-14"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 0.00, "2R80S": 0.00, "2R78S": 9.59, "2R81S": 0.00,
-    "2R77S": 9.59, "2R75S": 9.57, "2R76S": 9.59, "2R95S": 6.12,
-    "2R89S": 8.78, "2R90S": 8.79, "2R87S": 8.75, "2R93S": 6.12,
-    "2R86S": 8.69, "2R91S": 6.09, "2R94S": 6.11, "2R88S": 8.78,
-    "5S06S": 5.25, "5S05S": 8.01, "1U26S": 7.18, "1U27S": 4.62,
-    "80N4S": 4.18,
+    "2R79S": 8.13, "2R80S": 8.11, "2R78S": 9.71, "2R81S": 8.16,
+    "2R77S": 9.71, "2R75S": 9.70, "2R76S": 9.70, "2R95S": 6.33,
+    "2R89S": 8.88, "2R90S": 8.88, "2R87S": 8.83, "2R93S": 6.31,
+    "2R86S": 8.77, "2R91S": 6.26, "2R94S": 6.35, "2R88S": 8.86,
+    "5S06S": 5.42, "5S05S": 8.08, "1U26S": 7.21, "1U27S": 4.75,
+    "80N4S": 4.35,
 }
 
 FEATURES = [
