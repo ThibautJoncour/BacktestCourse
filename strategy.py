@@ -51,62 +51,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-14"
+NVDA_NEWS_LAST_UPDATE = "2026-11-15"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-14",
+        "date": "2026-11-15",
         "days_ahead": 1,
-        "category": "Gouvernance",
-        "headline": "Reuters rapporte que Jensen Huang avait présenté à plusieurs dirigeants de NVIDIA sa relation avec Alice Huang comme de simples interactions commerciales avant sa démission.",
+        "category": "Résultats / guidance",
+        "headline": "NVIDIA publiera mardi ses résultats du troisième trimestre ; les investisseurs surveilleront surtout la continuité de la croissance, la succession de Jensen Huang et l'effet de possibles contrôles à l'exportation plus stricts.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.95,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/ex-nvidia-ceo-misled-top-lawyer-affair-with-chinese-businesswoman-sources-say-2026-11-14/"
+        "confidence": 0.92,
+        "source": "Financial Times",
+        "url": "https://www.ft.com/content/3ccb1761-a0cd-43ba-a3e7-e19d00950ae3"
     },
     {
-        "date": "2026-11-13",
+        "date": "2026-11-15",
         "days_ahead": 2,
-        "category": "Gouvernance / succession",
-        "headline": "Le conseil de NVIDIA a indiqué sélectionner un cabinet de recrutement et ne pas avoir encore formellement engagé de candidat pour remplacer Jensen Huang.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.96,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/media-telecom/arms-haas-approached-by-nvidia-board-part-ceo-search-ft-reports-2026-11-13/"
-    },
-    {
-        "date": "2026-11-14",
-        "days_ahead": 3,
         "category": "Contrôles à l'exportation / Chine",
-        "headline": "Des élus américains des deux partis renforcent leurs appels à durcir les contrôles sur les puces IA vers la Chine, certains demandant l'arrêt immédiat des exportations avancées.",
+        "headline": "L'administration américaine discute de mesures visant à fermer les accès à distance permettant à des entreprises chinoises d'utiliser des puces NVIDIA hébergées dans d'autres pays.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.97,
+        "confidence": 0.94,
         "source": "Associated Press",
-        "url": "https://apnews.com/article/nvidia-trump-xi-huang-ai-rivalry-aba7f92a1ec2f0f9e4b4da206d640d61"
+        "url": "https://apnews.com/article/30ac0f6937301f36904808f278b79b1e"
     },
     {
-        "date": "2026-11-13",
-        "days_ahead": 4,
-        "category": "Financement des data centers",
-        "headline": "La Réserve fédérale estime que les émissions de dette liées au calcul avancé ont dépassé 680 milliards de dollars en 2026 et souligne les vulnérabilités des financements complexes de data centers.",
+        "date": "2026-11-15",
+        "days_ahead": 3,
+        "category": "Contrôles à l'exportation / conformité",
+        "headline": "Megaspeed, examinée pour de possibles transferts de puces NVIDIA vers la Chine, a annoncé une enquête interne menée par des avocats externes.",
         "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.99,
-        "source": "Federal Reserve",
-        "url": "https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf"
-    },
-    {
-        "date": "2026-11-13",
-        "days_ahead": 5,
-        "category": "Demande IA / marchés de capitaux",
-        "headline": "Le carnet de l'introduction en Bourse d'Anthropic était six fois sursouscrit jeudi, signalant une demande institutionnelle encore forte pour l'écosystème IA.",
-        "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.90,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/investors-flock-anthropic-ipo-question-durability-ai-lead-2026-11-13/"
+        "confidence": 0.91,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/e9e2e18169dce0b30a34f39715bf35ed"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -122,7 +100,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 14/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 15/11/2026
 # (21 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -150,17 +128,17 @@ NVDA_FALLBACK_PRODUCTS = [
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 14/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 15/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-14"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-15"
 NVDA_FALLBACK_MARKET_PRICES = {
     "2R79S": 8.13, "2R80S": 8.11, "2R78S": 9.71, "2R81S": 8.16,
     "2R77S": 9.71, "2R75S": 9.70, "2R76S": 9.70, "2R95S": 6.33,
     "2R89S": 8.88, "2R90S": 8.88, "2R87S": 8.83, "2R93S": 6.31,
     "2R86S": 8.77, "2R91S": 6.26, "2R94S": 6.35, "2R88S": 8.86,
     "5S06S": 5.42, "5S05S": 8.08, "1U26S": 7.21, "1U27S": 4.75,
-    "80N4S": 4.35,
+    "80N4S": 4.32,
 }
 
 FEATURES = [
