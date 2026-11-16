@@ -51,40 +51,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-15"
+NVDA_NEWS_LAST_UPDATE = "2026-11-16"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-15",
+        "date": "2026-11-16",
         "days_ahead": 1,
         "category": "Résultats / guidance",
-        "headline": "NVIDIA publiera mardi ses résultats du troisième trimestre ; les investisseurs surveilleront surtout la continuité de la croissance, la succession de Jensen Huang et l'effet de possibles contrôles à l'exportation plus stricts.",
+        "headline": "À la veille des résultats, NVIDIA maintient une prévision de chiffre d'affaires trimestriel de 108 milliards de dollars, plus ou moins 2 %, tandis que les investisseurs attendent des réponses sur la succession, Vera Rubin, les marges et les engagements de financement.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.92,
-        "source": "Financial Times",
-        "url": "https://www.ft.com/content/3ccb1761-a0cd-43ba-a3e7-e19d00950ae3"
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/nvidia-set-deliver-first-life-after-huang-briefing-2026-11-16/"
     },
     {
-        "date": "2026-11-15",
+        "date": "2026-11-16",
         "days_ahead": 2,
         "category": "Contrôles à l'exportation / Chine",
-        "headline": "L'administration américaine discute de mesures visant à fermer les accès à distance permettant à des entreprises chinoises d'utiliser des puces NVIDIA hébergées dans d'autres pays.",
+        "headline": "Les États-Unis ont publié une règle imposant des licences pour les puces IA les plus avancées destinées à des data centers de cinq pays, afin d'empêcher leur accès à distance ou leur détournement vers la Chine.",
         "direction": -1,
         "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/30ac0f6937301f36904808f278b79b1e"
+        "confidence": 0.99,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/"
     },
     {
-        "date": "2026-11-15",
+        "date": "2026-11-16",
         "days_ahead": 3,
-        "category": "Contrôles à l'exportation / conformité",
-        "headline": "Megaspeed, examinée pour de possibles transferts de puces NVIDIA vers la Chine, a annoncé une enquête interne menée par des avocats externes.",
+        "category": "Financement des data centers",
+        "headline": "La Réserve fédérale avertit que la croissance de la dette, les financements circulaires et les obligations complexes du build-out des data centers pourraient amplifier une réévaluation des investissements IA.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
+        "source": "Federal Reserve",
+        "url": "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm"
+    },
+    {
+        "date": "2026-11-16",
+        "days_ahead": 4,
+        "category": "Dépenses IA / financement",
+        "headline": "Le dispositif de financement IA de NVIDIA devrait privilégier davantage les hyperscalers établis et exiger plus de contrats ou garanties, ce qui réduit l'appétit pour les projets neoclouds plus risqués.",
         "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.91,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/e9e2e18169dce0b30a34f39715bf35ed"
+        "confidence": 0.88,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/legal/transactional/nvidias-ai-financing-machine-may-survive-huang-with-less-risk-appetite-2026-11-16/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,7 +111,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 15/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 16/11/2026
 # (21 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -128,17 +139,17 @@ NVDA_FALLBACK_PRODUCTS = [
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 15/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 16/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-15"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-16"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 8.13, "2R80S": 8.11, "2R78S": 9.71, "2R81S": 8.16,
-    "2R77S": 9.71, "2R75S": 9.70, "2R76S": 9.70, "2R95S": 6.33,
-    "2R89S": 8.88, "2R90S": 8.88, "2R87S": 8.83, "2R93S": 6.31,
-    "2R86S": 8.77, "2R91S": 6.26, "2R94S": 6.35, "2R88S": 8.86,
-    "5S06S": 5.42, "5S05S": 8.08, "1U26S": 7.21, "1U27S": 4.75,
-    "80N4S": 4.32,
+    "2R79S": 0.00, "2R80S": 0.00, "2R78S": 9.66, "2R81S": 0.00,
+    "2R77S": 9.66, "2R75S": 9.66, "2R76S": 9.66, "2R95S": 5.63,
+    "2R89S": 0.00, "2R90S": 0.00, "2R87S": 0.00, "2R93S": 5.61,
+    "2R86S": 0.00, "2R91S": 5.59, "2R94S": 5.63, "2R88S": 0.00,
+    "5S06S": 4.78, "5S05S": 7.73, "1U26S": 6.84, "1U27S": 4.21,
+    "80N4S": 3.81,
 }
 
 FEATURES = [
