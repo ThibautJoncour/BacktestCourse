@@ -51,51 +51,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-17"
+NVDA_NEWS_LAST_UPDATE = "2026-11-18"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-17",
+        "date": "2026-11-18",
         "days_ahead": 1,
-        "category": "Gouvernance / conformité",
-        "headline": "NVIDIA a créé un comité permanent du conseil chargé de superviser la sécurité nationale, la conformité aux contrôles à l'exportation et les risques commerciaux mondiaux, avec l'appui d'experts externes indépendants.",
+        "category": "Résultats / demande IA",
+        "headline": "NVIDIA a publié un chiffre d'affaires trimestriel de 115,8 milliards de dollars, en hausse de 103 % sur un an, dont 107,6 milliards pour les data centers, en hausse de 110 %.",
         "direction": 1,
-        "risk_level": "moyen",
+        "risk_level": "faible",
         "confidence": 0.99,
         "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee"
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/"
     },
     {
-        "date": "2026-11-17",
+        "date": "2026-11-18",
         "days_ahead": 2,
-        "category": "Résultats / volatilité événementielle",
-        "headline": "Le marché des options anticipe un mouvement d'environ 8,5 % de l'action après les résultats, soit près de 335 milliards de dollars de capitalisation, dans un contexte d'incertitude sur la demande, les data centers et la succession.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/nvidia-shares-set-335-billion-swing-after-earnings-options-show-2026-11-17/"
-    },
-    {
-        "date": "2026-11-17",
-        "days_ahead": 3,
-        "category": "Contrôles à l'exportation / data centers",
-        "headline": "Les nouvelles licences américaines sur les puces avancées menacent l'expansion des data centers en Asie du Sud-Est et ferment une voie d'accès à distance utilisée par des développeurs chinois.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.97,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/us-ai-chip-curbs-threaten-southeast-asia-data-centre-boom-shares-tumble-2026-11-17/"
-    },
-    {
-        "date": "2026-11-17",
-        "days_ahead": 4,
-        "category": "Contrôles à l'exportation / enquête",
-        "headline": "Les autorités américaines ont indiqué avoir ouvert dès 2024 une enquête sur Megaspeed pour de possibles violations des contrôles à l'exportation après détection d'activités suspectes liées au détournement de semi-conducteurs sensibles.",
-        "direction": -1,
-        "risk_level": "élevé",
+        "category": "Guidance / demande IA",
+        "headline": "NVIDIA prévoit 130 milliards de dollars de chiffre d'affaires au quatrième trimestre, plus ou moins 3 %, au-dessus du consensus de 125,25 milliards rapporté par Reuters.",
+        "direction": 1,
+        "risk_level": "moyen",
         "confidence": 0.98,
+        "source": "NVIDIA / Reuters",
+        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
+    },
+    {
+        "date": "2026-11-18",
+        "days_ahead": 3,
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "NVIDIA a cessé d'expédier ses produits Hopper autorisés vers la Chine et n'intègre aucun chiffre d'affaires de calcul data center chinois dans sa guidance du trimestre en cours.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/us-releases-details-of-megaspeed-probe-says-investigation-began-2024-2026-11-17/"
+        "url": "https://www.reuters.com/world/china/nvidia-stops-shipping-us-approved-ai-chips-china-2026-11-18/"
+    },
+    {
+        "date": "2026-11-18",
+        "days_ahead": 4,
+        "category": "Marges / chaîne d'approvisionnement",
+        "headline": "NVIDIA anticipe une marge brute de 71 % à 72 % au quatrième trimestre, contre 74,9 % en non-GAAP au trimestre publié, Reuters attribuant ce creux aux coûts d'approvisionnement plus élevés.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.97,
+        "source": "NVIDIA / Reuters",
+        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
+    },
+    {
+        "date": "2026-11-18",
+        "days_ahead": 5,
+        "category": "Croissance / offre",
+        "headline": "NVIDIA a relevé sa perspective de croissance pour l'exercice 2028 à environ 75 % et indiqué que la demande continuait de dépasser l'offre.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.95,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -111,18 +122,14 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 17/11/2026
-# (21 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/11/2026
+# (17 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
     ('2R79S', 'DE000FE6NXH5', 140, 260, '2026-11-20'),
     ('2R80S', 'DE000FE6NXJ1', 140, 280, '2026-11-20'),
-    ('2R78S', 'DE000FE6NXG7', 120, 320, '2026-11-20'),
     ('2R81S', 'DE000FE6NXK9', 140, 300, '2026-11-20'),
-    ('2R77S', 'DE000FE6NXF9', 120, 300, '2026-11-20'),
-    ('2R75S', 'DE000FE6NXD4', 120, 260, '2026-11-20'),
-    ('2R76S', 'DE000FE6NXE2', 120, 280, '2026-11-20'),
     ('2R95S', 'DE000FE6NXY0', 140, 340, '2026-12-18'),
     ('2R89S', 'DE000FE6NXT0', 120, 320, '2026-12-18'),
     ('2R90S', 'DE000FE6NXU8', 120, 340, '2026-12-18'),
@@ -139,17 +146,16 @@ NVDA_FALLBACK_PRODUCTS = [
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 17/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 18/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-17"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-18"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 0.00, "2R80S": 0.00, "2R78S": 9.66, "2R81S": 0.00,
-    "2R77S": 9.66, "2R75S": 9.67, "2R76S": 9.67, "2R95S": 4.79,
-    "2R89S": 8.35, "2R90S": 8.35, "2R87S": 8.33, "2R93S": 4.79,
-    "2R86S": 8.29, "2R91S": 4.75, "2R94S": 4.80, "2R88S": 8.35,
-    "5S06S": 3.98, "5S05S": 7.36, "1U26S": 6.46, "1U27S": 3.46,
-    "80N4S": 3.10,
+    "2R79S": 9.77, "2R80S": 9.79, "2R81S": 9.77, "2R95S": 5.55,
+    "2R89S": 8.80, "2R90S": 8.80, "2R87S": 8.79, "2R93S": 5.54,
+    "2R86S": 8.76, "2R91S": 5.53, "2R94S": 5.55, "2R88S": 8.80,
+    "5S06S": 4.50, "5S05S": 7.82, "1U26S": 6.90, "1U27S": 3.81,
+    "80N4S": 3.38,
 }
 
 FEATURES = [
