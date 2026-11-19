@@ -51,62 +51,62 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-18"
+NVDA_NEWS_LAST_UPDATE = "2026-11-19"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-18",
+        "date": "2026-11-19",
         "days_ahead": 1,
-        "category": "Résultats / demande IA",
-        "headline": "NVIDIA a publié un chiffre d'affaires trimestriel de 115,8 milliards de dollars, en hausse de 103 % sur un an, dont 107,6 milliards pour les data centers, en hausse de 110 %.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.99,
-        "source": "NVIDIA",
-        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/"
-    },
-    {
-        "date": "2026-11-18",
-        "days_ahead": 2,
-        "category": "Guidance / demande IA",
-        "headline": "NVIDIA prévoit 130 milliards de dollars de chiffre d'affaires au quatrième trimestre, plus ou moins 3 %, au-dessus du consensus de 125,25 milliards rapporté par Reuters.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.98,
-        "source": "NVIDIA / Reuters",
-        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
-    },
-    {
-        "date": "2026-11-18",
-        "days_ahead": 3,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "NVIDIA a cessé d'expédier ses produits Hopper autorisés vers la Chine et n'intègre aucun chiffre d'affaires de calcul data center chinois dans sa guidance du trimestre en cours.",
+        "category": "Taux US / inflation",
+        "headline": "Le compte rendu de la Fed indique que presque tous les responsables anticipaient de nouvelles hausses de taux et que certains envisageaient un resserrement plus marqué si l'inflation persistait.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/nvidia-stops-shipping-us-approved-ai-chips-china-2026-11-18/"
+        "source": "Réserve fédérale",
+        "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
     },
     {
-        "date": "2026-11-18",
+        "date": "2026-11-19",
+        "days_ahead": 2,
+        "category": "Financement des data centers",
+        "headline": "Les services de la Fed ont signalé que la croissance rapide de la dette liée aux investissements IA, les engagements de location hors bilan et les financements circulaires pourraient amplifier les pertes si les rendements décevaient.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.98,
+        "source": "Réserve fédérale",
+        "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
+    },
+    {
+        "date": "2026-11-19",
+        "days_ahead": 3,
+        "category": "Concurrence / Chine",
+        "headline": "TSMC a durci l'accès des concepteurs chinois aux procédés de 16 nm et moins, à la HBM et au packaging avancé, ce qui complique le développement local d'alternatives aux accélérateurs NVIDIA.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.96,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/tsmc-tightens-china-ai-chip-curbs-new-us-rules-close-manufacturing-loophole-2026-11-19/"
+    },
+    {
+        "date": "2026-11-19",
         "days_ahead": 4,
-        "category": "Marges / chaîne d'approvisionnement",
-        "headline": "NVIDIA anticipe une marge brute de 71 % à 72 % au quatrième trimestre, contre 74,9 % en non-GAAP au trimestre publié, Reuters attribuant ce creux aux coûts d'approvisionnement plus élevés.",
+        "category": "Demande IA / hyperscalers",
+        "headline": "L'introduction en Bourse d'Anthropic a été fixée au-dessus de sa fourchette initiale et ses engagements de calcul approchent 900 milliards de dollars auprès de partenaires dont Amazon et Google ; NVIDIA participe aussi au placement privé associé.",
+        "direction": 1,
+        "risk_level": "moyen",
+        "confidence": 0.94,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
+    },
+    {
+        "date": "2026-11-19",
+        "days_ahead": 5,
+        "category": "Dollar / conditions financières",
+        "headline": "Le dollar a atteint un plus haut de dix-neuf mois après le compte rendu restrictif de la Fed et des commentaires favorables à des hausses de taux supplémentaires.",
         "direction": -1,
         "risk_level": "moyen",
         "confidence": 0.97,
-        "source": "NVIDIA / Reuters",
-        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
-    },
-    {
-        "date": "2026-11-18",
-        "days_ahead": 5,
-        "category": "Croissance / offre",
-        "headline": "NVIDIA a relevé sa perspective de croissance pour l'exercice 2028 à environ 75 % et indiqué que la demande continuait de dépasser l'offre.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.95,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/ai-stocks-rally-nvidia-outlook-calms-demand-fears-2026-11-18/"
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-11-19/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -122,7 +122,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 18/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 19/11/2026
 # (17 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -146,16 +146,16 @@ NVDA_FALLBACK_PRODUCTS = [
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 18/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 19/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-18"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-19"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.77, "2R80S": 9.79, "2R81S": 9.77, "2R95S": 5.55,
-    "2R89S": 8.80, "2R90S": 8.80, "2R87S": 8.79, "2R93S": 5.54,
-    "2R86S": 8.76, "2R91S": 5.53, "2R94S": 5.55, "2R88S": 8.80,
-    "5S06S": 4.50, "5S05S": 7.82, "1U26S": 6.90, "1U27S": 3.81,
-    "80N4S": 3.38,
+    "2R79S": 9.90, "2R80S": 9.90, "2R81S": 9.90, "2R95S": 6.39,
+    "2R89S": 9.21, "2R90S": 9.21, "2R87S": 9.20, "2R93S": 6.35,
+    "2R86S": 9.18, "2R91S": 6.33, "2R94S": 6.38, "2R88S": 9.20,
+    "5S06S": 5.10, "5S05S": 8.29, "1U26S": 7.34, "1U27S": 4.30,
+    "80N4S": 3.78,
 }
 
 FEATURES = [
