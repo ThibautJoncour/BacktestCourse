@@ -51,62 +51,51 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-19"
+NVDA_NEWS_LAST_UPDATE = "2026-11-20"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "days_ahead": 1,
-        "category": "Taux US / inflation",
-        "headline": "Le compte rendu de la Fed indique que presque tous les responsables anticipaient de nouvelles hausses de taux et que certains envisageaient un resserrement plus marqué si l'inflation persistait.",
-        "direction": -1,
-        "risk_level": "élevé",
+        "category": "Hyperscalers / demande IA",
+        "headline": "Microsoft et NVIDIA ont étendu leur collaboration : les systèmes Vera Rubin NVL72 fonctionnent dans Azure et Microsoft utilise NVIDIA Dynamo et les GPU Blackwell pour ses propres modèles et services.",
+        "direction": 1,
+        "risk_level": "faible",
         "confidence": 0.99,
-        "source": "Réserve fédérale",
-        "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
+        "source": "NVIDIA",
+        "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/"
     },
     {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "days_ahead": 2,
-        "category": "Financement des data centers",
-        "headline": "Les services de la Fed ont signalé que la croissance rapide de la dette liée aux investissements IA, les engagements de location hors bilan et les financements circulaires pourraient amplifier les pertes si les rendements décevaient.",
+        "category": "Réglementation / enquête",
+        "headline": "Le procureur général de Californie a adressé une assignation d'enquête à NVIDIA afin d'examiner si des puces ou des informations confidentielles ont pu parvenir en Chine et si les investisseurs ont été induits en erreur.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.98,
-        "source": "Réserve fédérale",
-        "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/nvidia-subpoena-california-bonta-china-94c179f5aed88c49b7f77670eae40013"
     },
     {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "days_ahead": 3,
-        "category": "Concurrence / Chine",
-        "headline": "TSMC a durci l'accès des concepteurs chinois aux procédés de 16 nm et moins, à la HBM et au packaging avancé, ce qui complique le développement local d'alternatives aux accélérateurs NVIDIA.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.96,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/tsmc-tightens-china-ai-chip-curbs-new-us-rules-close-manufacturing-loophole-2026-11-19/"
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "Les nouvelles règles américaines limitent l'accès à distance des entreprises chinoises aux puces NVIDIA installées dans des data centers de pays tiers, réduisant encore le marché accessible au groupe.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.97,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/alibaba-ai-chip-china-us-nvidia-huang-922a7ccb3ee1b1336af112ace0e3b288"
     },
     {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "days_ahead": 4,
-        "category": "Demande IA / hyperscalers",
-        "headline": "L'introduction en Bourse d'Anthropic a été fixée au-dessus de sa fourchette initiale et ses engagements de calcul approchent 900 milliards de dollars auprès de partenaires dont Amazon et Google ; NVIDIA participe aussi au placement privé associé.",
-        "direction": 1,
-        "risk_level": "moyen",
-        "confidence": 0.94,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
-    },
-    {
-        "date": "2026-11-19",
-        "days_ahead": 5,
-        "category": "Dollar / conditions financières",
-        "headline": "Le dollar a atteint un plus haut de dix-neuf mois après le compte rendu restrictif de la Fed et des commentaires favorables à des hausses de taux supplémentaires.",
+        "category": "Marché / valorisation IA",
+        "headline": "Les actions liées à l'IA ont de nouveau reculé vendredi ; NVIDIA figurait parmi les principaux poids sur le marché tandis qu'Anthropic perdait environ 9 %, sur fond de doutes concernant les valorisations et les dépenses du secteur.",
         "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.97,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-11-19/"
+        "confidence": 0.96,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/stock-markets-anthropic-ai-chips-boom-c4c3f4878b12989347f8a930ed813dad"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -122,14 +111,11 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 19/11/2026
-# (17 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 20/11/2026
+# (15 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
-    ('2R79S', 'DE000FE6NXH5', 140, 260, '2026-11-20'),
-    ('2R80S', 'DE000FE6NXJ1', 140, 280, '2026-11-20'),
-    ('2R81S', 'DE000FE6NXK9', 140, 300, '2026-11-20'),
     ('2R95S', 'DE000FE6NXY0', 140, 340, '2026-12-18'),
     ('2R89S', 'DE000FE6NXT0', 120, 320, '2026-12-18'),
     ('2R90S', 'DE000FE6NXU8', 120, 340, '2026-12-18'),
@@ -144,18 +130,18 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
     ('1U27S', 'DE000FG3T9A7', 140, 300, '2027-02-19'),
     ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
+    ('53Q5S', 'DE000FH0W6V5', 140, 200, '2027-04-16'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 19/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 20/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-19"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-20"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R79S": 9.90, "2R80S": 9.90, "2R81S": 9.90, "2R95S": 6.39,
-    "2R89S": 9.21, "2R90S": 9.21, "2R87S": 9.20, "2R93S": 6.35,
-    "2R86S": 9.18, "2R91S": 6.33, "2R94S": 6.38, "2R88S": 9.20,
-    "5S06S": 5.10, "5S05S": 8.29, "1U26S": 7.34, "1U27S": 4.30,
-    "80N4S": 3.78,
+    "2R95S": 0.00, "2R89S": 7.55, "2R90S": 7.52, "2R87S": 7.55,
+    "2R93S": 0.00, "2R86S": 7.50, "2R91S": 0.00, "2R94S": 0.00,
+    "2R88S": 7.53, "5S06S": 0.00, "5S05S": 6.23, "1U26S": 5.40,
+    "1U27S": 0.00, "80N4S": 0.00, "53Q5S": 0.00,
 }
 
 FEATURES = [
