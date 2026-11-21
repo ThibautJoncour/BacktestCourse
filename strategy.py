@@ -51,51 +51,29 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-20"
+NVDA_NEWS_LAST_UPDATE = "2026-11-21"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-11-20",
         "days_ahead": 1,
-        "category": "Hyperscalers / demande IA",
-        "headline": "Microsoft et NVIDIA ont étendu leur collaboration : les systèmes Vera Rubin NVL72 fonctionnent dans Azure et Microsoft utilise NVIDIA Dynamo et les GPU Blackwell pour ses propres modèles et services.",
-        "direction": 1,
-        "risk_level": "faible",
-        "confidence": 0.99,
-        "source": "NVIDIA",
-        "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/"
+        "category": "Réglementation / enquête",
+        "headline": "La SEC examine les pratiques comptables de NVIDIA, selon deux sources informées de l'enquête citées par Reuters ; l'autorité et NVIDIA n'ont pas commenté et une enquête ne constitue pas une preuve d'infraction.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.98,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/"
     },
     {
         "date": "2026-11-20",
         "days_ahead": 2,
-        "category": "Réglementation / enquête",
-        "headline": "Le procureur général de Californie a adressé une assignation d'enquête à NVIDIA afin d'examiner si des puces ou des informations confidentielles ont pu parvenir en Chine et si les investisseurs ont été induits en erreur.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.98,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/nvidia-subpoena-california-bonta-china-94c179f5aed88c49b7f77670eae40013"
-    },
-    {
-        "date": "2026-11-20",
-        "days_ahead": 3,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "Les nouvelles règles américaines limitent l'accès à distance des entreprises chinoises aux puces NVIDIA installées dans des data centers de pays tiers, réduisant encore le marché accessible au groupe.",
+        "category": "Marché / dépenses IA",
+        "headline": "NVIDIA a chuté de 14 % vendredi et de 23 % sur la semaine dans une forte réévaluation du secteur IA, alimentée par les craintes de ralentissement des constructions de data centers et des financements de projets IA.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.97,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/alibaba-ai-chip-china-us-nvidia-huang-922a7ccb3ee1b1336af112ace0e3b288"
-    },
-    {
-        "date": "2026-11-20",
-        "days_ahead": 4,
-        "category": "Marché / valorisation IA",
-        "headline": "Les actions liées à l'IA ont de nouveau reculé vendredi ; NVIDIA figurait parmi les principaux poids sur le marché tandis qu'Anthropic perdait environ 9 %, sur fond de doutes concernant les valorisations et les dépenses du secteur.",
-        "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.96,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/stock-markets-anthropic-ai-chips-boom-c4c3f4878b12989347f8a930ed813dad"
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/view-nasdaq-plunges-5-day-after-anthropic-debut-investors-still-believe-ai-2026-11-20/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
