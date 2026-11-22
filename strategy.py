@@ -89,37 +89,27 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 20/11/2026
-# (15 produits).
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 22/11/2026
+# (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
 NVDA_FALLBACK_PRODUCTS = [
-    ('2R95S', 'DE000FE6NXY0', 140, 340, '2026-12-18'),
     ('2R89S', 'DE000FE6NXT0', 120, 320, '2026-12-18'),
     ('2R90S', 'DE000FE6NXU8', 120, 340, '2026-12-18'),
     ('2R87S', 'DE000FE6NXR4', 120, 280, '2026-12-18'),
-    ('2R93S', 'DE000FE6NXW4', 140, 300, '2026-12-18'),
     ('2R86S', 'DE000FE6NXQ6', 120, 260, '2026-12-18'),
-    ('2R91S', 'DE000FE6NXV6', 140, 280, '2026-12-18'),
-    ('2R94S', 'DE000FE6NXX2', 140, 320, '2026-12-18'),
     ('2R88S', 'DE000FE6NXS2', 120, 300, '2026-12-18'),
-    ('5S06S', 'DE000FG1E5H9', 140, 280, '2027-01-15'),
     ('5S05S', 'DE000FG1E5G1', 120, 260, '2027-01-15'),
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
-    ('1U27S', 'DE000FG3T9A7', 140, 300, '2027-02-19'),
-    ('80N4S', 'DE000FG83MG9', 140, 320, '2027-03-19'),
-    ('53Q5S', 'DE000FH0W6V5', 140, 200, '2027-04-16'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 20/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 22/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-20"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-22"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R95S": 0.00, "2R89S": 7.55, "2R90S": 7.52, "2R87S": 7.55,
-    "2R93S": 0.00, "2R86S": 7.50, "2R91S": 0.00, "2R94S": 0.00,
-    "2R88S": 7.53, "5S06S": 0.00, "5S05S": 6.23, "1U26S": 5.40,
-    "1U27S": 0.00, "80N4S": 0.00, "53Q5S": 0.00,
+    "2R89S": 2.45, "2R90S": 2.43, "2R87S": 2.44, "2R86S": 2.43,
+    "2R88S": 2.43, "5S05S": 1.96, "1U26S": 1.61,
 }
 
 FEATURES = [
