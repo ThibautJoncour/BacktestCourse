@@ -51,40 +51,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-23"
+NVDA_NEWS_LAST_UPDATE = "2026-11-24"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-23",
+        "date": "2026-11-24",
         "days_ahead": 1,
-        "category": "Gouvernance",
-        "headline": "Le conseil de NVIDIA a réintégré Jensen Huang comme président-directeur général et administrateur avec effet immédiat, après un vote unanime et des échanges avec de hauts responsables américains.",
-        "direction": 1,
+        "category": "Marché / gouvernance",
+        "headline": "L'action NVIDIA reculait de 5,2 % en préouverture après son rebond de 31,5 % la veille, les investisseurs réévaluant les risques politiques, juridiques et de gouvernance liés au retour de Jensen Huang.",
+        "direction": -1,
         "risk_level": "élevé",
-        "confidence": 1.0,
-        "source": "NVIDIA",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"
+        "confidence": 0.98,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/retail-consumer/nvidia-slips-investors-assess-risks-surrounding-huangs-return-ceo-2026-11-24/"
     },
     {
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "days_ahead": 2,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "Le secrétaire américain au Trésor Scott Bessent a déclaré que l'administration demandait à NVIDIA des réponses sur ses ventes de puces à la Chine et voulait identifier les responsables de la conformité.",
+        "category": "Réglementation / Chine",
+        "headline": "Le sénateur Andy Kim a demandé une audition sous serment de Jensen Huang et de responsables américains ainsi qu'un briefing classifié sur NVIDIA et le contournement présumé des contrôles à l'exportation.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/us-seeks-answers-nvidias-sale-chips-china-bessent-says-2026-11-22/"
+        "source": "Sénat des États-Unis — Andy Kim",
+        "url": "https://www.kim.senate.gov/press_release/senator-kim-demands-immediate-answers-on-national-security-damage-done-by-nvidia-and-trump/"
     },
     {
-        "date": "2026-11-23",
+        "date": "2026-11-24",
         "days_ahead": 3,
-        "category": "Chine / demande",
-        "headline": "Des clients chinois annulent ou hésitent à passer des commandes de produits NVIDIA moins puissants face au durcissement de l'examen américain, selon des sources et documents examinés par Reuters ; l'ampleur des annulations n'est pas établie.",
+        "category": "Taux US / dollar",
+        "headline": "Les marchés intègrent désormais une hausse des taux de la Fed en décembre comme certaine avant la publication du PCE, tandis que le dollar reste proche d'un plus haut de vingt mois, un contexte défavorable aux valorisations technologiques.",
         "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.94,
+        "risk_level": "moyen",
+        "confidence": 0.96,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/how-nvidias-billion-dollar-turnaround-china-is-threatened-by-huangs-exit-2026-11-23/"
+        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-24/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,7 +100,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 23/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/11/2026
 # (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -114,13 +114,13 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 23/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 24/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-23"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-24"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R89S": 9.18, "2R90S": 9.19, "2R87S": 9.16, "2R86S": 9.03,
-    "2R88S": 9.21, "5S05S": 8.54, "1U26S": 7.72,
+    "2R89S": 0.00, "2R90S": 0.00, "2R87S": 0.00, "2R86S": 0.00,
+    "2R88S": 0.00, "5S05S": 7.14, "1U26S": 6.33,
 }
 
 FEATURES = [
