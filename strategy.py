@@ -51,40 +51,40 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-24"
+NVDA_NEWS_LAST_UPDATE = "2026-11-25"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
         "days_ahead": 1,
-        "category": "Marché / gouvernance",
-        "headline": "L'action NVIDIA reculait de 5,2 % en préouverture après son rebond de 31,5 % la veille, les investisseurs réévaluant les risques politiques, juridiques et de gouvernance liés au retour de Jensen Huang.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.98,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/business/retail-consumer/nvidia-slips-investors-assess-risks-surrounding-huangs-return-ceo-2026-11-24/"
-    },
-    {
-        "date": "2026-11-23",
-        "days_ahead": 2,
-        "category": "Réglementation / Chine",
-        "headline": "Le sénateur Andy Kim a demandé une audition sous serment de Jensen Huang et de responsables américains ainsi qu'un briefing classifié sur NVIDIA et le contournement présumé des contrôles à l'exportation.",
+        "category": "Dépenses IA / marché",
+        "headline": "NVIDIA reculait de 5,9 % en préouverture après une baisse de 6 % mardi, dans un repli généralisé des valeurs IA alimenté par les coûts élevés, souvent financés par dette, des infrastructures et l'incertitude sur leur rendement.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
-        "source": "Sénat des États-Unis — Andy Kim",
-        "url": "https://www.kim.senate.gov/press_release/senator-kim-demands-immediate-answers-on-national-security-damage-done-by-nvidia-and-trump/"
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/ai-stocks-slide-fears-over-infrastructure-buildout-costs-2026-11-25/"
     },
     {
-        "date": "2026-11-24",
+        "date": "2026-11-25",
+        "days_ahead": 2,
+        "category": "Inflation / taux US",
+        "headline": "Le PCE américain d'octobre a progressé de 0,3 % sur un mois et de 3,8 % sur un an; le PCE hors alimentation et énergie a augmenté de 0,3 % sur un mois et de 3,3 % sur un an, renforçant le risque de taux élevés pour les valorisations technologiques.",
+        "direction": -1,
+        "risk_level": "élevé",
+        "confidence": 0.99,
+        "source": "U.S. Bureau of Economic Analysis",
+        "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026"
+    },
+    {
+        "date": "2026-11-25",
         "days_ahead": 3,
         "category": "Taux US / dollar",
-        "headline": "Les marchés intègrent désormais une hausse des taux de la Fed en décembre comme certaine avant la publication du PCE, tandis que le dollar reste proche d'un plus haut de vingt mois, un contexte défavorable aux valorisations technologiques.",
+        "headline": "Le dollar gagnait 0,2 % à 104,01 avant les données américaines, tandis que les contrats Fed Funds attribuaient une probabilité de 98 % à une hausse de taux en décembre, un contexte défavorable aux valeurs technologiques sensibles aux taux.",
         "direction": -1,
         "risk_level": "moyen",
-        "confidence": 0.96,
+        "confidence": 0.98,
         "source": "Reuters",
-        "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-11-24/"
+        "url": "https://www.reuters.com/world/africa/dollar-takes-breather-ahead-us-data-fed-path-aussie-jumps-cpi-2026-11-25/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,7 +100,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 24/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 25/11/2026
 # (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -114,13 +114,13 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 24/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 25/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-24"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-25"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R89S": 0.00, "2R90S": 0.00, "2R87S": 0.00, "2R86S": 0.00,
-    "2R88S": 0.00, "5S05S": 7.14, "1U26S": 6.33,
+    "2R89S": 6.76, "2R90S": 6.81, "2R87S": 6.79, "2R86S": 6.71,
+    "2R88S": 6.76, "5S05S": 5.74, "1U26S": 4.99,
 }
 
 FEATURES = [
