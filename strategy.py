@@ -51,40 +51,29 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-25"
+NVDA_NEWS_LAST_UPDATE = "2026-11-26"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "days_ahead": 1,
-        "category": "Dépenses IA / marché",
-        "headline": "NVIDIA reculait de 5,9 % en préouverture après une baisse de 6 % mardi, dans un repli généralisé des valeurs IA alimenté par les coûts élevés, souvent financés par dette, des infrastructures et l'incertitude sur leur rendement.",
+        "category": "Contrôles à l'exportation / Chine",
+        "headline": "NVIDIA a demandé à ses partenaires de suspendre les livraisons de serveurs contenant ses puces vers la Malaisie, Singapour, la Thaïlande et l'Indonésie après l'entrée en vigueur de nouvelles exigences américaines de licence.",
         "direction": -1,
         "risk_level": "élevé",
         "confidence": 0.99,
         "source": "Reuters",
-        "url": "https://www.reuters.com/business/ai-stocks-slide-fears-over-infrastructure-buildout-costs-2026-11-25/"
+        "url": "https://www.reuters.com/world/asia-pacific/nvidia-halts-chip-shipments-southeast-asia-ft-reports-2026-11-26/"
     },
     {
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "days_ahead": 2,
-        "category": "Inflation / taux US",
-        "headline": "Le PCE américain d'octobre a progressé de 0,3 % sur un mois et de 3,8 % sur un an; le PCE hors alimentation et énergie a augmenté de 0,3 % sur un mois et de 3,3 % sur un an, renforçant le risque de taux élevés pour les valorisations technologiques.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.99,
-        "source": "U.S. Bureau of Economic Analysis",
-        "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026"
-    },
-    {
-        "date": "2026-11-25",
-        "days_ahead": 3,
-        "category": "Taux US / dollar",
-        "headline": "Le dollar gagnait 0,2 % à 104,01 avant les données américaines, tandis que les contrats Fed Funds attribuaient une probabilité de 98 % à une hausse de taux en décembre, un contexte défavorable aux valeurs technologiques sensibles aux taux.",
-        "direction": -1,
+        "category": "Marché IA",
+        "headline": "Les actions liées à l'intelligence artificielle ont rebondi en Asie et les contrats à terme sur le S&P 500 progressaient de 0,5 % pendant la fermeture de Wall Street pour Thanksgiving.",
+        "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.98,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/africa/dollar-takes-breather-ahead-us-data-fed-path-aussie-jumps-cpi-2026-11-25/"
+        "confidence": 0.96,
+        "source": "Associated Press",
+        "url": "https://apnews.com/article/320cd8c9c286a7773797bf2f478ef314"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -100,7 +89,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 25/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 26/11/2026
 # (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -114,13 +103,13 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 25/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 26/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-25"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-26"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R89S": 6.76, "2R90S": 6.81, "2R87S": 6.79, "2R86S": 6.71,
-    "2R88S": 6.76, "5S05S": 5.74, "1U26S": 4.99,
+    "2R89S": 7.62, "2R90S": 7.62, "2R87S": 7.62, "2R86S": 7.54,
+    "2R88S": 7.62, "5S05S": 6.37, "1U26S": 5.48,
 }
 
 FEATURES = [
