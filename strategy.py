@@ -51,29 +51,29 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-26"
+NVDA_NEWS_LAST_UPDATE = "2026-11-27"
 NVDA_NEWS_EVENTS = [
     {
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "days_ahead": 1,
-        "category": "Contrôles à l'exportation / Chine",
-        "headline": "NVIDIA a demandé à ses partenaires de suspendre les livraisons de serveurs contenant ses puces vers la Malaisie, Singapour, la Thaïlande et l'Indonésie après l'entrée en vigueur de nouvelles exigences américaines de licence.",
-        "direction": -1,
-        "risk_level": "élevé",
-        "confidence": 0.99,
-        "source": "Reuters",
-        "url": "https://www.reuters.com/world/asia-pacific/nvidia-halts-chip-shipments-southeast-asia-ft-reports-2026-11-26/"
-    },
-    {
-        "date": "2026-11-26",
-        "days_ahead": 2,
         "category": "Marché IA",
-        "headline": "Les actions liées à l'intelligence artificielle ont rebondi en Asie et les contrats à terme sur le S&P 500 progressaient de 0,5 % pendant la fermeture de Wall Street pour Thanksgiving.",
+        "headline": "Le Nasdaq a ouvert en hausse de 1,58 %, porté par le retour des investisseurs sur les valeurs liées à l'intelligence artificielle après leur récente baisse.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.96,
+        "confidence": 0.98,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-futures-surge-investors-return-holiday-2026-11-27/"
+    },
+    {
+        "date": "2026-11-27",
+        "days_ahead": 1,
+        "category": "Taux US / marché NVDA",
+        "headline": "NVIDIA reculait de 1,7 % malgré la hausse du marché, tandis que le rendement du Treasury à 10 ans montait à 4,89 % contre 4,85 % mercredi soir.",
+        "direction": -1,
+        "risk_level": "moyen",
+        "confidence": 0.99,
         "source": "Associated Press",
-        "url": "https://apnews.com/article/320cd8c9c286a7773797bf2f478ef314"
+        "url": "https://apnews.com/article/stock-markets-tariffs-ai-profits-energy-c7ef10c1dbc5fa09668bd4fe0729c613"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -89,7 +89,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 26/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 27/11/2026
 # (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -103,13 +103,13 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 26/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 27/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-26"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-27"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R89S": 7.62, "2R90S": 7.62, "2R87S": 7.62, "2R86S": 7.54,
-    "2R88S": 7.62, "5S05S": 6.37, "1U26S": 5.48,
+    "2R89S": 7.34, "2R90S": 7.34, "2R87S": 7.34, "2R86S": 7.30,
+    "2R88S": 7.34, "5S05S": 6.07, "1U26S": 5.19,
 }
 
 FEATURES = [
