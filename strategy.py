@@ -51,29 +51,29 @@ NVDA_INTRADAY_RV_CACHE = Path(__file__).with_name("nvda_15m_rv.csv")
 # BEGIN AUTO-UPDATED NVDA NEWS
 # Faits datés et sourcés, réévalués quotidiennement par l'automatisation.
 # direction : +1 = favorable à NVDA ; -1 = défavorable à NVDA.
-NVDA_NEWS_LAST_UPDATE = "2026-11-27"
+NVDA_NEWS_LAST_UPDATE = "2026-11-28"
 NVDA_NEWS_EVENTS = [
     {
         "date": "2026-11-27",
         "days_ahead": 1,
         "category": "Marché IA",
-        "headline": "Le Nasdaq a ouvert en hausse de 1,58 %, porté par le retour des investisseurs sur les valeurs liées à l'intelligence artificielle après leur récente baisse.",
+        "headline": "NVIDIA a terminé la demi-séance en hausse de 0,8 %, l'indice des semi-conducteurs a gagné 4,7 % et les principaux hyperscalers ont également progressé.",
         "direction": 1,
         "risk_level": "moyen",
-        "confidence": 0.98,
+        "confidence": 0.99,
         "source": "Reuters",
         "url": "https://www.reuters.com/business/wall-st-futures-surge-investors-return-holiday-2026-11-27/"
     },
     {
         "date": "2026-11-27",
-        "days_ahead": 1,
-        "category": "Taux US / marché NVDA",
-        "headline": "NVIDIA reculait de 1,7 % malgré la hausse du marché, tandis que le rendement du Treasury à 10 ans montait à 4,89 % contre 4,85 % mercredi soir.",
+        "days_ahead": 2,
+        "category": "Taux US / dollar",
+        "headline": "Les contrats de taux intègrent presque entièrement une hausse des taux de la Réserve fédérale en décembre après une croissance américaine et une inflation supérieures aux estimations antérieures.",
         "direction": -1,
-        "risk_level": "moyen",
-        "confidence": 0.99,
-        "source": "Associated Press",
-        "url": "https://apnews.com/article/stock-markets-tariffs-ai-profits-energy-c7ef10c1dbc5fa09668bd4fe0729c613"
+        "risk_level": "élevé",
+        "confidence": 0.97,
+        "source": "Reuters",
+        "url": "https://www.reuters.com/business/wall-st-futures-surge-investors-return-holiday-2026-11-27/"
     },
 ]
 # END AUTO-UPDATED NVDA NEWS
@@ -89,7 +89,7 @@ NVDA_SG_TIMEOUT = 15
 # Anciennes observations de prix conservées pour audit historique uniquement.
 # Ne jamais les injecter dans Prix_marche : une cotation périmée fausse l'edge.
 
-# Catalogue de secours synchronisé avec la page publique SG Bourse le 27/11/2026
+# Catalogue de secours synchronisé avec la page publique SG Bourse le 28/11/2026
 # (7 produits).
 # Utilisé uniquement lorsque le HTML retourné à requests ne contient pas le tableau
 # (le site SG charge parfois les lignes côté navigateur via JavaScript).
@@ -103,13 +103,13 @@ NVDA_FALLBACK_PRODUCTS = [
     ('1U26S', 'DE000FG3T895', 120, 260, '2027-02-19'),
 ]
 
-# Prix d'achat affichés sur la page publique SG Bourse le 27/11/2026.
+# Prix d'achat affichés sur la page publique SG Bourse le 28/11/2026.
 # Historique NON LIVE, conservé pour audit uniquement : le fallback de
 # fetch_nvda_stability_products() NE les affiche PAS en Prix_marche.
-NVDA_FALLBACK_PRICE_ASOF = "2026-11-27"
+NVDA_FALLBACK_PRICE_ASOF = "2026-11-28"
 NVDA_FALLBACK_MARKET_PRICES = {
-    "2R89S": 7.34, "2R90S": 7.34, "2R87S": 7.34, "2R86S": 7.30,
-    "2R88S": 7.34, "5S05S": 6.07, "1U26S": 5.19,
+    "2R89S": 8.00, "2R90S": 7.99, "2R87S": 7.98, "2R86S": 7.94,
+    "2R88S": 7.99, "5S05S": 6.73, "1U26S": 5.76,
 }
 
 FEATURES = [
